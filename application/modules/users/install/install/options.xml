@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+<options>
+    <name>users</name>
+    <title>
+        <ru>Пользователи</ru>
+        <en>Users</en>
+    </title>
+    <is_core>true</is_core>
+    <files path="modules/catalog">
+        <file path="/">Bootstrap.php</file>
+        <file path="/controllers/">BackController.php</file>
+        <file path="/controllers/">IndexController.php</file>
+        <file path="/controllers/">ProfileController.php</file>
+        <file path="/controllers/">RegisterController.php</file>
+        <file path="/forms/">Changepassword.php</file>
+        <file path="/forms/">Login.php</file>
+        <file path="/forms/">Logout.php</file>
+        <file path="/forms/">Register.php</file>
+    </files>
+    <files path="../library/Xcms/View/Helper">
+        <file path="/">CatalogSearch.php</file>
+    </files>
+    <templates path="../templates/scripts/catalog">
+        <template>search.phtml</template>
+    </templates>
+</options>
+</root>

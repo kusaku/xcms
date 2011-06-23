@@ -1,0 +1,35 @@
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/jquery_gallery/galleria/galleria.js"></script>
+<!-- Описание категории -->
+<?=$this->element->description?>
+
+<!-- Вывод категорий -->
+<?php if (count($this->cat)): ?>
+<ul class="category-list">
+<?php foreach ($this->cat as $item): ?>
+    <li class="category-item">
+        <div class="category-title"><?=$this->navigation()->menu()->htmlify($item)?></div>
+        <?php if ( $item->items['element_photo'] ): ?><div><img src="/gallery/kategory/<?=$item->items['element_photo']?>" /></div><?php endif; ?>
+    </li>
+<?php endforeach; ?>
+</ul>
+<?php endif; ?>
+
+<!-- Вывод товара -->
+<?php if (count($this->items)): ?>
+<hr />
+<div class="imes">
+<?php foreach ($this->items as $item): ?>
+    	<?php if ( $item->items['element_photo'] ): ?><img src=/gallery/big/<?=$item->items['element_photo']?> ><?php endif; ?>
+<?php endforeach; ?>
+</div>
+<div style="clear:both">
+</div>
+<?php endif; ?>
+<?php if($this->items->getTotalItemCount()>$this->items->getItemCountPerPage()):?>
+Страницы: <?=$this->paginationControl($this->items,'Sliding','partials/paginationControl.phtml')?>
+<?php endif;?>
+<script type="text/javascript">
+Galleria.loadTheme('/jquery_gallery/galleria/themes/classic/galleria.classic.js');
+	</script>
+	<script >$('.imes').galleria();</script>

@@ -1,0 +1,54 @@
+<?=$this->doctype('XHTML1_TRANSITIONAL')?> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<?=$this->headTitle()?>  
+<?=$this->headMeta()?> 
+<link href="/css/styles.css" rel="stylesheet" type="text/css" media="screen" />
+</head> 
+<body>
+  <div id="content">
+    <div id="back">
+      <!-- header begins -->
+      <div id="header"> 
+        <div id="logo">
+          <h1><a href="/">КупиДОМиЯ</a></h1>
+          <h2>Продаем/сдаем недвижимость на Кипре</h2>
+        </div>
+        <div id="menu">
+         <?=$this->menuBlock('Главное меню')?>  
+        </div>
+      </div>
+      <!-- header ends -->
+      <!-- content begins -->
+      <div id="main">
+        <div id="right">
+          <h2><?=$this->element->title_text?></h2><br />
+          <?=$this->layout()->content?>
+         
+        </div>
+        <div id="left">    
+          <h3>Статьи</h3>
+          <?=$this->menuBlock('Боковое меню', 'partials/menuPart.phtml')?>
+          <h3>Он-лайн консультация </h3>
+          <ul>
+            <li><p align="center" style="padding-top:20px"><img src="/images/onlane.jpg" alt="" /></p>
+            <p style="padding-top:10px; color:#000;"><img height="21" width="22" alt="" src="/images/icq.jpg" />: 488600070</p><p style="color:#000;"> <img height="21" width="21" alt="" src="/images/scype.jpg" />:&nbsp; CUPIDOMIYA</p>
+            </li>
+          </ul>
+          <?=$this->block('акция');?>
+          <br />
+        </div>
+      </div>
+      <!--content ends -->
+      <!--footer begins -->
+      <div id="footer">
+        <noindex><a href="http://www.fabricasaitov.ru" target="blank" rel="nofollow"><img src="/images/copyright.gif"  border="0" align="left" /></a></noindex>&nbsp;&nbsp;&nbsp;
+        <a href="#"><img src="http://www.yandex.ru/cycounter" width="88" height="31" alt="Яндекс цитирования" border="0" align="right"></a>
+        <?=$this->fabricaLink('Стоимость <a href="" target="blank">создания сайта</a> зависит от многого. Найди оптимальный вариант.')?> 
+        <?=$this->articLink('book.png')?> 
+      </div>
+      <!-- footer ends-->
+    </div>
+  </div>
+</body>
+</html> 

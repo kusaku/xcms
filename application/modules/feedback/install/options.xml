@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : options.xml
+    Created on : 24 Август 2010 г., 17:20
+    Author     : kifirch
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+<options>
+    <name>feedback</name>
+    <title>
+        <ru>Обратная связь</ru>
+        <en>Feedback</en>
+    </title>
+    <is_core>false</is_core>
+    <files path="modules/feedback">
+        <file path="/">Bootstrap.php</file>
+        <file path="/controllers/">BackController.php</file>
+        <file path="/controllers/">IndexController.php</file>
+        <file path="/forms/">Send.php</file>
+        <file path="/views/scripts/">msg.phtml</file>
+        <file path="/views/scripts/index/">view.phtml</file>
+    </files>
+    <templates path="../templates/scripts/feedback">
+        <template>view.phtml</template>
+    </templates>
+</options>
+</root>

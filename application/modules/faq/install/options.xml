@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : options.xml
+    Created on : 16 Ноября 2010 г., 10:50
+    Author     : igor
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+<options>
+    <name>faq</name>
+    <title>
+        <ru>ЧаВо</ru>
+        <en>Faq</en>
+    </title>
+    <is_core>false</is_core>
+    <files path="modules/faq">
+        <file path="/">Bootstrap.php</file>
+        <file path="/controllers/">BackController.php</file>
+        <file path="/controllers/">CategoryController.php</file>
+		<file path="/forms/">Edit.php</file>
+		<file path="/forms/">Send.php</file>
+    </files>
+    <templates path="../templates/scripts/faq">
+        <template>view.phtml</template>
+    </templates>
+</options>
+</root>

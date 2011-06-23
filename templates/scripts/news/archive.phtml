@@ -1,0 +1,15 @@
+<?php if (count($this->items)): ?>
+<ul class="news-list">
+<?php foreach ($this->items as $item): ?>
+    <li class="news-item">
+        <div class="news-date"><?=date_create($item->items['publish_date_from'])->format('d.m.Y');?></div>
+        <div class="news-title"><?=$this->navigation()->menu()->htmlify($item)?></div>
+        <p><?=$item->items['news_preview']?></p>
+    </li>
+<?php endforeach; ?>
+</ul>
+<p><a href='/<?=$this->newsHref();?>'>Новости</a></p>
+<?php endif; ?>
+<?php if($this->items->getTotalItemCount()>$this->items->getItemCountPerPage()):?>
+Архив Новостей: <?=$this->paginationControl($this->items,'Sliding','partials/paginationControl.phtml')?>
+<?php endif;?>

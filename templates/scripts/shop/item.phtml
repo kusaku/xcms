@@ -1,0 +1,64 @@
+<link rel="stylesheet" type="text/css" href="/jquery_gallery/fancybox/css/box.css" media="screen" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/jquery_gallery/fancybox/js/box.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".zoom").fancybox({
+			'frameWidth': 600,
+			'frameHeight': 400
+		});
+	});
+</script>
+<div class="foto-price">
+    <? if ( $this->element->shop_item_image ): ?>
+        <a class="zoom" href="/shop/big/<?=$this->element->shop_item_image?>">
+            <img src="/shop/medium/<?=$this->element->shop_item_image?>" border="0" width="243px"/>
+        </a>
+    <? endif; ?>
+
+	<div class="availible">Каталог<br><span><a href="/<?=$this->parent_link;?>">вернуться</a></span></div>
+	<div class="order">
+		<strong><?=$this->element->shop_item_price ?></strong> руб.
+
+		<? if( ! $this->already_ordered): ?>
+			<input class="cartbtn" id="<?="btn".$this->element->id;?>" type="button" value="в корзину" onclick="addToOrder(<?="'/".$this->element->urlname."'";?>, <?="'btn".$this->element->id."'";?>)">
+		<? else: ?>
+			<input class="cartbtn2" id="<?="btn".$this->element->id;?>" type="button" value="в корзину" onclick="addToOrder(<?="'/".$this->element->urlname."'";?>, <?="'btn".$this->element->id."'";?>)">
+		<? endif;?>
+
+		
+
+	</div>
+
+</div>
+
+
+
+<div class="description">
+	<p><?=$this->element->shop_item_about?></p>
+	<?//=print_r($this->element); ?>
+</div>
+
+
+
+
+
+<!--
+    <div style="width:48%;float:right;">
+    <div class="item-price" style="float:left;font-size: 16px;">
+            Цена: <?php if ( $this->element->shop_item_price ): ?><?=$this->element->shop_item_price ?> руб.<?php endif; ?>
+    </div>
+        <div style="float:right;">
+    <? if( ! $this->already_ordered): ?>
+        <form method="post">
+
+            <? $this->form->add_to_order->setLabel('В корзину ->');?>
+            <?=$this->form->add_to_order;?>
+        </form>
+    <? else: ?>
+        <p>Уже в <a href="<?=$this->order_link;?>">корзине</a></p>
+    <? endif;?>
+        </div>
+    </div>
+-->
+

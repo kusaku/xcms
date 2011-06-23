@@ -1,0 +1,16 @@
+<?=$this->element->text;?>
+<? if(!$this->is_regist ): ?>
+<? print_r($this->register_errors);?>
+
+    <form method="post">
+    <p>Имя пользователя <?=$this->form->user_name;?></p>
+    <p>Фамилия пользователя <?=$this->form->user_surname;?></p>
+    <p>Email <?=$this->form->user_email;?></p>
+    <p>Логин <?=$this->form->login;?></p>
+    <p>Пароль <?=$this->form->user_password;?></p>
+    <p><?=$this->form->regbutton;?></p>
+    </form>
+<? else : ?>
+Регистрация прошла успешно
+<? endif;?>
+

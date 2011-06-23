@@ -1,0 +1,28 @@
+.liquid {
+	background:#313b31 url('../images/menu/noflash/bodybackground.png') repeat-y scroll 50% 0;
+	border:1px solid #19301C;
+}
+.liquid .previous {
+	display:block;
+	height:126px;
+	width:64px;
+	background-image:url('../images/menu/noflash/previous.png');
+	float:left;
+	margin:0;
+	padding:0;
+}
+.liquid .next {
+	display:block;
+	height:126px;
+	width:64px;
+	background-image:url('../images/menu/noflash/next.png');
+	float:right;
+	margin:0;
+	padding:0;
+}
+.liquid ul li {
+	width:126px;
+	margin:0;
+}
+.liquid ul li a img {
+}

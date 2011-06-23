@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : options.xml
+    Created on : 07 Декабрь 2010 г., 12:54
+    Author     : igor
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+<options>
+    <name>offers</name>
+    <title>
+        <ru>Акции</ru>
+        <en>Offers</en>
+    </title>
+    <is_core>false</is_core>
+    <files path="modules/offers">
+        <file path="/">Bootstrap.php</file>
+        <file path="/controllers/">BackController.php</file>
+        <file path="/controllers/">CategoryController.php</file>
+        <file path="/controllers/">ItemController.php</file>
+    </files>
+    <templates path="../templates/scripts/offers">
+        <template>category.phtml</template>
+        <template>item.phtml</template>
+    </templates>
+</options>
+</root>

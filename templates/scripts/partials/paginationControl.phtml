@@ -1,0 +1,45 @@
+<?php if ($this->pageCount): ?>
+
+<div class="paginationControl">
+<?php if (isset($this->previous)): ?>
+	<a href="<?='/'.$this->categoryUrl.'/'.$this->first?>" title="Первая страница">&#171;</a>
+   <a href="<?='/'.$this->categoryUrl.'/'.$this->previous?>" class="prev_page" title="Предыдущая страница">&#8592;</a>
+<?php else: ?>
+  <span class="disabled">&#171;</span>
+  <span class="prev_page">&#8592;</span> 
+ 
+
+<?php endif; ?>
+<ul class="page_list">
+<?php foreach ($this->pagesInRange as $page): ?>
+
+  <?php if ($page != $this->current): ?>
+
+	<li><a href="<?='/'.$this->categoryUrl.'/'.$page ?>">
+        <?php echo $page; ?>
+
+    </a></li>
+
+  <?php else: ?>
+
+   <li class="active_page"> <?php echo $page; ?> </li>
+
+  <?php endif; ?>
+  
+
+
+<?php endforeach; ?>
+
+</ul>
+<?php if (isset($this->next)): ?>
+  <a href="<?='/'.$this->categoryUrl.'/'.$this->next?>" class="next_page" title="Следующая страница">&#8594;</a>
+  <a href="<?='/'.$this->categoryUrl.'/'.$this->last?>" title="Последняя страница">&#187; </a>
+<?php else: ?>
+  <span class="next_page">&#8594;</span>
+  <span class="disabled">&#187;</span>
+
+<?php endif; ?>
+
+</div>
+
+<?php endif; ?>

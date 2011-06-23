@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<?=$this->headMeta()?>
+<?=$this->headTitle()?>
+<link rel="stylesheet" type="text/css" href="/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/shop.css" />
+<link rel="SHORTCUT ICON" href="/favicon.ico" type="image/x-icon"/>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/checkbox.js"></script>
+<script type="text/javascript" src="/js/shop.js"></script>
+  <!--[if lt IE 7]>
+  <style type="text/css">
+#content {padding-left: 10px;}
+  #rightbar #auth_none {width: 200px;}
+
+</style> 
+<![endif]-->
+</head>
+<body>
+<div id="wrapper">
+<div id="wrapleft">
+<div id="wrapright">
+    <div id="head">
+        <div id="left_head">
+        </div>
+      <div id="headtop">
+        <div id="logo">
+            <a href="/"></a>
+        </div>    
+        <div id="contact">
+                
+        </div>
+        </div>
+        <div id="headmenu">
+        <div id="topnav">
+<?=$this->menuBlock("Главное меню")?>
+        </div>    
+        <div id="topsearch">    
+          <?=$this->search();?>           
+        </div> 
+           </div>
+    </div>
+    <div id="rightbar">
+        <div id="auth_none">
+            
+        </div>
+        <div class="border">
+            
+        </div>
+        
+    </div>
+    
+    <div id="leftbar">
+        <div id="icons">
+           
+        </div>
+        <div id="leftmenu">
+           <?=$this->shopCart()?>
+           <?=$this->loginForm()?>
+          
+          <?=$this->catalogSearch();?>
+        </div>
+        <div class="border">
+           
+        </div>
+    
+    </div>
+    <div id="content">
+        
+        <div id="text">
+            <h1><?=$this->element->title_text?></h1>
+<?$this->xbreadcrumbs();?>
+            <?=$this->layout()->content?>
+        </div>
+        
+    </div>
+    <div id="footer">
+    <div id="fs_logo"><noindex>
+            <a href="http://www.fabricasaitov.ru" target="_blank">
+                <img alt="fabricasaitov.ru" src="/images/copw.png" class="no_pad"/>
+            </a>
+        </noindex></div>    
+        (c) 2010 | “Фабрика имиджа” | Все права защищены
+    </div>
+</div>
+  </div>
+  </div>
+</body>
+</html>
+

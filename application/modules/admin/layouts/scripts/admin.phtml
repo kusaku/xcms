@@ -1,0 +1,17 @@
+<?=$this->doctype()?> 
+<html> 
+<head>
+    <?=$this->headLink(array('rel' => 'shortcut icon',
+                                  'href' => '/cms/images/favicon.ico'),
+                                  'PREPEND')?>
+<?=$this->headMeta()->setIndent(2)?> 
+<?=$this->headTitle()->setIndent(2)?> 
+<?=$this->headLink()->setIndent(2)?> 
+<?=$this->headScript()->setIndent(2)?>
+</head> 
+<body>
+<?=$this->layout()->content?> 
+<?=$this->jQuery()?>
+<?=$this->inlineScript()?> 
+</body>
+</html>

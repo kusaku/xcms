@@ -1,0 +1,29 @@
+<?=$this->element->description?>
+<?php if (count($this->items)): ?>
+<ul class="offers-list">
+<?php foreach ($this->items as $item): ?>
+    <li class="offers-item">
+        <div class="item-img"><?php if ( $item->items['element_photo'] ): ?>
+        <?php if ( !empty($item->items['offers_src_text'])): ?>
+        	<a href='/<?=$item->items['offers_src_text'];?>'>	
+        <?php else:{?>
+        	<a href='<?=$item->getHref();?>'>
+        <?php }?>
+        <?php endif;?><img src=/offers/small/<?=$item->items['element_photo']?> border='0'/></a><?php endif; ?></div>
+        <div class="offers-title"><?=$item->items['name'];?></div>
+        <?=$item->items['offers_item_prewiew']?>
+        <p>
+        	 <?php if ( !empty($item->items['offers_src_text'])): ?>
+        		<a href='/<?=$item->items['offers_src_text'];?>'>Подробнее</a>	
+        	<?php else:{?>
+        		<a href='<?=$item->getHref();?>'>Подробнее</a>
+       		<?php }?>
+        	<?php endif;?>
+        </p>
+    </li>
+<?php endforeach; ?>
+</ul>
+<?php endif; ?>
+<?php if($this->items->getTotalItemCount()>$this->items->getItemCountPerPage()):?>
+Страницы: <?=$this->paginationControl($this->items,'Sliding','partials/paginationControl.phtml')?>
+<?php endif;?>

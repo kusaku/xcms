@@ -1,0 +1,57 @@
+<?php 
+/**
+ * 
+ * Шаблон admin/index
+ *
+ * @category   Xcms
+ * @package    Admin
+ * @version    $Id: index.phtml 622 2011-01-17 10:44:03Z kifirch $
+ * 
+ */
+?>
+<div id="wrapper">
+<div id="quickpanel"><?=$this->panelAdmin()?></div>
+<div id="mainpanel">
+	<div id="logo"><a href="/admin/"><img src="/cms/images/mainLogo.png"  alt="Фабрика сайтов" border="0" /></a></div>
+	<div id="modules">
+		<div id="main_flash">    
+        <span class="previous"></span>
+        <div class="wrapper">
+        <ul>
+        <? $modules = $this->modulesList();
+           foreach($modules as $name=>$action){
+              echo "<li><a href='javascript:moduleClick(\"$name\")' onfocus=\"this.blur()\"><img class='menu_item' picture='$name' 
+                        src='/cms/images/menu/noflash/".$name.".png'/></a></li>"; 
+           }  
+         ?>
+         </ul>
+         </div>
+           <span class="next"></span>
+        </div>
+	</div>
+</div>
+<div id="block">
+	<div id="left">
+		<div id="tree">
+			<div id="jqmenu"></div> 
+		</div>
+	</div>
+	<div id="right">
+	    <div id="navwrap">
+		<div id="navigation"></div><div id="settings"><img src="/cms/images/settings.png" border="0" id="isettings" style="margin-bottom:-10px;float:left;"/> Настройки модуля</div>
+	    </div>
+		<div id="content">
+		</div>
+	</div>
+</div>
+<div style="clear:both"></div>
+</div>
+<div id="footer">
+	<div id="footerleft">Фабрика сайтов CMS ver. <?= Zend_Registry::get( 'version' )?></div>
+	<div id="footerright">&copy; 2009-2011 - <a href="http://фабрика-сайтов.рф" target="blank">фабрика сайтов</a> | All rights reserved </div>
+</div>
+<ul id="contextmenu" class="jeegoocontext cm_default">
+</ul>
+<ul id="maincontextmenu" class="jeegoocontext cm_default">
+</ul>      
+ 

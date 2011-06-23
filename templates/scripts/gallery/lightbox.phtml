@@ -1,0 +1,56 @@
+<link rel="stylesheet" type="text/css" href="/jquery_gallery/lightbox/css/jquery.lightbox-0.5.css" media="screen" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/jquery_gallery/lightbox/js/jquery.lightbox-0.5.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$('#gallery .zoom').lightBox({
+		fixedNavigation:true,
+		imageBtnPrev: '/jquery_gallery/lightbox/images/lightbox-btn-prev.gif',
+		imageBtnNext: '/jquery_gallery/lightbox/images/lightbox-btn-next.gif',
+		imageBtnClose: '/jquery_gallery/lightbox/images/lightbox-btn-close.gif',
+		imageLoading: '/jquery_gallery/lightbox/images/lightbox-ico-loading.gif',
+		txtImage:'Фотографии',
+		txtOf:	'из'
+		
+	});
+});
+	</script>
+<!-- Описание категории -->
+<?=$this->element->description?>
+
+<!-- Вывод категорий -->
+<?php if (count($this->cat)): ?>
+<ul class="category-list">
+<?php foreach ($this->cat as $item): ?>
+    <li class="category-item">
+        <div class="category-title"><?=$this->navigation()->menu()->htmlify($item)?></div>
+         <?php if ( $item->items['element_photo'] ): ?><div><img src="/gallery/kategory/<?=$item->items['element_photo']?>" /></div><?php endif; ?>
+    </li>
+<?php endforeach; ?>
+</ul>
+<?php endif; ?>
+
+<!-- Вывод товара -->
+<?php if (count($this->items)): ?>
+<hr />
+<div id="gallery">
+<?php $count = 0; $total_items = $this->items->getCurrentItemCount();?>
+<?php foreach ($this->items as $item): ?>
+	<?php if($count%3==0):?>
+	<div style="clear:both">
+	<?php endif; ?>
+    <div class="item-item">
+    	<div class="item-img"><?php if ( $item->items['element_photo'] ): ?><a class="zoom" href='/gallery/big/<?=$item->items['element_photo']?>' rel='toimage' title='<?=$item->items['gallery_item_preview']?>'><img src=/gallery/small/<?=$item->items['element_photo']?> border='0'/></a><?php endif; ?></div>
+    	<div class="item-title"><?=$item->items['name']?></div>
+    </div>
+   <?php $count++; if($count%3==0 || $total_items==$count):?>
+	</div>
+	<?php endif; ?>
+<?php endforeach; ?>
+</div>
+<div style="clear:both">
+</div>
+<?php endif; ?>
+<?php if($this->items->getTotalItemCount()>$this->items->getItemCountPerPage()):?>
+Страницы: <?=$this->paginationControl($this->items,'Sliding','partials/paginationControl.phtml')?>
+<?php endif;?>

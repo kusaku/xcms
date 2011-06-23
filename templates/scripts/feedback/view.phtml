@@ -1,0 +1,11 @@
+<?=$this->element->text?> 
+<?php
+if ( isset($this->sent) ) {
+	if ($this->sent)
+		echo 'Ваше сообщение было успешно отправлено';
+	else
+		echo 'Произошла ошибка при сохранении вашего сообщения, попробуйте еще раз позже.';
+} elseif ( $this->form ) {
+	echo $this->form->render();
+}
+?> 

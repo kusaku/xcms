@@ -1,0 +1,11 @@
+<div id="wrapper_logo">
+<?php
+ 	echo $this->form;
+ 	if ( !empty($this->messages[0]) ) {
+?>
+ 	<div id="dialog-confirm" style="display:none" title="Ошибка Авторизации!">
+ 		<span class="ui-icon-my" style="float:left; margin: 0px 20px 0px 0px"></span>
+ 		<div style="margin: 4px 0px 0px 10px"><?=Main::getTranslator()->translate($this->messages[0])?></div>
+ 	</div>
+<?php }?>
+</div>

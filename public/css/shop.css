@@ -1,0 +1,132 @@
+a {cursor: pointer;}
+
+.item-list {float: left; width: 100%; overflow: hidden;}
+.item-item {display: block; width: 180px; text-align: center; float: left; padding: 13px 30px}
+.item-title {display: block; text-align: center; font-weight: bold}
+
+.category-list{margin: 0; padding: 0;}
+.category-item {display: block; width: 29%; text-align: center; float: left; padding: 13px 2%; height: 225px;}
+.category-title {display: block; text-align: center; font-weight: bold}
+.category-title a{text-decoration: none;}
+.category-img {display: block; width: 180px; height: 180px; background: url(../images/hairdef.jpg) 0px 0px no-repeat #efefef; margin: auto;}
+
+.paginationControl *{float: left; line-height: 20px;}
+.paginationControl ul {list-style: none; margin: 0; padding: 0}
+.paginationControl ul li, .paginationControl span, .paginationControl a{padding: 0 5px;}
+
+.cart-order {padding: 2px 0;background: url(../images/coste.png) no-repeat scroll left bottom transparent;}
+.cart-order a{color: #000000; text-align: left; font-size: 0.9em;}
+.cart-order .cost {text-align: right;padding: 0 0 5px 0;text-align: right; line-height: 18px; color: #666;}
+.cart-order .shk-count {border: 1px solid #ff6e00;height: 16px;text-align: center;width: 18px;}
+.cart-order .cost span{color:#ff6e00; line-height: 1.em; font-weight: bold;}
+.cart-order .cost .shk-del {background: url(../images/delete.png) no-repeat scroll 0 0 transparent; display: inline-block; height: 16px; margin: 1px 3px 0; width: 16px;}
+.cart-order .cost .shk-del * {display: none;}
+.itogo {text-align: right; padding: 6px 0;}
+.itogo b{color:#ff6e00; line-height: 1.em; font-size: 1.2em; font-weight: normal;}
+#butOrder, #butEmptyCart {display: block; border: 0; padding: 0px; margin: 5px 0px 5px 0; line-height: 23px; font-size: 1em; float: right; width: 90px; height: 23px; color: #ffffff; background: #ff6e00; cursor: pointer; text-align: center; text-decoration: none;}
+#butEmptyCart {background: #818181; margin: 5px 10px 5px 0; }
+
+.foto-price{width: 242px;float: left}
+.foto-price .availible {background: url(../images/availible.png) no-repeat scroll left top transparent; display: block; height: 25px; width: 77px; padding: 5px 7px; font-size: 12px; line-height: 12px; text-align: center; float: left; margin: 20px 17px 0 0;}
+.foto-price .availible span {color:#ff6e00;}
+.foto-price .order {background: url(../images/orderbg.png) no-repeat scroll left top transparent; display: block; height: 25px; width: 115px; padding: 5px 7px 5px 12px; font-size: 14px; line-height: 22px; text-align: left; float: left; position: relative;color:#ff6e00;margin: 20px 0 0 0;}
+.foto-price .order .cartbtn {background: url(../images/ordrbt0.png) no-repeat scroll left top transparent; border: 0 none; cursor: pointer; display: block;   font-size: 0;    height: 35px;    margin: 0;    padding: 0;    position: absolute;   right: 0px;    text-indent: -4000px;    top: 0px;    width: 35px;}
+.foto-price .items-small {display: block; width: 242px; overflow: hidden; padding: 20px 0 0 0;}
+.foto-price .items-small ul{display: block; width: 270px; overflow: hidden; margin: 0; list-style: none; padding: 0;}
+.foto-price .items-small ul li {display: inline-block; float: left; width: 66px; height: 66px; margin: 0 22px 22px 0;}
+.description{margin: 0 0 0 270px;}
+
+.goods-list {display: block; width: 754px; overflow: hidden; margin: 0; list-style: none; padding: 0;}
+.goods-list li.goods-item {display: inline-block; float: left; width: 351; min-height: 200px; margin: 0px 0 10px 10px;}
+.goods-list li.goods-item .goods-left {width: 132px; float: left; margin: 0 15px 0 0;}
+.goods-list li.goods-item .goods-left .order {background: url(../images/orderbg.png) no-repeat scroll left top transparent; display: block; height: 25px; width: 115px; padding: 5px 7px 5px 12px; font-size: 14px; line-height: 22px; text-align: left; float: left; position: relative;color:#ff6e00;margin: 10px 0 0 0;}
+.goods-list li.goods-item .goods-left .order .cartbtn {background: url(../images/ordrbt0.png) no-repeat scroll left top transparent; border: 0 none; cursor: pointer; display: block;   font-size: 0;    height: 35px;    margin: 0;    padding: 0;    position: absolute;   right: 0px;    text-indent: -4000px;    top: 0px;    width: 35px;}
+.goods-list li.goods-item .goods-left .order .cartbtn2 {background: url(../images/ordrbt2.png) no-repeat scroll left top transparent; border: 0 none; cursor: pointer; display: block;   font-size: 0;    height: 35px;    margin: 0;    padding: 0;    position: absolute;   right: 0px;    text-indent: -4000px;    top: 0px;    width: 35px;}
+.cartbtn2 {background: url(../images/ordrbt2.png) no-repeat scroll left top transparent; border: 0 none; cursor: pointer; display: block;   font-size: 0;    height: 35px;    margin: 0;    padding: 0;    position: absolute;   right: 0px;    text-indent: -4000px;    top: 0px;    width: 35px;}
+.goods-list li.goods-item .goods-right {width: 200px; float: left; margin: 0 5px 0 0; line-height: 1.3em; font-size: 1em; text-align: left;}
+.goods-list li.goods-item .goods-right p.goods-title {font-size: 1.3em; margin-top: 0;}
+
+.step1, .step1ok, .step2, .step2ok, .step2it, .step3, .step3ok, .step3it {display: block; height: 39px; float: left; overflow: hidden; line-height: 37px; font-size: 18px; color: #818181; margin: 17px 0;}
+.step1,.step1ok {width: 105px; padding: 0 10px 0 68px; background: url(../images/step1.png) no-repeat scroll left top transparent; color: #ff6e00;}
+.step1ok {background: url(../images/step1.png) no-repeat scroll left -39px transparent;}
+.step2, .step2ok, .step2it  {width: 105px; padding: 0 10px 0 107px; background: url(../images/step2.png) no-repeat scroll left top transparent;}
+.step2it {background: url(../images/step2.png) no-repeat scroll left -39px transparent;color: #ff6e00;}
+.step2ok {background: url(../images/step2.png) no-repeat scroll left -78px transparent;color: #ff6e00;}
+.step3, .step3ok, .step3it {width: 135px; padding: 0 35px 0 112px; background: url(../images/step3.png) no-repeat scroll left top transparent;}
+.step3it {background: url(../images/step3.png) no-repeat scroll left -39px transparent;color: #ff6e00;}
+.step3ok {background: url(../images/step3.png) no-repeat scroll left -78px transparent;color: #ff6e00;}
+
+.title {height: 22px; line-height: 21px; font-size: 12px; font-weight: bold; text-align: center; color: #ffffff;  background: url(../images/offbg.png) repeat-x scroll left top #ff7812;}
+
+.rega1 {position: relative; width: 212px; float: left;}
+.rega1 .auth  form {margin: 12px 0 0 0; border-right: 1px solid #818181; height: 120px; padding: 5px 10px 0 0;}
+.rega1 .auth  form p{margin: 0 10px 14px 0; text-align: right;}
+.rega1 .auth  form .name{color:#ff6e00; font-size: 22px; line-height: 1.em;}
+.rega1 .auth  label {padding: 8px 0 0 80px;font-size: 13px;}
+.rega1 .auth  label.field{color: #000000; display: block; width: 53px; height: 24px; text-align: right; float: left; margin: 5px 0; padding: 0 5px 0 0}
+.rega1 .auth  input.field{background: url(../images/field.png) top left no-repeat transparent;display: block; width: 124px; height: 14px;float: left; margin: 5px 0;border: 0; padding: 5px; line-height: 14px; font-size: 14px;}
+.rega1 .auth  #enter {display: block; border: 0; padding: 0px; margin: 5px 10px 5px 80px; line-height: 23px; font-size: 1em; width: 110px; height: 23px; color: #ffffff; background: #ff6e00; cursor: pointer; text-align: center; text-decoration: none;}
+.rega1 .auth  .niceCheck{left: 178px; top: 111px;}
+
+.rega2 {position: relative; width: 254px; float: left;}
+.rega2 .rega-text{margin: 12px 0 0 0; border-right: 0px solid #818181; height: 120px; padding: 5px 15px 0 15px;}
+.rega2 .rega-text p{margin: 0 0 10px 0; text-align: left;}
+.rega2 .rega-text #rega { display: block; border: 0; padding: 0px; margin: 18px 10px 5px 0; line-height: 23px; font-size: 1em; float: right; width: 110px; height: 23px; color: #ffffff; background: #ff6e00; cursor: pointer; text-align: center; text-decoration: none;}
+
+.rega3 {position: relative; width: 220px; float: left;}
+.rega3 .auth0  form {margin: 12px 0 0 0; height: 120px; padding: 5px 0px 0 0;}
+.rega3 .auth0  form p{margin: 0 10px 14px 0; text-align: right;}
+.rega3 .auth0  form .name{color:#ff6e00; font-size: 22px; line-height: 1.em;}
+.rega3 .auth0  label {padding: 8px 0 0 80px;font-size: 13px;}
+.rega3 .auth0  label.field{color: #000000; display: block; width: 73px; height: 24px; text-align: right; float: left; margin: 5px 0; padding: 0 5px 0 0}
+.rega3 .auth0  input.field{background: url(../images/field.png) top left no-repeat transparent;display: block; width: 124px; height: 14px;float: left; margin: 5px 0;border: 0; padding: 5px; line-height: 14px; font-size: 14px;}
+.rega3 .auth0  #continue {display: block; border: 0; padding: 0px; margin: 25px 10px 5px 0; line-height: 23px; font-size: 1em; float: right; width: 110px; height: 23px; color: #ffffff; background: #ff6e00; cursor: pointer; text-align: center; text-decoration: none;}
+
+.thx {font-size: 24px; text-align: center; color: #818181; line-height: 28px; width: 500px; margin: 0 auto;}
+.thx .tnxname {font-size: 28px;}
+.thx span {color:#ff6e00;}
+
+.basket-list {width: 720px; border-left: 1px solid #f2f2f2; border-right: 1px solid #f2f2f2;}
+.basket-list .odd  td{background: #f9f9f9;}
+.basket-list th{height: 22px; line-height: 21px; font-size: 12px; font-weight: bold; text-align: center; color: #ffffff;  background: url(../images/offbg.png) repeat-x scroll left top #ff7812;}
+.basket-list td {background: url(../images/tdbg.png) repeat-x scroll left bottom; text-align: center;}
+.basket-list td a.img {padding: 12px; display: block;}
+.basket-list td a.shk-del {padding: 6px; display: block;}
+.basket-list td a {color: #000000;}
+.basket-list td span{color:#ff6e00; font-size: 16px; line-height: 1.em; font-weight: normal;}
+.basket-list td.basket-count input {border: 1px solid #FF6E00;height: 16px;text-align: center;width: 18px; margin: 0 auto;}
+.basket-list td.basket-count a.more {display: block; width: 18px; height: 7px; margin: 4px auto; font-size: 0; background: url(../images/moreless.gif) no-repeat scroll left top; overflow: hidden;} 
+.basket-list td.basket-count a.less{display: block; width: 18px; height: 7px; margin: 4px auto; font-size: 0; background: url(../images/moreless.gif) no-repeat scroll left -33px; overflow: hidden;} 
+
+.basket-chek, .basket-delivery {border-bottom: 1px solid #c1c1c1; padding: 1px 0 12px 0; width: 720px; overflow: hidden;}
+.basket-chek  #reg, .basket-chek  #enter{display: block; border: 0; padding: 0px; margin: 5px 0px 5px 0; line-height: 23px; font-size: 1em; float: left; width: 90px; height: 23px; color: #ffffff; background: #ff6e00; cursor: pointer; text-align: center; text-decoration: none;}
+.basket-chek  #reg {background: #818181; width: 140px; margin-right: 12px;}
+.basket-chek table {float: right; }
+.basket-chek table td{text-align: right; padding: 2px 5px}
+.basket-chek p {margin: 0.4em 0;}
+.basket-chek span{color:#ff6e00;}
+.basket-chek td span{color:#ff6e00; font-weight: bold;}
+.basket-chek span.bb {font-weight: bold;}
+.basket-chek span.check{font-size: 16px; font-weight: bold;}
+.basket-chek span.info{color: #818181; font-weight: normal;}
+
+.basket-delivery label span {color:#ff6e00;}
+.basket-delivery .left {width: 450px; float: left;}
+.basket-delivery .left label {}
+.basket-delivery .left .delivery{margin: 10px 0 0 15px; width: 340px; border-top: 1px solid #c1c1c1; padding: 10px 0 0 0;}
+.basket-delivery .left .delivery label {display: block; width: 92px; float: left; text-align: left; height: 22px; margin: 5px 0; padding: 0 8px 0 0;}
+.basket-delivery .left .delivery input{height: 22px; width: 216px; margin: 5px 0; border: 1px solid #c1c1c1; line-height: 20px; padding: 0 7px;}
+.basket-delivery .left .delivery select{height: 22px; width: 230px; margin: 5px 0; border: 1px solid #c1c1c1;}
+.basket-delivery .left .delivery .cusel{height: 22px; width: 230px; margin: 5px 0;}
+.basket-delivery .left .delivery textarea{height: 66px; width: 216px; margin: 5px 0; border: 1px solid #c1c1c1;line-height: 20px; padding: 3px 7px;}
+.basket-delivery .right {width: 270px; float: left;}
+
+
+#continue {display: block; border: 0; padding: 0px; margin: 10px 10px 5px 0; line-height: 23px; font-size: 1em; float: right; width: 110px; height: 23px; color: #ffffff; background: #ff6e00; cursor: pointer; text-align: center; text-decoration: none;}
+#enter {display: block; border: 0; padding: 0px; margin: 10px 10px 5px 0px; line-height: 23px; font-size: 1em; width: 110px; height: 23px; color: #ffffff; background: #ff6e00; cursor: pointer; text-align: center; text-decoration: none;}
+
+.niceRadio {width: 22px;height: 22px;display: inline-block;cursor: pointer;background: url(../images/radio.png) 0 1px no-repeat;overflow:hidden;float: left;margin: 0px 0 0px 0px;}
+.radioChecked {background-position: 0 -21px;}
+.niceRadio input {	margin-left: -17px;}
+
+.steps_small_image {max-height: 30px; margin: 2px 0;}

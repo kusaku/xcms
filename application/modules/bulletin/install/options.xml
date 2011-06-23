@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : options.xml
+    Created on : 26 Октября 2010 г., 13:07
+    Author     : igor
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+<options>
+    <name>bulletin</name>
+    <title>
+        <ru>Web-доска</ru>
+        <en>Bulletin</en>
+    </title>
+    <is_core>false</is_core>
+    <files path="modules/bulletin">
+        <file path="/">Bootstrap.php</file>
+        <file path="/controllers/">BackController.php</file>
+        <file path="/controllers/">CategoryController.php</file>
+		<file path="/forms/">Edit.php</file>
+		<file path="/forms/">Send.php</file>
+    </files>
+    <templates path="../templates/scripts/bulletin">
+        <template>view.phtml</template>
+    </templates>
+</options>
+</root>

@@ -1,0 +1,47 @@
+# data
+data/cache/*
+data/search/*
+data/sessions/*
+
+# captcha
+public/captcha/images/*
+
+# module "Catalog"
+public/catalog/backend/*
+public/catalog/big/*
+public/catalog/foto/*
+public/catalog/kategory/*
+public/catalog/medium/*
+public/catalog/small/*
+
+# module "Gallery"
+public/gallery/backend/*
+public/gallery/big/*
+public/gallery/kategory/*
+public/gallery/medium/*
+public/gallery/small/*
+
+# module "Offers"
+public/offers/backend/*
+public/offers/big/*
+public/offers/kategory/*
+public/offers/medium/*
+public/offers/small/*
+
+# module "Shop"
+public/shop/backend/*
+public/shop/big/*
+public/shop/kategory/*
+public/shop/medium/*
+public/shop/small/*
+
+# uploads
+public/upload/file/*
+public/upload/flash/*
+public/upload/image/*
+public/upload/media/*
+
+# IDE project files
+./settings
+.project
+nbproject

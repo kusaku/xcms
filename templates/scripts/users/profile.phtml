@@ -1,0 +1,143 @@
+<? if($this->show == 'just'):?>
+<b>Логин</b>: <?=$this->user->login;?><br/>
+<b>Имя</b>: <?=$this->user->user_name;?><br/>
+<b>Фамилия</b>: <?=$this->user->user_surname;?><br/>
+<b>Email</b>: <?=$this->user->user_email;?><br/>
+<hr/>
+<a href="/users/profile/<?=$this->element->id;?>/edit">Редактировать профиль</a>
+&nbsp;|&nbsp;
+<a href="/users/profile/<?=$this->element->id;?>/changepassword">Изменить пароль</a>
+<hr/>
+<!-- Список заказов -->
+<?php
+/*===================================================================================================================================*/
+
+
+
+$user_id = Zend_Auth::getInstance()->getIdentity()->id;
+//$user_id = 20;
+
+
+
+
+            $ord = Model_Collection_ElementTypes::getInstance()->getModuleElementType('shop', 'orders');
+            $ord_obj_type = $ord->getObjectType();
+            $groups = $ord_obj_type->getFieldGroups();
+
+            $data['fields'] = array();
+            foreach($groups as $group) {
+                $fields = $group->getFields();
+                foreach($fields as $field) {
+                    if($field->name == 'shop_order_userid') continue;
+                    $data['fields'][] = array('name'=>$field->name,'title'=>$field->title,'visible'=>true);
+                }
+            }
+
+            $data['data'] = array();
+            $orders = Model_Collection_ShopOrders::getInstance()->getUserOrders($user_id);
+            foreach($orders as $order){
+                $ord_obj = Model_Collection_Objects::getInstance()->getEntity($order->id_obj);
+                $vals = $ord_obj->getValues();
+                foreach($data['fields'] as $field) {
+                    if($field['name'] == 'shop_order_status') {
+						$statTitle = Model_Collection_Objects::getInstance()->getEntity($vals['shop_order_status'])->title;
+                        $vals[$field['name']] = $statTitle ? $statTitle : 'Не обработан';
+                    } elseif($field['name'] == 'shop_order_delivery') {
+
+						$obj = Model_Collection_Objects::getInstance()->getEntity($vals['shop_order_delivery']);
+
+						$deliveries = Model_Collection_Objects::getInstance()->getGuideObjects($obj->id_type);
+						foreach ($deliveries as $delivery) {
+							if ($delivery->id == $obj->id)
+									$delPrice = $delivery->getValue('shop_order_delivery_price');
+						}
+
+						$delTitle = $obj->title;
+						
+                        $vals[$field['name']] = $delTitle ? $delTitle : 'Не определено';
+						$vals[$field['name'].'sum'] = $delPrice ? $delPrice : 0;
+                    } else {
+                        $vals[$field['name']] = isset($vals[$field['name']]) ? $vals[$field['name']] : '';
+                    }
+                }
+                $data['data'][$order->id] = $vals;
+            }
+            $dta = array_reverse($data['data']);
+			//print_r($data['data']);
+			?>
+<h1>Ваши заказы:</h1>
+<table class="basket-list">
+	<tr>
+		<th>№</th>
+		<th>Текущий статус</th>
+		<th>Дата</th>
+		<th>Стоимость товаров</th>
+		<th>Способ и стоимость доставки</th>
+		<th>Сумма</th>
+	</tr>
+    <? foreach($dta as $order):?>
+        <tr>
+            <td><?=$order['shop_order_number'];?></td>
+			<td><?=$order['shop_order_status'];?></td>
+			<td><?=$order['shop_order_date'];?></td>
+			<td><?=$order['shop_order_sum'];?> руб.</td>
+			<td><?=$order['shop_order_delivery'].' ('.$order['shop_order_deliverysum'].' руб.)';?></td>
+			<td><b><?=$order['shop_order_sum']+$order['shop_order_deliverysum'];?></b> руб.</td>
+        </tr>
+    <? endforeach;?>
+        <tr>
+            <th colspan="6">&nbsp;</th>
+        </tr>
+</table>
+<?php
+
+
+
+
+/*
+
+
+			$orders = Model_Collection_ShopOrders::getInstance()->getUserOrders($user_id);
+			foreach ($orders as $order) {
+				$ordinfo = Model_Collection_ShopOrderInfo::getInstance()->getEntityByOrder($order['id']);
+				$elements = array();
+				foreach($ordinfo as $row) {
+					$el = Model_Collection_Objects::getInstance()->getEntity($row->id_obj);
+					$e = $el->getValues();
+					$element = Model_Collection_Elements::getInstance()->getEntity($e['shop_order_itemid']);
+					$e['shop_order_itemid'] = '<a href="/'.$element->urlname.'" target="_blank">'.$element->getObject()->title.'</a>';
+					$elements[] = $e;
+				}
+				print_r($elements);
+				print '<hr>';
+			}
+
+/**/
+
+/*===================================================================================================================================*/
+?>
+
+<? elseif($this->show == 'edit'): ?>
+<p>
+    <?if( is_array($this->errors) ):?>
+		<? foreach($this->errors as $key=>$error):?>
+			<? foreach($error as $message):?>
+				<b><?=$this->form->$key->getLabel();?></b>: <?=$message;?><br/>
+			<? endforeach;?>
+		<? endforeach;?>
+	<? else:?>
+		<?=$this->errors;?>
+    <?endif;?>
+</p>
+<form method="post">
+    <b>Имя</b>: <?=$this->form->user_name;?><br/>
+    <b>Фамилия</b>: <?=$this->form->user_surname;?><br/>
+    <b>Email</b>: <?=$this->form->user_email;?><br/>
+    <?=$this->form->regbutton;?>
+</form>
+
+<a href="/<?=$this->element->urlname;?>">Вернуться</a>
+<? elseif($this->show == 'editpass'): ?>
+<p><?=$this->errors;?></p>
+<?=$this->form;?>
+<? endif;?>

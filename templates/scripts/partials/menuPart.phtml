@@ -1,0 +1,13 @@
+<?php if ( !empty($this->container) ): ?>
+<ul id="menu<?=$this->container->getId()?>">
+<?php foreach($this->container as $page): ?>
+    <li><a href="<?=$page->getHref()?>" title="<?=$page->getTitle()?>"><?=$page->getLabel()?></a>
+    	<ul>
+    		<?php foreach($page->getPages() as $p):?>
+    		<li><a href="<?=$p->getHref()?>" title="<?=$p->getTitle()?>"><?=$p->getLabel()?></a></li>
+    		<?php endforeach ?>
+    	</ul>
+    </li>
+<?php endforeach ?>
+</ul>
+<?php endif; ?>

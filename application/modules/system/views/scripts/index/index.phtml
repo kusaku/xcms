@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html> 
+<head>
+<?=$this->headTitle()?>  
+<?=$this->headMeta()?>
+<?=$this->headLink()?> 
+<?=$this->headScript()?>
+</head>
+	<body>
+		
+		<div id="main">
+			<div id="logo">
+			<img src="/cms/images/mainLogo.png"  alt="Фабрика сайтов" border="0" />
+			</div>
+			<div id="header">
+				Мастер установки <span class="fc">CMS</span> системы
+			</div>
+			<div id="step">
+			<?php $flag = false;?>
+				<?php foreach ($this->steps as $name=>$step):?>
+				<div <?php if($name==$this->nowStep):?>class="now_step">
+				<?php $flag = true;?>
+					<?php elseif($flag):?>
+					class="future_step">
+					<?php else:?>
+					class="step">
+					<?php endif;?>
+					<?=$step?>
+					<?php if($name==$this->nowStep):?>
+					<img src="/cms/images/arrowOrangeRight.gif" class="arrow"/>
+					<?php endif;?>
+					</div>
+				<?php endforeach;?>
+			</div>
+			<div id="content">
+				<?php if($this->nowStep=='finish'):?>
+				<p><b style="color:red;">Внимание!!!</b> 
+				Не забудьте записать пароль суперадминистратора
+				</p>
+				<p>
+				Поздравляем, установка успешно завершена. 
+				</p>
+				<table class="InstallResult">
+					<tr>
+						<td>Версия PHP: </td><td class="val"><?=PHP_VERSION;?></td>
+					</tr>
+					<tr>
+						<td>Поддержка MySQL: </td><td class="val"><?=$this->data->serv_params['serv_params']['MySQL_support'];?></td>
+					</tr>
+					<tr>	
+						<td>Права на директории:</td><td class="val"><?=$this->data->serv_params['serv_params']['dir_permissions'];?></td>
+					</tr>
+					<tr>
+						<td>Поддержка mod_rewrite:</td><td class="val"><?=$this->data->serv_params['serv_params']['mod_rewrite'];?></td>
+					</tr>
+					<tr><td></td><td class="val"></td></tr>
+					<tr>
+						<td>Пользователь MySQL: </td><td class="val"><?=$this->data->db_connect['db_connect']['username'];?></td>
+					</tr>
+					<tr>
+						<td>Сервер MySQL: </td><td class="val"><?=$this->data->db_connect['db_connect']['host'];?></td>
+					</tr>	
+					<tr>
+						<td>Название БД: </td><td class="val"><?=$this->data->db_connect['db_connect']['dbname'];?></td>
+					</tr>
+					<tr><td></td><td class="val"></td></tr>
+					<tr>
+						<td>Суперадминистратор: </td><td class="val"><?=$this->data->superuser['superuser']['login'];?></td> 
+					<tr>
+						<td>Пароль: </td><td class="val"><?=$this->data->userpass ?></td>
+					<tr><td></td><td class="val"></td></tr>
+					<tr>
+						<td>Начать работу с сайтом: </td><td class="val"><a href="<?=$_SERVER['HTTP_ORIGIN']?>/admin"><?=$_SERVER['HTTP_HOST'];?>/admin</a></td>
+					</tr>						
+				</table>
+				<?php else :?>
+					<div class="result"><?=$this->result?></div>
+					<?=$this->form?>
+				<?php endif;?>
+			</div>					
+		</div>
+	</body>
+</html>

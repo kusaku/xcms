@@ -1,0 +1,16 @@
+<div style="float:right; margin-left: 10px"><?php if ( $this->element->catalog_photo ): ?><img src=/catalog/medium/<?=$this->element->catalog_photo?> border='0'/><?php endif; ?></div>
+<link rel="stylesheet" type="text/css" href="/jquery_gallery/fancybox/css/box.css" media="screen" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/jquery_gallery/fancybox/js/box.js"></script>
+<script type="text/javascript">
+		$(document).ready(function() {
+			$(".zoom").fancybox({
+				'frameWidth': 600,
+				'frameHeight': 400
+			});
+		});
+	</script>
+<div style="float:right; margin-left: 10px"><?php if ( $this->element->element_photo ): ?><a class="zoom" href='/catalog/big/<?=$this->element->element_photo?>'><img src=/catalog/medium/<?=$this->element->element_photo?> border='0'/></a><?php endif; ?></div>
+<?=$this->element->catalog_item_maintext?>
+<div class="item-price"><?php if ( $this->element->catalog_item_price ): ?><?=$this->element->catalog_item_price ?> руб.<?php endif; ?></div>
+<a href='javascript:history.back()' class="title">назад</a>

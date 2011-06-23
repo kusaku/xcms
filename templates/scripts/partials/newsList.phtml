@@ -1,0 +1,11 @@
+<?php if (count($this->container)): ?>
+<ul class="news-list">
+<?php foreach ($this->container as $item): ?>
+	<li class="news-item">
+		<div class="news-date"><?=$item->get('date')?></div>
+		<div class="news-title"><a href="<?=$item->getHref()?>"><?=$item->getLabel()?></a></div>
+		<p><?=$item->get('preview')?></p>
+	</li>
+	<?php endforeach; ?>
+</ul>
+<?php endif; ?>

@@ -1,0 +1,21 @@
+<? if($this->show == 'just'):?>
+<b>Логин</b>: <?=$this->user->login;?><br/>
+<b>Имя</b>: <?=$this->user->user_name;?><br/>
+<b>Фамилия</b>: <?=$this->user->user_surname;?><br/>
+<b>Email</b>: <?=$this->user->user_email;?><br/>
+<hr/>
+<a href="/users/profile/<?=$this->element->id;?>/edit">Редактировать</a>
+<a href="/users/profile/<?=$this->element->id;?>/changepassword">Редактировать</a>
+<? elseif($this->show == 'edit'): ?>
+<p><?=$this->errors;?></p>
+<form method="post">
+<b>Логин</b>: <?=$this->form->login;?><br/>
+<b>Имя</b>: <?=$this->form->user_name;?><br/>
+<b>Фамилия</b>: <?=$this->form->user_surname;?><br/>
+<b>Email</b>: <?=$this->form->user_email;?><br/>
+<?=$this->form->regbutton;?>
+</form>
+<a href="/<?=$this->element->urlname;?>">Вернуться</a>
+<? elseif($this->show == 'editpass'): ?>
+<?=$this->form;?>
+<? endif;?>

@@ -1,0 +1,27 @@
+<?=$this->element->text;?>
+<? if( !$this->error ):?>
+    <p>Результаты поиска по слову <b>"<?=$this->query?>"</b></p>
+    <? if(count($this->hits)>0):?>
+    <ul class="search_result">
+    <? foreach($this->etypes as $type):?>
+        <li><?=$type;?>
+            <ul>
+        <?foreach($this->hits as $hit):?>
+        <? $doc = $hit->getDocument();?>
+            <?if($doc->getFieldValue('element_type') == $type):?>
+            <li>
+                <a href="/<?=$doc->getFieldValue('urlname');?>"><?=$doc->name?></a>
+            </li>
+            <? endif;?>
+        <? endforeach;?>
+            </ul>
+            </li>
+
+    <? endforeach;?>
+    </ul>
+    <? else:?>
+    По вашему запросу ничего не найдено
+    <? endif;?>
+<?else:?>
+    Неверные параметры поиска
+<?endif;?>

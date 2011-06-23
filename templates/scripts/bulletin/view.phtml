@@ -1,0 +1,35 @@
+<?=$this->element->description?> 
+<?php
+if ( isset($this->sent) ) {
+	if ($this->sent)
+		echo 'Ваше объявление было успешно отправлено, оно будет опубликовано после утверждения модератором.';
+	else
+		echo 'Произошла ошибка при сохранении вашего сообщения, попробуйте еще раз позже.';
+} elseif ( $this->form ) {
+	echo $this->form->render();
+}
+?>
+<?php if (count($this->items)): ?>
+<ul class="blocks">
+<?php foreach ($this->items as $item): ?>	
+    	 <div class="text">
+    	 	<div class="text_name">
+    	 		<strong>Автор:</strong> <?=$item->items['bulletin_name']?></p>
+    	 	</div>
+    	 	<div class="text_email">
+    	 		<strong>E-mail:</strong> <?=$item->items['bulletin_email']?></p>
+    	 	</div>
+    	 	<?php if ( $item->items['bulletin_phone'] ): ?>
+    	 		<div class="text_phone">
+    	 			<strong>Телефон:</strong> <?=$item->items['bulletin_phone']?></p>
+    	 		</div>
+    	 	<?php endif;?>
+    	 		<div><strong>Объявление:</strong><?=$item->items['bulletin_maintext']?></div>
+    	 </div>    	
+    </li>
+<?php endforeach; ?>
+</ul>
+<?php endif;?>
+<?php if($this->items->getTotalItemCount()>$this->items->getItemCountPerPage()):?>
+Страницы: <?=$this->paginationControl($this->items,'Sliding','partials/paginationControl.phtml')?>
+<?php endif;?>

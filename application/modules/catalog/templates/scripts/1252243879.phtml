@@ -1,0 +1,15 @@
+<?=$this->doctype()?> 
+<html> 
+<head>
+<?=$this->headMeta()?> 
+<?=$this->headTitle()?> 
+<?=$this->headLink()?> 
+<?=$this->headScript()?>
+</head> 
+<body>
+<h2><?=$this->navigation()->breadcrumbs()?></h2>
+<div id="menu"><?=$this->navigation()->menu()?></div>
+<?=$this->layout()->content?> 
+<?=$this->inlineScript()?> 
+</body>
+</html>
