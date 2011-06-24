@@ -25,7 +25,6 @@ a:active, a:focus, img {outline:none;}
 #wrapper {
 	width: 1260px;
 	
-	min-height: 1000px;
 	overflow: hidden;
 	margin: 0 auto;	
 	background: #ffffff url(../images/top_bg.png) 0 0 repeat-x;
@@ -90,8 +89,8 @@ a:active, a:focus, img {outline:none;}
 		#leftbar #icons a#sitemap{left: 67px;top: 37px;}
 		#leftbar #icons a#mail{left: 96px; top: 44px;}
 		
-	#leftmenu ul.my-menu{height: 290px; width: 224px; padding: 10px 0 0 20px; background: url(../images/left_top.png) -3px -80px no-repeat #ffffff;}
-	#leftmenu{height: 290px; padding: 0 0 0 0px}
+	#leftmenu ul.my-menu{min-height: 290px; width: 224px; padding: 10px 0 0 20px; background: url(../images/left_top.png) -3px -80px no-repeat #ffffff;}
+	#leftmenu{min-height: 290px; padding: 0 0 0 0px}
 	#leftmenu ul{padding: 0 0 0 15px; margin: 0; list-style: none}
 	#leftmenu ul li{padding: 0px; display: block; line-height: 1.4em;background: none transparent; clear: both;_padding: 0; _height: 22px;}
 	/*#leftmenu ul li.open{background: url(../images/li1op.png) 0px 11px no-repeat transparent;}*/

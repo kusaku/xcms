@@ -249,4 +249,10 @@ class Articles_BackController extends Xcms_Controller_Back {
 		$total = count( Model_Collection_Elements::getInstance()->getDeleted() );
 		$this->getResponse()->setBody( $total );
 	}
+	
+	public function getoptionsAction() {
+	    $form = new Articles_Form_Options();
+	    $data['form'] = $form->render();
+	    $this->getResponse()->setBody( $this->view->json( $data ) );
+	}
 }

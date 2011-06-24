@@ -56,15 +56,22 @@
 		<div class="rega1" style="clear: both;">
 			<div class="title">Есть аккаунт</div>
 			<div class="auth">
-				<form enctype="application/x-www-form-urlencoded" method="post" action="/users/index/view"><dl class="zend_form">
-					<dt id="username-label"><label for="username" class="field">Логин</label></dt>
-					<dd id="username-element">
-					<input class="field" type="text" name="username" id="username" value=""></dd>
-					<dt id="userpass-label"><label for="userpass" class="field">Пароль</label></dt>
-					<dd id="userpass-element">
-					<input class="field" type="password" name="userpass" id="userpass" value=""></dd>
-					<dt id="login-label">&nbsp;</dt><dd id="login-element">
-					<input type="submit" name="login" id="enter" value="Войти"></dd></dl>
+				<form enctype="application/x-www-form-urlencoded" method="post" action="/users/index/view">
+					<dl class="zend_form">
+						<dt id="username-label"><label for="username" class="field">Логин</label></dt>
+						<dd id="username-element">
+							<input class="field" type="text" name="username" id="username" value="">
+						</dd>
+
+						<dt id="userpass-label"><label for="userpass" class="field">Пароль</label></dt>
+						<dd id="userpass-element">
+							<input class="field" type="password" name="userpass" id="userpass" value="">
+						</dd>
+
+						<dt id="login-label">&nbsp;</dt>
+						<dd id="login-element">&nbsp;</dd>
+						<input type="submit" name="login" id="enter" value="Войти">
+					</dl>
 				</form>
 			</div>
 		</div>
@@ -78,18 +85,20 @@
 			</div>
 		</div>
 
-<!--		<div class="rega3">
+	<?php if ( (bool) Zend_Registry::getInstance()->get( 'buy_without_reg' ) ){?>
+		<div class="rega3">
 			<div class="title">Без регистрации</div>
 			<div class="auth0">
-				<form method="post" action="/user/register/guestReg">
+				<form method="post" action="/Регистрация">
 					<label class="field">Имя:</label>
-					<input class="field" type="text" name="user_surname" id="user_surname" value="" class="String input-text">
+					<input class="field" type="text" name="user_name" id="user_name" value="" class="String input-text">
 					<label class="field">E-mail:</label>
 					<input class="field" type="text" name="user_email" id="user_email" value="" class="Email input-text">
+					<input type="hidden" name="guest" value="true">
 					<input id="continue" name="butt" type="submit" value="Продолжить">
 				</form>
 			</div>
-		</div> -->
+		</div>
 <!--
 <form method="post" action="/user/register/guestReg">
     <p>Фамилия пользователя
@@ -100,6 +109,7 @@
 	<input type="submit" name="regbutton" id="regbutton" value="Сохранить"></p>
 </form>
 -->
+	<?php }	?>
 
 
 <? endif;?>

@@ -74,6 +74,12 @@ class Catalog_Form_Options extends Admin_Form_Edit {
 		'validators' => array( array( 'Int' ) ),
 		'description' => 'Максимальное количество элементов, выводимых в списке на одной странице'
 	));
+	$catalog_socbuttons = $reg->get( 'catalog_socbuttons' );
+	$this->addElement( 'checkbox', 'catalog_socbuttons', array(
+		'label' => 'Отображение социальных кнопок',
+		'value' => $catalog_socbuttons,
+		'description' => 'Включить отображение социальных кнопок на странице отдельного товара'
+	));
 
 	$this->setElementDecorators( array(
 		array('Label', array('nameimg' => 'ico_help.gif')), 

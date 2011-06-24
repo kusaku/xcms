@@ -258,4 +258,10 @@ class Offers_BackController extends Xcms_Controller_Back {
 		else
 			$this->getResponse()->setBody( "error" );
 	}
+	
+	public function getoptionsAction() {
+	    $form = new Offers_Form_Options();
+	    $data['form'] = $form->render();
+	    $this->getResponse()->setBody( $this->view->json( $data ) );
+	}
 }

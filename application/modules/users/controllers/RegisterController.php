@@ -10,18 +10,31 @@
  * @author aleksey.f
  */
 class Users_RegisterController extends Xcms_Controller_Modulefront {
-    //put your code here
-    public function  viewAction() {
-        $this->setDataFrom( $this->getRequest()->getParam('id') );
+
+	public function  viewAction() {
+
+		$storage = Zend_Auth::getInstance()->getStorage();
+		$this->setDataFrom( $this->getRequest()->getParam('id') );
         $form = new Users_Form_Register();
+		$is_guest = false;
+
+		/**
+		 * Если мы получили параметр guest, то формируем недостающие поля из имеющихся.
+		 */
+		if ( (bool)$this->getRequest()->getParam('guest') ){
+			$_POST['login'] = $_POST['user_email'];
+			$_POST['user_password'] = substr(md5(time().'sdk;gj'),1,6);
+			$_POST['user_surname'] = '(быстрая покупка)';
+			$is_guest = true;
+		}
+
         if($this->getRequest()->isPost()) {
             if( $form->isValid( $this->getRequest()->getParams() ) ) {
                 $mcu = Model_Collection_Users::getInstance();
                 $user = $mcu->createUser( array( 'id_usergroup'=>Model_Collection_Users::REGISTERED ) );
                 try {
                     $user->setValues($this->getRequest()->getPost());
-                    $reg = Zend_Registry::getInstance();
-                    if( $reg->get('users_active_mode') == 1 ) {
+                    if( Zend_Registry::getInstance()->get('users_active_mode') == 1 ) {
                         $user->is_active = 1;
                     }
                     $user->commit();
@@ -30,61 +43,31 @@ class Users_RegisterController extends Xcms_Controller_Modulefront {
                     $this->view->is_regist = false;
                 }
                 $this->view->is_regist = true;
+				$storage->write( $user );
             } else {
                 $this->view->register_errors = $form->getMessages();
             }
         }
         $this->view->form = $form;
-        $this->renderContent('register.phtml');
+		if ( $this->view->is_regist ){
+
+
+			$title = 'Регистрация прошла успешно!';
+			$mess =  htmlspecialchars(trim($_POST['user_name'].", поздравляем Вас! Регистрация прошла успешно!\nВаши логин: ".$_POST['login']."\nи пароль: ".$_POST['user_password']."\n\nС уважением, администрация сайта “".Zend_Registry::getInstance()->get('site_name')."”."));
+			$from='dmitry.k@fabricasaitov.ru';
+
+			mail($_POST['user_email'], $title, $mess, 'From:'.$from);
+
+		if ( $is_guest ){
+			$uri = Zend_Uri_Http::fromString('http://'.$_SERVER['HTTP_HOST'].'/shopcart');
+			$this->_redirect($uri->__toString());
+			return true;
+		}
+
+
+		}
+
+		$this->renderContent('register.phtml');
     }
 
-	/**
-	 * Регистрация гостя.
-	 * Применяется в случае покупки "без регистрации".
-	 * Логином становится EMail, пароль генерируется.
-	 *
-	 * <form method="post">
-		<p>Логин
-		<input type="text" name="login" id="login" value="" class="UserLogin input-text"></p>
-		<p>Пароль
-		<input type="password" name="user_password" id="user_password" value="" class="UserPassword"></p>
-		<p>Имя пользователя
-		<input type="text" name="user_name" id="user_name" value="Новый" class="Name input-text"></p>
-		<p>Фамилия пользователя
-		<input type="text" name="user_surname" id="user_surname" value="" class="String input-text"></p>
-		<p>Email
-		<input type="text" name="user_email" id="user_email" value="" class="Email input-text"></p>
-		<p>
-		<input type="submit" name="regbutton" id="regbutton" value="Сохранить"></p>
-		</form>
-	 *
-	 *
-	 */
-	public function  guestRegAction() {
-        $this->setDataFrom( $this->getRequest()->getParam('id') );
-        $form = new Users_Form_Register();
-        if($this->getRequest()->isPost()) {
-            if( $form->isValid( $this->getRequest()->getParams() ) ) {
-                $mcu = Model_Collection_Users::getInstance();
-                $user = $mcu->createUser( array( 'id_usergroup'=>Model_Collection_Users::REGISTERED ) );
-                try {
-                    $user->setValues($this->getRequest()->getPost());
-                    $reg = Zend_Registry::getInstance();
-                    if( $reg->get('users_active_mode') == 1 ) {
-                        $user->is_active = 1;
-                    }
-                    $user->commit();
-                } catch(Exception $e) {
-                    $this->view->fatalerror = $e->getMessage();
-                    $this->view->is_regist = false;
-                }
-                $this->view->is_regist = true;
-            } else {
-                $this->view->register_errors = $form->getMessages();
-            }
-        }
-        $this->view->form = $form;
-        $this->renderContent('register.phtml');
-    }
 }
-?>

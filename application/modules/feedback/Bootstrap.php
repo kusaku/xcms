@@ -15,7 +15,7 @@ class Feedback_Bootstrap extends Zend_Application_Module_Bootstrap {
 	 * @var array
 	 */
 	protected $_moduleOptions = array(
-		'title'      => 'Обратная связь',
+		'title'      => 'Обр. связь',
 		'controller' => 'feedback',
 		'layout' => array(
 			'type' => 'pane',
