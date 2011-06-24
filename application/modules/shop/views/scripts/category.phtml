@@ -1,0 +1,54 @@
+<!-- Описание категории -->
+<?=$this->element->description?>
+<!-- Вывод категорий -->
+<? if (count($this->cat)): ?>
+<ul class="category-list">
+<? foreach ($this->cat as $item): ?>
+    <li class="category-item">
+        <div class="category-title"><?=$this->navigation()->menu()->htmlify($item)?></div>
+        <? if ( $item->items['element_photo'] ): ?><div><img src="/catalog/kategory/<?=$item->items['element_photo']?>"/></div><?php endif; ?>
+    </li>
+<? endforeach; ?>
+</ul>
+<? endif; ?>
+
+<!-- Вывод товара -->
+<? if (count($this->items)): ?>
+
+<? $count = 0; $total_items = $this->items->getCurrentItemCount();?>
+<ul class="goods-list">
+<? foreach ($this->items as $item): ?>
+<li class="goods-item">
+	<form method="post">
+		<div class="goods-left"><a class="zoom" href="<?=$item->getHref();?>"><? if ( $item->items['shop_item_image'] ): ?><img src="/shop/small/<?=$item->items['shop_item_image']?>"  style="max-width: 134px;"/><? endif; ?></a>
+			<div class="order">
+				<strong><?=$item->items['shop_item_price']?></strong> руб.
+
+		<? if( array_key_exists($item->id, $_SESSION['XcmsShop']['items']) ): ?>
+			<input class="cartbtn2"id="<?="btn".$item->id;?>" type="button" value="в корзину" onClick="addToOrder(<?="'".$item->getHref()."'";?>,<?=$item->id?>)">
+		<? else: ?>
+			<input class="cartbtn" id="<?="btn".$item->id;?>" type="button" value="в корзину" onClick="addToOrder(<?="'".$item->getHref()."'";?>,<?=$item->id?>)">
+		<? endif;?>
+
+			</div>
+		</div>
+		<div class="goods-right">
+			<p class="goods-title"><?=$this->navigation()->menu()->htmlify($item)?></p>
+			<p>
+			<?php
+				$about = substr($item->items['shop_item_about'], 0, 253);
+				print $about;
+				if ( $about != $item->items['shop_item_about'] ) print '<img src="/images/2white.png" style="margin: 0 0 -3px -32px;">';
+				
+			?></p>
+		</div>
+	</form>
+</li>
+<?php endforeach; ?>
+</ul>
+
+
+<?php endif; ?>
+<?php if($this->items->getTotalItemCount()>$this->items->getItemCountPerPage()):?>
+Страницы: <?=$this->paginationControl($this->items,'Sliding','partials/paginationControl.phtml')?>
+<?php endif;?>

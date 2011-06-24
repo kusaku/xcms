@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shop>
+    <element_types id="" module="shop" controller="back" title="">
+        <permissions_modules id_owner="3" id_etype="parent" mode="" allow="1">
+        </permissions_modules>
+        <permissions_modules id_owner="4" id_etype="parent" mode="" allow="1">
+        </permissions_modules>
+    </element_types>
+<!--    <element_types id="" module="shop" controller="category" title="Категория каталога">
+        <permissions_modules id_owner="1" id_etype="parent" mode="view" allow="1">
+        </permissions_modules>
+        <permissions_modules id_owner="3" id_etype="parent" mode="" allow="1">
+        </permissions_modules>
+        <permissions_modules id_owner="4" id_etype="parent" mode="" allow="1">
+        </permissions_modules>
+        <object_types id="" id_parent="4" id_element_type="parent" is_locked="0" is_guidable="1"
+                        is_public="1" title="Категория каталога">
+
+            <field_groups id=""	name="common" id_obj_type="parent" is_active="1" is_locked="0"	is_visible="1"	title="Редактирование содержимого страницы" ord="1">
+                <fields_controller id_field="1"	id_group="parent" ord="1">
+                </fields_controller>
+                <fields_controller id_field="120" id_group="parent" ord="2">
+                </fields_controller>
+            </field_groups>
+			 <field_groups id=""	name="photo" id_obj_type="parent" is_active="1" is_locked="0"	is_visible="1"	title="Редактирование фотографий" ord="2">
+                <fields_controller id_field="132"	id_group="parent" ord="1">
+                </fields_controller>
+            </field_groups>
+            <field_groups id=""	name="seo"	id_obj_type="parent"	is_active="1" is_locked="0" is_visible="0" title="Настройки для поисковых систем" ord="3">
+                <fields_controller id_field="103" id_group="parent" ord="2">
+                </fields_controller>
+                <fields_controller id_field="104" id_group="parent" ord="1">
+                </fields_controller>
+                <fields_controller id_field="105" id_group="parent" ord="4">
+                </fields_controller>
+                <fields_controller id_field="106" id_group="parent" ord="3">
+                </fields_controller>
+                <fields_controller id_field="107" id_group="parent" ord="5">
+                </fields_controller>
+            </field_groups>
+            <field_groups id=""	name="menu" id_obj_type="parent" is_active="1" is_locked="0" is_visible="0" title="Настройки меню" ord="4">
+                <fields_controller id_field="109" id_group="parent" ord="1">
+                </fields_controller>
+            </field_groups>
+            <field_groups id=""	name="page" id_obj_type="parent" is_active="1" is_locked="1" is_visible="0" title="Настройки страницы" ord="5">
+                <fields_controller id_field="115" id_group="parent" ord="1">
+                </fields_controller>
+                <fields_controller id_field="116" id_group="parent" ord="2">
+                </fields_controller>
+                <fields_controller id_field="117" id_group="parent" ord="3">
+                </fields_controller>
+                <fields_controller id_field="119" id_group="parent" ord="4">
+                </fields_controller>
+				<fields_controller id_field="138" id_group="parent" ord="5">
+                </fields_controller>
+            </field_groups>
+            <field_groups id=""	name="permissions" id_obj_type="parent"	is_active="1" is_locked="1" is_visible="0" title="Права доступа" ord="6">
+                <fields_controller id_field="128" id_group="parent" ord="1">
+                </fields_controller>
+            </field_groups>
+        </object_types>
+    </element_types>
+    <element_types id="" module="catalog" controller="item" title="Элементы каталога">
+        <permissions_modules id_owner="1" id_etype="parent" mode="view" allow="1">
+        </permissions_modules>
+        <permissions_modules id_owner="3" id_etype="parent" mode="" allow="1">
+        </permissions_modules>
+        <permissions_modules id_owner="4" id_etype="parent" mode="" allow="1">
+        </permissions_modules>
+        <object_types id="" id_parent="4" id_element_type="parent" is_locked="0" is_guidable="1" is_public="1" title="Элемент каталога">
+            <field_groups id=""	name="common"	id_obj_type="parent"	is_active="1" is_locked="0"	is_visible="1"	title="Редактирование содержимого страницы"	ord="1">
+                <fields_controller id_field="1" id_group="parent" ord="1">
+                </fields_controller>
+                <fields_controller id_field="133" id_group="parent" ord="3">
+                </fields_controller>
+                <fields_controller id_field="134" id_group="parent" ord="4">
+                </fields_controller>
+				<fields_controller id_field="135" id_group="parent" ord="2">
+                </fields_controller>
+            </field_groups>
+			 <field_groups id=""	name="photo"	id_obj_type="parent"	is_active="1" is_locked="0"	is_visible="1"	title="Редактирование фотографий"	ord="1">
+                <fields_controller id_field="132" id_group="parent" ord="1">
+                </fields_controller>
+            </field_groups>
+            <field_groups id=""	name="seo"	id_obj_type="parent"	is_active="1" is_locked="1" is_visible="0"	title="Настройки для поисковых систем"	ord="2">
+                <fields_controller id_field="103" id_group="parent" ord="2">
+                </fields_controller>
+                <fields_controller id_field="104" id_group="parent" ord="1">
+                </fields_controller>
+                <fields_controller id_field="105" id_group="parent" ord="4">
+                </fields_controller>
+                <fields_controller id_field="106" id_group="parent" ord="3">
+                </fields_controller>
+                <fields_controller id_field="107" id_group="parent" ord="5">
+                </fields_controller>
+            </field_groups>
+            <field_groups id=""	name="page"	id_obj_type="parent"	is_active="1" is_locked="1" is_visible="0" title="Настройки страницы" ord="3">
+                <fields_controller id_field="115" id_group="parent" ord="1">
+                </fields_controller>
+                <fields_controller id_field="116" id_group="parent" ord="2">
+                </fields_controller>
+                <fields_controller id_field="117" id_group="parent" ord="3">
+                </fields_controller>
+            </field_groups>
+        </object_types>
+    </element_types> -->
+</shop>

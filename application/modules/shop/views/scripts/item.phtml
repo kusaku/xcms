@@ -1,0 +1,72 @@
+<link rel="stylesheet" type="text/css" href="/jquery_gallery/fancybox/css/box.css" media="screen" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/jquery_gallery/fancybox/js/box.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".zoom").fancybox({
+			'frameWidth': 600,
+			'frameHeight': 400
+		});
+	});
+</script>
+<div class="foto-price">
+    <? if ( $this->element->shop_item_image ): ?>
+        <a class="zoom" href="/shop/big/<?=$this->element->shop_item_image?>">
+            <img src="/shop/medium/<?=$this->element->shop_item_image?>" border="0" width="243px"/>
+        </a>
+    <? endif; ?>
+
+	<div class="availible">Каталог<br><span><a href="/<?=$this->parent_link;?>">вернуться</a></span></div>
+	<div class="order">
+		<strong><?=$this->element->shop_item_price ?></strong> руб.
+
+		<? if( ! $this->already_ordered): ?>
+			<input class="cartbtn" id="<?="btn".$this->element->id;?>" type="button" value="в корзину" onclick="addToOrder(<?="'/".$this->element->urlname."'";?>, <?="'btn".$this->element->id."'";?>)">
+		<? else: ?>
+			<input class="cartbtn2" id="<?="btn".$this->element->id;?>" type="button" value="в корзину" onclick="addToOrder(<?="'/".$this->element->urlname."'";?>, <?="'btn".$this->element->id."'";?>)">
+		<? endif;?>
+
+		
+
+	</div>
+
+</div>
+
+
+
+<div class="description">
+	<p><?=$this->element->shop_item_about?></p>
+	<? 
+	$reg = Zend_Registry::getInstance();
+	if($reg->get('shop_socbuttons')) {
+	?>
+	<script type="text/javascript">var t20s_config={h:'',t:'<?=$this->element->name?>'}</script>
+	<style type="text/css">.t20s-595-1-1{height:22px}.t20s-595-1-1 a{display:block;float:left;height:22px;text-decoration:none!important;padding:0}.t20s-595-1-1 a u{display:block;float:left;width:16px;height:16px;background:url(//tools20.ru/i2/595.png) no-repeat scroll;margin:3px;cursor:pointer}.t20s-595-1-1 a b{display:block;float:left;font:bold 11px Arial,sans-serif;color:#000;height:16px;line-height:16px;vertical-align:middle;margin:3px;cursor:pointer}</style>
+	<div class="t20s-595-1-1"><a href="//tools20.ru/g2?s=18&p=115" onclick="return t20s1(this,554,349)" title="Заметки ВКонтакте"><u style="background-position:-160px 0"></u></a><a href="//tools20.ru/g2?s=19&p=115" onclick="return t20s1(this,600,400)" title="Одноклассники"><u style="background-position:-176px 0"></u></a><a href="//tools20.ru/g2?s=1&p=115" onclick="return t20s1(this,800,600)" title="LiveJournal"><u style="background-position:-0px 0"></u></a><a href="//tools20.ru/g2?s=9&p=115" onclick="return t20s1(this,600,400)" title="Яндекс.Закладки"><u style="background-position:-112px 0"></u></a><a href="//tools20.ru/g2?s=11&p=115" onclick="return t20s1(this,600,400)" title="МойМир@Mail.Ru"><u style="background-position:-128px 0"></u></a><a href="//tools20.ru/g2?s=4&p=115" onclick="return t20s1(this,752,400)" title="FaceBook"><u style="background-position:-48px 0"></u></a><a href="//tools20.ru/g2?s=5&p=115" onclick="return t20s1(this,784,400)" title="Twitter"><u style="background-position:-64px 0"></u></a><a href="//tools20.ru/g2?s=2&p=115" onclick="return t20s1(this,952,400)" title="LiveInternet"><u style="background-position:-16px 0"></u></a><a href="//tools20.ru/g2?s=13&p=115" onclick="return t20s1(this,716,480)" title="Google Buzz"><u style="background-position:-144px 0"></u></a><a href="//tools20.ru/g2?s=3&p=115" onclick="return t20s1(this,830,600)" title="Закладки Google"><u style="background-position:-32px 0"></u></a><a href="//tools20.ru/g2?s=8&p=115" onclick="return t20s1(this,740,600)" title="Memori.ru"><u style="background-position:-96px 0"></u></a><a href="//tools20.ru/g2?s=7&p=115" onclick="return t20s1(this,740,550)" title="BobrDobr"><u style="background-position:-80px 0"></u></a></div>
+	<script type="text/javascript">var t20s=t20s||[];(function(){var p,u=t20s.length,d=document.getElementsByTagName('DIV'),w=t20s_config;w.h=w.h||window.location.href;w.t=w.t||document.title;for(p in w)w[p]=encodeURIComponent(w[p]);for(p in d)if(!d[p].id&&d[p].className&&!d[p].className.indexOf('t20s-')){d[p].id='socio_'+u;t20s[u]=w;break}})();function t20s1(e,w,h){var i=e.parentNode,g=t20s[i.id.split('_')[1]];window.open(e.href+'&l='+g.h+'&t='+g.t+((g.i)?'&i='+g.i:'')+((g.d)?'&d='+g.d:'')+((g.k)?'&k='+g.k:''),(new Date()).getTime(),'width='+w+',height='+h+',left='+Math.max(Math.floor((screen.width-w)/2),0)+',top='+Math.max(Math.floor((screen.height-h)/2),0)+',scrollbars=1');return false}</script>
+	<?}?>
+</div>
+
+
+
+
+
+<!--
+    <div style="width:48%;float:right;">
+    <div class="item-price" style="float:left;font-size: 16px;">
+            Цена: <?php if ( $this->element->shop_item_price ): ?><?=$this->element->shop_item_price ?> руб.<?php endif; ?>
+    </div>
+        <div style="float:right;">
+    <? if( ! $this->already_ordered): ?>
+        <form method="post">
+
+            <? $this->form->add_to_order->setLabel('В корзину ->');?>
+            <?=$this->form->add_to_order;?>
+        </form>
+    <? else: ?>
+        <p>Уже в <a href="<?=$this->order_link;?>">корзине</a></p>
+    <? endif;?>
+        </div>
+    </div>
+-->
+

@@ -1,0 +1,144 @@
+<link rel="stylesheet" type="text/css" href="/jquery_gallery/fancybox/css/box.css" media="screen" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/jquery_gallery/fancybox/js/box.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".zoom").fancybox({
+			'frameWidth': 600,
+			'frameHeight': 400
+		});
+	});
+</script>
+<?=$this->element->text;?>
+<?php
+
+	$otype = Model_Collection_ElementTypes::getInstance()->getModuleElementType('shop', 'orders');
+	$order_type = $otype->getObjectType();
+	$groups = $order_type->getFieldGroups();
+	$cities = false;
+	$deliveries = false;
+	$payments = false;
+	foreach($groups as $group) {
+		$fields = $group->getFields();
+		foreach($fields as $field) {
+			if($field->name == 'shop_order_city' and !$cities)
+				$cities = Model_Collection_Objects::getInstance()->getGuideObjects($field->id_guide);
+
+			if($field->name == 'shop_order_delivery' and !$deliveries)
+				$deliveries = Model_Collection_Objects::getInstance()->getGuideObjects($field->id_guide);
+
+			if($field->name == 'shop_order_payment' and !$payments)
+				$payments = Model_Collection_Objects::getInstance()->getGuideObjects($field->id_guide);
+
+		}
+	}
+
+?>
+
+<h1>Шаг 2</h1>
+
+<div class="step1ok">Авторизация</div>
+<div class="step2it">Оформление</div>
+<div class="step3">Подтверждение</div>
+
+<table class="basket-list">
+	<tr>
+		<th></th>
+		<th>Наименование</th>
+		<th>Цена</th>
+		<th>Кол-во</th>
+		<th>Общая сумма</th>
+	</tr>
+    <? foreach($this->items as $id=>$item):?>
+        <tr>
+			<td><a class="zoom" href="/shop/big/<?=$item['values']->shop_item_image?>"><img src="/shop/small/<?=$item['values']->shop_item_image?>" class="steps_small_image"/></a></td>
+            <td><?=$item['name'];?></td>
+			<td><?=$item['price'];?> руб. </td>
+            <td><?=$item['count'];?> шт. </td>
+            <td><?=$item['price']*$item['count'];?> руб. </td>
+        </tr>
+    <? endforeach;?>
+        <tr>
+            <th colspan="5" style="text-align: right;">
+				Итого: <?=$this->sum?> руб.
+				<input type="hidden" id="summ" value="<?=$this->sum?>">
+			</th>
+        </tr>
+</table>
+
+<!-- <form method="post" name="next">
+    <input type="submit" value="Предыдущий шаг" name="prev_step"/>
+    <input type="submit" value="Оформить заказ" name="order_confirm"/>
+</form>
+-->
+<div class="basket-chek">
+	<table>
+		<tbody>
+			<tr>
+				<td>Выбрано товаров на сумму:</td>
+				<td><span><?=$this->sum?> руб.</span></td>
+			</tr>
+			<tr>
+				<td>Стоимость доставки:</td>
+				<td><span><span id="delivery">0</span> руб.</span></td>
+			</tr>
+			<tr>
+				<td>Итого:</td>
+				<td><span class="check"><span id="totalSumm"><?=$this->sum?></span> руб.</span></td>
+			</tr>
+		</tbody>
+	</table>
+</div> 
+
+<form action="#" method="post">
+	<div class="basket-delivery">
+	<div class="left">
+		<p><strong>Выберите способы получения товара:</strong></p>
+		<fieldset>
+			<?php
+			/*
+			 * Варианты доставки.
+			 * Берутся из справочника, но цена идёт в названии без
+			 */
+				foreach ($deliveries as $delivery){
+					//$tmp = explode(':',$delivery->title);
+					$deliv['id'] = $delivery->id;
+					$deliv['title'] = $delivery->title;
+					$deliv['price'] = $delivery->getValue('shop_order_delivery_price');
+					if ( $deliv['price'] == 0 ) $checked = 'checked="checked"'; else $checked = ''; // Выбираем бесплатный вариант
+					print '<input class="niceRadio" name="shop_order_delivery" type="radio" onChange="summaStepTwo()" value="'.$deliv['id'].'" price="'.$deliv['price'].'" '.$checked.'/> <label for="myradio2">'.$deliv['title'].' <span>'.$deliv['price'].' руб.</span></label><br>';
+				}
+			?>
+		</fieldset>
+
+
+		<div id="delyvar" class="delivery">
+			<div style="height: 32px;"><label>Город:</label>
+				<select id="city" name="shop_order_city">
+				<?php
+					foreach ($cities as $city){
+						print "<option value='$city->id'>$city->title</option>";
+					}
+				?>
+				</select>
+			</div>
+			<div style="overflow: hidden;"><label>Адрес:</label> <input class="field" name="shop_order_address" type="text" value="<?=$this->user['user_address']?>" /></div>
+			<div style="overflow: hidden;"><label>Телефон:</label> <input class="field" name="user_phone" type="text" value="<?=$this->user['user_phone']?>" /></div>
+			<div style="overflow: hidden;"><label>Комментарий к заказу:</label> <textarea cols="15" rows="4" name="shop_order_comment"></textarea></div>
+		</div>
+	</div>
+	<div class="right">
+		<p><strong>Выберите способы оплаты:</strong></p>
+		<fieldset>
+			<?php
+				foreach ($payments as $pay){
+					print '<input id="myradio4" class="niceRadio" name="shop_order_payment" type="radio" value="'.$pay->id.'" />';
+					print '<label for="myradio4">'.$pay->title.'</label><br />';
+				}/**/
+			?>
+		</fieldset>
+	</div>
+	</div>
+	<input type="submit" value="Предыдущий шаг" name="prev_step" style="background-color: #FF6E00; color: #FFF; border: 0; padding: 5px 10px; margin: 3px;cursor: pointer;"/>
+    <input type="submit" value="Следующий шаг" name="next_step" style="background-color: #FF6E00; color: #FFF; border: 0; padding: 5px 10px; margin: 3px;cursor: pointer;"/>
+</form>
