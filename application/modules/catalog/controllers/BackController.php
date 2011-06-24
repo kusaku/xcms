@@ -29,13 +29,13 @@ class Catalog_BackController extends Xcms_Controller_Back {
 	 */
 	public function getAction() {
 		$category_id = ( int ) $this->getRequest ()->getParam ( 'category' );
-		$c_type = Model_Collection_ElementTypes::getInstance()->getModuleElementType('catalog', 'category');
+		$c_type = Model_Collection_ElementTypes::getInstance()->getModuleElementType('shop', 'category');
 		if ( isset($c_type) ) {
 			$cat_type_id = $c_type->id;
 		} else {
 			throw new Exception( 'Тип данных каталог категорий не существует' );
 		}
-		$i_type = Model_Collection_ElementTypes::getInstance()->getModuleElementType('catalog', 'item');
+		$i_type = Model_Collection_ElementTypes::getInstance()->getModuleElementType('shop', 'item');
 		if ( isset($i_type) ) {
 			$item_type_id = $i_type->id;
 		} else {
@@ -44,9 +44,9 @@ class Catalog_BackController extends Xcms_Controller_Back {
 		$mce = Model_Collection_Elements::getInstance ();
                 
 		$categories = $mce->getChildren ( $category_id, 2, $cat_type_id );
-                $bootstraps = $this->getInvokeArg('bootstrap')->getResource( 'modules' );
-                $options = $bootstraps['catalog']->getModuleOptions();
-                $actions = $options['actions'];
+        $bootstraps = $this->getInvokeArg('bootstrap')->getResource( 'modules' );
+        $options = $bootstraps['catalog']->getModuleOptions();
+        $actions = $options['actions'];
 		$data = array();
 		foreach ( $categories as $k => $have ) {
 			$category = $mce->getElement ( $k );
@@ -62,10 +62,10 @@ class Catalog_BackController extends Xcms_Controller_Back {
 				'title' => $category->getObject()->title,
 				'expandable' => $expandable,
 				'count' => count( $have ),
-                                'controller' => 'catalog',
-                                'element' => 'category',
+                'controller' => 'catalog',
+                'element' => 'category',
 				'elementClass' => $categoryClass,
-                                'actions'=>$actions['category']
+                'actions'=>$actions['category']
 				//'accept' => '.catalog_item, .catalog_category'
 			);
 		}
@@ -116,7 +116,7 @@ class Catalog_BackController extends Xcms_Controller_Back {
 			if ( $action == 'new' ) {
 				$data['category_img'] = true;
 				//создание категории
-				$type_cat = Model_Collection_ElementTypes::getInstance()->getModuleElementType('catalog', 'category');
+				$type_cat = Model_Collection_ElementTypes::getInstance()->getModuleElementType('shop', 'category');
 				if ( isset($type_cat) ) {
 					$type_cat_id = $type_cat->id;
 				} else {
@@ -136,7 +136,7 @@ class Catalog_BackController extends Xcms_Controller_Back {
                                 if ( $item_id == 'new' ) {
                                     $data['category_img'] = false;
                                     // Создание товара
-                                    $type_item = Model_Collection_ElementTypes::getInstance()->getModuleElementType('catalog', 'item');
+                                    $type_item = Model_Collection_ElementTypes::getInstance()->getModuleElementType('shop', 'item');
                                     if ( isset($type_item) ) {
                                             $type_item_id = $type_item->id;
                                     } else {
@@ -216,14 +216,14 @@ class Catalog_BackController extends Xcms_Controller_Back {
 		$this->_forward( 'edit' );
 	}
         
-        public function newitemAction() {
-            $category_id = $this->getRequest ()->getParam ( 'category' );
+	public function newitemAction() {
+		$category_id = $this->getRequest ()->getParam ( 'category' );
 		if ( isset( $category_id ) ) {
 			// создание элемента каталога
 			$this->getRequest ()->setParam ( 'item', 'new' );
 		}
 		$this->_forward( 'edit' );
-        }
+	}
 
 
         /**
@@ -267,11 +267,11 @@ class Catalog_BackController extends Xcms_Controller_Back {
 			}/**/
 		
 		$config = array(
-			"catalog/big" => array( "size"=>$reg->get( 'catalog_big_size' ), "quality"=>100, "square" => $reg->get( 'square_big_active' ) ),
-			"catalog/medium" => array( "size"=>$reg->get( 'catalog_medium_size' ), "quality"=>80, "square" => $reg->get( 'square_medium_active' )),
-			"catalog/small" => array( "size"=>$reg->get( 'catalog_small_size' ), "quality"=>80, "square" => $reg->get( 'square_small_active' ) ),
-			"catalog/kategory" => array( "size"=>$reg->get( 'catalog_kategory_size' ), "quality"=>80, "square" => $reg->get( 'square_kategory_active' )),
-			"catalog/backend" => array( "size"=>75, "square"=>true ), // картинка для админки
+			"shop/big" => array( "size"=>$reg->get( 'catalog_big_size' ), "quality"=>100, "square" => $reg->get( 'square_big_active' ) ),
+			"shop/medium" => array( "size"=>$reg->get( 'catalog_medium_size' ), "quality"=>80, "square" => $reg->get( 'square_medium_active' )),
+			"shop/small" => array( "size"=>$reg->get( 'catalog_small_size' ), "quality"=>80, "square" => $reg->get( 'square_small_active' ) ),
+			"shop/kategory" => array( "size"=>$reg->get( 'catalog_kategory_size' ), "quality"=>80, "square" => $reg->get( 'square_kategory_active' )),
+			"shop/backend" => array( "size"=>75, "square"=>true ), // картинка для админки
 		);
 
 		$Image = new Model_Image('public/', $config);
