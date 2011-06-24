@@ -42,6 +42,7 @@ public/upload/image/*
 public/upload/media/*
 
 # IDE project files
-./settings
+.settings/
 .project
+.buildpath
 nbproject
