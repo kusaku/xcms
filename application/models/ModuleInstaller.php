@@ -102,7 +102,24 @@ class Model_ModuleInstaller {
      * @return bool
      */
     public static function install($module,$controller = null) {
-        
+    	// Подцепляем файл с настройками
+        $xml_options = simplexml_load_file(APPLICATION_PATH."/modules/".$module."/install/options.xml");
+        if( ! self::check_options($xml_options) ) {
+            Main::logDebug('Опции не прошли');
+            return "Неверный архив";
+        }
+    	// Удаляем директории указанные в options.xml
+        if(isset($xml_options->options->deletedirs)) {
+        	foreach($xml_options->options->deletedirs as $dirs) {
+        		foreach($dirs->dir as $dir){
+        			$deletedir = $dir->attributes()->path;
+        			if(file_exists(APPLICATION_PATH . $deletedir)) {
+        				self::removeDirRec(APPLICATION_PATH . $deletedir);
+        			}
+        		}
+        	}
+        }
+    	
         $mcet = Model_Collection_ElementTypes::getInstance();
         self::$_db = $mcet->getDbElementTypes()->getAdapter();
         // Смотрим, есть ли уже модуль в системе
@@ -119,12 +136,7 @@ class Model_ModuleInstaller {
                 return "Плагин";
             }
         }
-        // Подцепляем файл с настройками
-        $xml_options = simplexml_load_file(APPLICATION_PATH."/modules/".$module."/install/options.xml");
-        if( ! self::check_options($xml_options) ) {
-            Main::logDebug('Опции не прошли');
-            return "Неверный архив";
-        }
+        
         // Подцепляем файл с данными
         $xml = simplexml_load_file(APPLICATION_PATH."/modules/".$module."/install/data.xml");
         self::$_db->query("set foreign_key_checks = 0");

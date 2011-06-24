@@ -1,0 +1,28 @@
+<div class="border" id="myCart">
+	<h3><a href="<?=$this->data->orderLink?>">Корзина</a></h3>
+
+<? if($this->data->count > 0): ?>
+<!--        <form method="post" action="/shop/order"> -->
+<? foreach($this->data->items as $id=>$item):?>
+
+		<div class="cart-order">
+            <a href="<?=$item['href'];?>"/><?=$item['name'];?></a>
+            <div class="cost">
+                <span><?=$item['price'];?> руб.</span>  x
+				<span><?=$item['count'];?> шт.</span>
+				<a  onClick="delFromOrder(<?="'".$item['href']."'"?>, <?=$id?>)"><img src="/images/delete.png"/></a>
+            </div>
+        </div>
+
+
+<? endforeach;?>
+			<div class="itogo">Общая сумма: <b><span id="cart_summ"><?=$this->data->orderSum;?></span> руб.</b>
+			</div>
+			
+			<div style="padding: 3px 0pt; margin-bottom: 20px;">
+				<a href="<?=$this->data->orderLink?>" id="butOrder">Оформить</a>
+			<!-- 	<a href="/" id="butEmptyCart">Очистить</a> -->
+			</div>
+        <!--</form> -->
+<? endif;?>
+</div>

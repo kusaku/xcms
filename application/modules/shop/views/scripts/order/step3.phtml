@@ -1,0 +1,135 @@
+<link rel="stylesheet" type="text/css" href="/jquery_gallery/fancybox/css/box.css" media="screen" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/jquery_gallery/fancybox/js/box.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".zoom").fancybox({
+			'frameWidth': 600,
+			'frameHeight': 400
+		});
+	});
+</script>
+<?=$this->element->text;?>
+<?php
+
+	$otype = Model_Collection_ElementTypes::getInstance()->getModuleElementType('shop', 'orders');
+	$order_type = $otype->getObjectType();
+	$groups = $order_type->getFieldGroups();
+	foreach($groups as $group) {
+		$fields = $group->getFields();
+		foreach($fields as $field) {
+			if($field->name == 'shop_order_city')
+				$cities = Model_Collection_Objects::getInstance()->getGuideObjects($field->id_guide);
+
+			if($field->name == 'shop_order_delivery')
+				$deliveries = Model_Collection_Objects::getInstance()->getGuideObjects($field->id_guide);
+
+			if($field->name == 'shop_order_payment')
+				$payments = Model_Collection_Objects::getInstance()->getGuideObjects($field->id_guide);
+
+		}
+	}
+
+		foreach ($deliveries as $delivery){
+			$tmp = explode(':',$delivery->title);
+			$deliv['id'] = $delivery->id;
+			$deliv['title'] = $tmp[0];
+			$deliv['price'] = $tmp[1];
+			if ($deliv['id'] == $_POST['shop_order_delivery']){
+				$order_delivery_price = $deliv['price'];
+				$order_delivery_title = $deliv['title'];
+				$order_delivery_id = $deliv['id'];
+			}
+		}
+
+		foreach ($payments as $pay){
+			if ($pay['id'] == $_POST['shop_order_payment']){
+				$order_pay_title = $pay['title'];
+				$order_pay_id = $pay['id'];
+			}
+		}
+?>
+
+<h1>Шаг 2</h1>
+
+<div class="step1ok">Авторизация</div>
+<div class="step2ok">Оформление</div>
+<div class="step3it">Подтверждение</div>
+
+<table class="basket-list">
+	<tr>
+		<th></th>
+		<th>Наименование</th>
+		<th>Цена</th>
+		<th>Кол-во</th>
+		<th>Общая сумма</th>
+	</tr>
+    <? foreach($this->items as $id=>$item):?>
+        <tr>
+			<td><a class="zoom" href="/shop/big/<?=$item['values']->shop_item_image?>"><img src="/shop/small/<?=$item['values']->shop_item_image?>" class="steps_small_image"/></a></td>
+            <td><?=$item['name'];?></td>
+			<td><?=$item['price'];?> руб. </td>
+            <td><?=$item['count'];?> шт. </td>
+            <td><?=$item['price']*$item['count'];?> руб. </td>
+        </tr>
+    <? endforeach;?>
+        <tr>
+            <th colspan="5" style="text-align: right;">
+				Итого: <?=$this->sum?> руб.
+				<input type="hidden" id="summ" value="<?=$this->sum?>">
+			</th>
+        </tr>
+</table>
+
+<!-- <form method="post" name="next">
+    <input type="submit" value="Предыдущий шаг" name="prev_step"/>
+    <input type="submit" value="Оформить заказ" name="order_confirm"/>
+</form>
+-->
+<div class="basket-chek">
+	<table>
+		<tbody>
+			<tr>
+				<td>Выбрано товаров на сумму:</td>
+				<td><span><?=$this->sum?> руб.</span></td>
+			</tr>
+			<tr>
+				<td><?=$order_delivery_title?>:</td>
+				<td><span><span id="delivery"><?=$order_delivery_price?></span> руб.</span></td>
+			</tr>
+			<tr>
+				<td>Итого:</td>
+				<td><span class="check"><span id="totalSumm"><?=(float)$this->sum+(float)$order_delivery_price?></span> руб.</span></td>
+			</tr>
+			<tr>
+				<td>Способ оплаты:</td>
+				<td><span><?=$order_pay_title?></span></td>
+			</tr>
+		</tbody>
+	</table>
+</div> 
+
+<form action="#" method="post">
+	<div class="basket-delivery">
+		<div class="left">
+			<div style="height: 32px;"><label>Город:</label>
+				<?php
+					foreach ($cities as $city){
+						if ($city->id == $_POST['shop_order_city']){
+							print "$city->title";
+							print '<input type="hidden" name="shop_order_city" value="'.$_POST['shop_order_city'].'">';
+						}
+					}
+				?>
+			</div>
+			<div style="overflow: hidden;"><label>Адрес:</label> <input class="field" name="shop_order_address" type="hidden" value="<?=$_POST['shop_order_address']?>" /><?=$_POST['shop_order_address']?></div>
+			<div style="overflow: hidden;"><label>Телефон:</label> <input class="field" name="user_phone" type="hidden" value="<?=$_POST['user_phone']?>" /><?=$_POST['user_phone']?></div>
+			<div style="overflow: hidden;"><label>Комментарий к заказу:</label> <input type="hidden" name="shop_order_comment" value="<?=$_POST['shop_order_comment']?>"><?=$_POST['shop_order_comment']?></div>
+		</div>
+	</div>
+	<input type="hidden" name="shop_order_payment" value="<?=$order_pay_id?>" >
+	<input type="hidden" name="shop_order_delivery" value="<?=$order_delivery_id?>" >
+	<input type="hidden" name="shop_order_status" value="10204" comment="Новый заказ">
+	<input type="submit" value="Предыдущий шаг" name="prev_step" style="background-color: #FF6E00; color: #FFF; border: 0; padding: 5px 10px; margin: 3px;cursor: pointer;"/>
+    <input type="submit" value="Оформить заказ" name="order_confirm" style="background-color: #FF6E00; color: #FFF; border: 0; padding: 5px 10px; margin: 3px;cursor: pointer;"/>
+</form>
