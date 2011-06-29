@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+<options>
+    <name>shop</name>
+    <title>
+        <ru>Магазин</ru>
+        <en>Shop</en>
+    </title>
+    <is_core>false</is_core>
+    <files path="modules/shop">
+        <file path="/">Bootstrap.php</file>
+        <file path="/controllers/">BackController.php</file>
+        <file path="/controllers/">CategoryController.php</file>
+        <file path="/controllers/">ItemController.php</file>
+        <file path="/controllers/">OrderController.php</file>
+        <file path="/controllers/">SearchController.php</file>
+    </files>
+    <templates path="../templates/scripts/shop">
+        <template>category.phtml</template>
+        <template>item.phtml</template>
+        <template>cart.phtml</template>
+        <template>search.phtml</template>
+    </templates>
+    <templates path="../templates/scripts/shop/order">
+        <template>saved.phtml</template>
+        <template>step1.phtml</template>
+        <template>step2.phtml</template>
+        <template>step3.phtml</template>
+    </templates>
+    <deletedirs>
+    	<dir path="/modules/catalog/" />
+    </deletedirs>
+</options>
+</root>
