@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : options.xml
+    Created on : 24 Август 2010 г., 17:20
+    Author     : kifirch
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+<options>
+    <name>extsearch</name>
+    <title>
+        <ru>Расширенный поиск</ru>
+        <en>Extended search</en>
+    </title>
+    <is_core>false</is_core>
+    <files path="modules/extsearch">
+        <file path="/">Bootstrap.php</file>
+        <file path="/controllers/">IndexController.php</file>
+        <file path="/forms/">Search.php</file>
+        <file path="/views/scripts/index/">view.phtml</file>
+    </files>
+</options>
+</root>
