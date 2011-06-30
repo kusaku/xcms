@@ -7,7 +7,7 @@
 <?php foreach ($this->cat as $item): ?>
     <li class="category-item">
         <div class="category-title"><?=$this->navigation()->menu()->htmlify($item)?></div>
-        <?php if ( $item->get('item_photo') ): ?><div><img src="/catalog/kategory/<?=$item->get('item_photo')?>" /></div><?php endif; ?>
+        <?php if ( $item->get('item_photo') ): ?><div><img src="/shop/kategory/<?=$item->get('item_photo')?>" /></div><?php endif; ?>
     </li>
 <?php endforeach; ?>
 </ul>
@@ -24,7 +24,7 @@
 	<?php endif; ?>
     <div class="item-item">
         <div class="item-title"><?=$this->navigation()->menu()->htmlify($item)?></div>
-    	<div class="item-img"><?php if ( $item->get('item_photo') ): ?><a href='<?=$item->getHref();?>'><img src=/catalog/small/<?=$item->get('item_photo')?> border='0'/></a><?php endif; ?></div>
+    	<div class="item-img"><?php if ( $item->get('item_photo') ): ?><a href='<?=$item->getHref();?>'><img src=/shop/small/<?=$item->get('item_photo')?> border='0'/></a><?php endif; ?></div>
     	<div class="item-previw"><?=$item->get('item_preview')?></div>
     	<div class="item-price"><?php if ( $item->get('item_price') ): ?><?=$item->get('item_price')?> руб.<?php endif; ?></div>
     </div>

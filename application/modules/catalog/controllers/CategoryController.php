@@ -22,14 +22,14 @@ class Catalog_CategoryController extends Xcms_Controller_Modulefront {
 		if( !$template )
 			$template = 'category.phtml';
 		$cat_type = Model_Collection_ElementTypes::getInstance()
-			->getModuleElementType('catalog', 'category');
+			->getModuleElementType('shop', 'category');
 		if ( isset($cat_type) ) {
 			$cat_type_id = $cat_type->id;
 		} else {
 			throw new Exception( 'Тип данных категория каталога не существует' );
 		}
 		$item_type = Model_Collection_ElementTypes::getInstance()
-			->getModuleElementType('catalog', 'item');
+			->getModuleElementType('shop', 'item');
 		if ( isset($item_type) ) {
 			$item_type_id = $item_type->id;
 		} else {
@@ -51,9 +51,8 @@ class Catalog_CategoryController extends Xcms_Controller_Modulefront {
 				$page->addPage($sub_element->getPage());
 			}
 			$cat_container->addPage( $page
-				->set('item_photo', $element->getValue('element_photo') )
-				->set('item_preview', $element->getValue('catalog_item_preview') )
-				->set('item_price', $element->getValue('catalog_item_price') )
+				->set('item_photo', $element->getValue('shop_item_image') )
+				->set('item_price', $element->getValue('shop_item_price') )
 			);
 			
 			$page_item = $element->getPage();
@@ -64,9 +63,8 @@ class Catalog_CategoryController extends Xcms_Controller_Modulefront {
 				$page_item->addPage($sub_item->getPage());
 			}
 			$cat_item_container->addPage( $page_item
-				->set('item_photo', $element->getValue('element_photo') )
-				->set('item_preview', $element->getValue('catalog_item_preview') )
-				->set('item_price', $element->getValue('catalog_item_price') )
+				->set('item_photo', $element->getValue('shop_item_image') )
+				->set('item_price', $element->getValue('shop_item_price') )
 				->set('item_name', $element->getValue('name') ) );
 		}
 		$this->view->cat = $cat_container;
@@ -80,9 +78,8 @@ class Catalog_CategoryController extends Xcms_Controller_Modulefront {
 				->getElement ( $k );
 			
 			$item_container->addPage( $element->getPage()
-			->set('item_photo', $element->getValue('element_photo') )
-			->set('item_preview', $element->getValue('catalog_item_preview') )
-			->set('item_price', $element->getValue('catalog_item_price') ));
+			->set('item_photo', $element->getValue('shop_item_image') )
+			->set('item_price', $element->getValue('shop_item_price') ));
 		}
 		$item_count = (int) Zend_Registry::getInstance()->get('catalog_items_count');
 		if( $item_count <= 0 )

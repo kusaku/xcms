@@ -643,9 +643,8 @@ class Shop_BackController extends Xcms_Controller_Back {
 					$deliveries = Model_Collection_Objects::getInstance()->getGuideObjects($field->id_guide);
 					foreach ($deliveries as $delivery){
 						if ($delivery->id == $data['shop_order_delivery']) {
-							$deliv = split(":", $delivery->title);
-							$data['deliveryname'] = $deliv[0];
-							$data['deliverysum'] = $deliv[1];
+							$data['deliveryname'] = $delivery->title;
+							$data['deliverysum'] = $delivery->getValue('shop_order_delivery_price');
 						}
 					}
 				}

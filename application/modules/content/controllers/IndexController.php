@@ -53,6 +53,7 @@ class Content_IndexController extends Xcms_Controller_Modulefront {
 		$module = $etype->module;
 		$controller = empty($etype->controller) ? 'index' : $etype->controller;
                 Main::logDebug($etype,$controller,$module);
+        //var_dump('view', $controller, $module); exit;
 		$this->_forward( 'view', $controller, $module );
 	}
 }
