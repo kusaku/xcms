@@ -47,9 +47,9 @@ class Data_Bootstrap extends Zend_Application_Module_Bootstrap {
 					'edit'=>'Править'
 				),
 				'field'=>array(
-					'newfield'=>'Новьё',
-					'editfield'=>'Отредактировать',
-					'deletefield'=>'Снести к.'
+					'newfield'=>'Новое поле',
+					'editfield'=>'Редактировать поле',
+					'deletefield'=>'Удалить поле'
 				)
             ),
             'widjet' => 'tree',

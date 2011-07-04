@@ -62,11 +62,72 @@
                 </fields_controller>
             </field_groups>
             <field_groups id=""	name="feedback" id_obj_type="parent"	is_active="1" is_locked="0" is_visible="0" title="Настройки формы обратной связи" ord="5">
-                <fields_controller id_field="130" id_group="parent" ord="1">
+                <fields_controller id_field="181" id_group="parent" ord="1">
                 </fields_controller>
-                <fields_controller id_field="131" id_group="parent" ord="2">
+                <fields_controller id_field="182" id_group="parent" ord="2">
+                </fields_controller>
+		<fields_controller id_field="185" id_group="parent" ord="3">
                 </fields_controller>
             </field_groups>
+
+		<object_types id="" id_parent="parent" id_element_type="?" is_locked="0" is_guidable="0"
+                        is_public="0" title="ФОС">
+		    <field_groups id=""	name="fos_fb_form" id_obj_type="parent" is_active="1" is_locked="0" is_visible="1" title="FieldGroupFOS" ord="1">
+		        <fields_controller id_field="193" id_group="parent" ord="1">
+		        </fields_controller>
+		        <fields_controller id_field="194" id_group="parent" ord="2">
+		        </fields_controller>
+			<fields_controller id_field="195" id_group="parent" ord="3">
+		        </fields_controller>
+			<fields_controller id_field="196" id_group="parent" ord="4">
+		        </fields_controller>
+		    </field_groups>
+		    <field_groups id=""	name="common" id_obj_type="parent" is_active="1" is_locked="0"	is_visible="1"	title="Редактирование содержимого страницы" ord="2">
+		        <fields_controller id_field="1"	id_group="parent" ord="1">
+		        </fields_controller>
+		        <fields_controller id_field="102" id_group="parent" ord="2">
+		        </fields_controller>
+		    </field_groups>
+		    <field_groups id=""	name="seo"	id_obj_type="parent"	is_active="1" is_locked="0" is_visible="0" title="Настройки для поисковых систем" ord="3">
+		        <fields_controller id_field="103" id_group="parent" ord="2">
+		        </fields_controller>
+		        <fields_controller id_field="104" id_group="parent" ord="1">
+		        </fields_controller>
+		        <fields_controller id_field="105" id_group="parent" ord="4">
+		        </fields_controller>
+		        <fields_controller id_field="106" id_group="parent" ord="3">
+		        </fields_controller>
+		        <fields_controller id_field="107" id_group="parent" ord="5">
+		        </fields_controller>
+		    </field_groups>
+		    <field_groups id=""	name="menu" id_obj_type="parent" is_active="1" is_locked="0" is_visible="0" title="Настройки меню" ord="4">
+		        <fields_controller id_field="109" id_group="parent" ord="1">
+		        </fields_controller>
+		    </field_groups>
+		    <field_groups id=""	name="page" id_obj_type="parent" is_active="1" is_locked="1" is_visible="0" title="Настройки страницы" ord="5">
+		        <fields_controller id_field="115" id_group="parent" ord="1">
+		        </fields_controller>
+		        <fields_controller id_field="116" id_group="parent" ord="2">
+		        </fields_controller>
+		        <fields_controller id_field="117" id_group="parent" ord="3">
+		        </fields_controller>
+		        <fields_controller id_field="119" id_group="parent" ord="4">
+		        </fields_controller>
+		    </field_groups>
+		    <field_groups id=""	name="feedback" id_obj_type="parent"	is_active="1" is_locked="0" is_visible="0" title="Настройки формы обратной связи" ord="6">
+		        <fields_controller id_field="181" id_group="parent" ord="1">
+		        </fields_controller>
+		        <fields_controller id_field="182" id_group="parent" ord="2">
+		        </fields_controller>
+			<fields_controller id_field="185" id_group="parent" ord="2">
+		        </fields_controller>
+		    </field_groups>
+		    <field_groups id=""	name="permissions" id_obj_type="parent"	is_active="1" is_locked="1" is_visible="0" title="Права доступа" ord="7">
+		        <fields_controller id_field="128" id_group="parent" ord="1">
+		        </fields_controller>
+		    </field_groups>
+		</object_types>
+
         </object_types>
     </element_types>
 </feedback>

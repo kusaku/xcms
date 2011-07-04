@@ -8,7 +8,7 @@
         Purpose of the document follows.
 -->
 
-<extsearch>
+<root>
     <element_types id="" module="extsearch" controller="" title="Расширенный поиск">
         <permissions_modules id_owner="1" id_etype="parent" mode="view" allow="1">
         </permissions_modules>
@@ -16,10 +16,10 @@
         </permissions_modules>
         <permissions_modules id_owner="4" id_etype="parent" mode="" allow="1">
         </permissions_modules>
-        <object_types id="" id_parent="4" id_element_type="parent" is_locked="0" is_guidable="0"
-                        is_public="1" title="Расширенный поиск">
-        	<object id_type="parent" is_locked="0" title="Расширенный поиск"></object>
-		<elements id_parent="NULL" id_type="?" id_obj="parent" id_lang="1" id_tpl="NULL" id_menu="NULL" is_active="1" is_deleted="0" is_default="0" urlname="extsearch"></elements>
+        <object_types id="" id_parent="4" id_element_type="parent" is_locked="0" is_guidable="0" is_public="1" title="Расширенный поиск">
+        	<objects id_type="parent" is_locked="0" title="Расширенный поиск">
+			<elements id_parent="NULL" id_type="?" id_obj="parent" id_lang="1" id_tpl="NULL" id_menu="NULL" is_active="1" is_deleted="0" is_default="0" urlname="extsearch"></elements>
+		</objects>
 	</object_types>
     </element_types>
-</extsearch>
+</root>

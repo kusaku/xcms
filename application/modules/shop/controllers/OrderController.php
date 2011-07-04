@@ -198,7 +198,7 @@ class Shop_OrderController extends Xcms_Controller_Modulefront {
 
 		$title = 'Поступил заказ!';
 		$mess =  htmlspecialchars(trim($email.' '.$_POST['shop_order_address'].' '.$_POST['shop_order_comment']));
-		$from='dmitry.k@fabricasaitov.ru';
+		$from = (string) $reg->get( 'shop_email' );
 		
 		if (mail($email, $title, $mess, 'From:'.$from)) print '*-вам отправлено информационное письмо на адрес "'.$email.'".';
 		else print '*-при отправке письма с информацией о заказе возникли сложности. Письмо не отправлено.';

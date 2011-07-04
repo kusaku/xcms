@@ -27,16 +27,12 @@ class Users_BackController extends Xcms_Controller_Back {
 		    $data = array();
 		    foreach ( $users as $user ) {
 			    $data[] = array(
-				    'id'         => array( $user->id_usergroup, $user->id ),
+				    'id'         => $user->id,
 				    'title'      => $user->getObject()->title,
 				    'expandable' => false,
 				    'element' => 'user',
 				    'controller' => 'users',
-				    'actions' => $actions['user'],
-				    'icons'      => array(
-					    $baseUrl . 'ico_users_user.png',
-					    $baseUrl . 'ico_users_user.png'
-				    )
+				    'actions' => $actions['user']
 			    );
 		    }
 		} else {
@@ -57,12 +53,7 @@ class Users_BackController extends Xcms_Controller_Back {
 				    'element' => 'group',
 				    'controller' => 'users',
 				    'actions'=>$actions['group'],
-				    'is_locked'  => false, //($group->id == Model_Collection_Users::GUEST)
-				    /*'icons'      => array(
-					    $baseUrl . 'ico_users_group.png',
-					    $baseUrl . 'ico_users_group.png'
-				    ),*/
-				//    'fields'		=> $user_data
+				    'is_locked'  => false //($group->id == Model_Collection_Users::GUEST)
 			    );
 		    }
 		}
@@ -102,13 +93,14 @@ class Users_BackController extends Xcms_Controller_Back {
 						->getEntity ( $group_id );
 					$data['title'] = 'Редактирование группы';
 					$user_id = $this->getRequest()->getParam ( 'user' );
-					if ( isset( $user_id ) ) {
+					if ( isset( $user_id ) || $dataobj == NULL ) {
 						if ( $user_id == 'new' ) {
 							// создание пользователя
 							$dataobj = Model_Collection_Users::getInstance()
 								->createUser( array( 'id_usergroup' => $group_id ) );
 							$data['title'] = 'Создание пользователя';
 						} else {
+							$user_id = $group_id;
 							// получить пользователя
 							$user_id = (int) $user_id;
 							$complex_id = array( $group_id, $user_id );
@@ -186,23 +178,22 @@ class Users_BackController extends Xcms_Controller_Back {
 		if( isset( $group_id ) ){
 			$group_id = (int) $group_id;
 			if( $group_id > 0 ){
-				$user_id = $this->getRequest ()->getParam ( 'user' );
-				if( isset( $user_id ) ){
-					$user_id = (int) $user_id;
-					if( $user_id > 0 ){
-						// удаление пользователя
-						$success = Model_Collection_Users::getInstance () ->delEntity( $user_id );
-						if (! $success and (APPLICATION_ENV != 'production'))
-							throw new Exception ( 'Ошибка при удалении пользователя' );
-						}
-				}else{
-					// удаление группы пользователей
-					$success = Model_Collection_Objects::getInstance ()
-						->delEntity ( $group_id );
-					if (! $success and (APPLICATION_ENV != 'production'))
-						throw new Exception ( 'Ошибка при удалении группы пользователей' );
-				}
+				// удаление группы пользователей
+				$success = Model_Collection_Objects::getInstance ()
+					->delEntity ( $group_id );
+				if (! $success and (APPLICATION_ENV != 'production'))
+					throw new Exception ( 'Ошибка при удалении группы пользователей' );
 			}
+		}
+		$user_id = $this->getRequest ()->getParam ( 'user' );
+		if( isset( $user_id ) ){
+			$user_id = (int) $user_id;
+			if( $user_id > 0 ){
+				// удаление пользователя
+				$success = Model_Collection_Users::getInstance () ->delEntity( $user_id );
+				if (! $success and (APPLICATION_ENV != 'production'))
+					throw new Exception ( 'Ошибка при удалении пользователя' );
+				}
 		}
 	}
 }

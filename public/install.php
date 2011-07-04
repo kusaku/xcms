@@ -65,7 +65,9 @@ function create_db() {
     $db_file =  APPLICATION_PATH.'/../data/db/'. $_SESSION['dump_file'];
     $s = file_get_contents($db_file);
     //$s = preg_replace('/\s+--\s\w+\s\w+/','',$s);
+    $s = preg_replace('/--[\s\w]+\n/U','',$s);
     $q = explode(";\n",$s);
+	//echo "<pre>"; var_dump($q); echo "</pre>"; exit;
     if($_SESSION['db_create']==1) {
         mysql_query('CREATE DATABASE IF NOT EXISTS `'.$_SESSION['db_name'].'`');
     }
@@ -155,7 +157,7 @@ function create_superuser($post) {
     mysql_query('SET NAMES utf8');
     if(!mysql_query('
         INSERT INTO users(name,id_object,id_usergroup,is_active,password)
-        VALUES("'.$post['superuser_login'].'",5,3,1,"'.md5($key.$password).'")
+        VALUES("'.$post['superuser_login'].'",10025,3,1,"'.md5($key.$password).'")
         ON DUPLICATE KEY UPDATE id_usergroup=3,password="'.md5($key.$password).'"
             ') ) {
         $result['result'] = false;

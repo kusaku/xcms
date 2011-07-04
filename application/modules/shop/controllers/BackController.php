@@ -580,27 +580,26 @@ class Shop_BackController extends Xcms_Controller_Back {
 	 * @return void
 	 */
 	public function deleteAction() {
-		$category_id = $this->getRequest ()->getParam ( 'shop_category' );
+		$category_id = $this->getRequest ()->getParam ( 'category' );
 		if( isset( $category_id ) ){
 			$category_id = (int) $category_id;
 			if( $category_id > 0 ){
-				$item_id = $this->getRequest ()->getParam ( 'element' );
-				if( isset( $item_id ) ){
-					$item_id = (int) $item_id;
-					if( $item_id > 0 ){
-						// удаление товара
-						$success = Model_Collection_Elements::getInstance () ->delElement( $item_id );
-						if (! $success and (APPLICATION_ENV != 'production'))
-							throw new Exception ( 'Ошибка при удалении товара' );
-						}
-				}else{
-					// удаление категории каталога
-					$success = Model_Collection_Elements::getInstance () 
-						->delElement ( $category_id );
-					if (! $success and (APPLICATION_ENV != 'production'))
-						throw new Exception ( 'Ошибка при удалении категории каталога' );
-				}
+				// удаление категории каталога
+				$success = Model_Collection_Elements::getInstance () 
+					->delElement ( $category_id );
+				if (! $success and (APPLICATION_ENV != 'production'))
+					throw new Exception ( 'Ошибка при удалении категории каталога' );
 			}
+		}
+		$item_id = $this->getRequest ()->getParam ( 'orders' );
+		if( isset( $item_id ) ){
+			$item_id = (int) $item_id;
+			if( $item_id > 0 ){
+				// удаление товара
+				$success = Model_Collection_Elements::getInstance () ->delElement( $item_id );
+				if (! $success and (APPLICATION_ENV != 'production'))
+					throw new Exception ( 'Ошибка при удалении товара' );
+				}
 		}
 		$total = count( Model_Collection_Elements::getInstance()->getDeleted() );
 		$this->getResponse()->setBody( $total );

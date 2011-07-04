@@ -132,18 +132,19 @@ class Guides_BackController extends Xcms_Controller_Back {
 						throw new Exception ( 'Ошибка при удалении категории каталога' );
 			}
 		} else {
-                    $item_id = $this->getRequest ()->getParam ( 'item' );
-                    if( isset( $item_id ) ){
-                            $item_id = (int) $item_id;
-                            if( $item_id > 0 ){
-                                    // удаление товара
-                                    $success = Model_Collection_Elements::getInstance () ->delElement( $item_id );
-                                    if (! $success and (APPLICATION_ENV != 'production'))
-                                            throw new Exception ( 'Ошибка при удалении товара' );
-                                    }
-                    }
-                }
-		$total = count( Model_Collection_Elements::getInstance()->getDeleted() );
+        	$item_id = $this->getRequest ()->getParam ( 'item' );
+        	if( isset( $item_id ) ) {
+        	$item_id = (int) $item_id;
+	        	if( $item_id > 0 ){
+					// удаление товара
+					$itemObj = Model_Collection_Objects::getInstance()->getEntity($item_id);
+					$success = $itemObj->delete();
+					if (! $success and (APPLICATION_ENV != 'production'))
+						throw new Exception ( 'Ошибка при удалении товара' );
+				}
+			}
+        }
+		$total = 1;
 		$this->getResponse()->setBody( $total );
 	}
 }

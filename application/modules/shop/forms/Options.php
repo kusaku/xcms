@@ -18,9 +18,15 @@ class Shop_Form_Options extends Admin_Form_Edit {
 		// Глобальные настройки (global)
 	$scenario_reg = (string) $reg->get( 'buy_without_reg' );
 	$this->addElement( 'checkbox', 'buy_without_reg', array(
-		'label' => 'Возможность заказа без регистрации',
+		'label' => 'Заказ без регистрации Вкл.',
 		'value' => $scenario_reg,
-		'description' => 'Делает возможным покупку в магазине незарегистрированным пользователям'
+		'description' => 'Разрешить клиентам делать заказ без регистрации в интернет-магазине'
+	));
+	$shop_email = (string) $reg->get( 'shop_email' );
+	$this->addElement( 'text', 'shop_email', array(
+		'label' => 'E-mail службы поддержки',
+		'value' => $shop_email,
+		'description' => 'Обратный адрес, для автоматических сообщений интернет-магазина.'
 	));
 	$shop_socbuttons = $reg->get( 'shop_socbuttons' );
 	$this->addElement( 'checkbox', 'shop_socbuttons', array(
@@ -29,7 +35,7 @@ class Shop_Form_Options extends Admin_Form_Edit {
 		'description' => 'Включить отображение социальных кнопок на странице отдельного товара'
 	));
 	$this->addDisplayGroup( 
-		array( 'buy_without_reg', 'shop_socbuttons' ), 
+		array( 'buy_without_reg', 'shop_email', 'shop_socbuttons' ), 
 		'global', 
 		array('description' => 'Глобальные настройки' )
 	);

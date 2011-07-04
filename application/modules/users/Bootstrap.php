@@ -15,61 +15,34 @@ class Users_Bootstrap extends Zend_Application_Module_Bootstrap {
 	 * @var array
 	 */
 	protected $_moduleOptions = array(
-		/*'title'      => 'Профили',
-		'type'       => 'tree_expanded',
-		'controller' => 'users',
-		'types'      => array(
-			array(
-				'element' => 'group',
-				'actions' => array(
-					'edit'   => 'Редактировать группу',
-			        'new'    => 'Создать нового пользователя'
-				)
-			),
-			array(
-				'element' => 'user',
-				'actions' => array(
-					'delete' => 'Удалить пользователя',
-					'edit'   => 'Редактировать пользователя'
-				)
-			),	
-		),
-		'dialog'     => true,
-		'addtoroot'  => true,
-                'is_core' => true*/
-            'title' => 'Профили',
+		'title' => 'Профили',
 		'controller' => 'users',
 		'layout' => array(
-                    'type' => 'pane',
-                    'panes' => array(
-			array(
-			    'element' => 'group',
-			    'addtoroot' => array(
-                                    'title' => 'Добавить'
-                            )
-			),
-                        array(
-                            'element' => 'user',
-                            /*'actions'  => array(
-                                    'edit' => 'Редактировать',
-                                    'delete' => 'Удалить'
-                            ),*/
-                        ),
-			
-                    )
+			'type' => 'pane',
+			'panes' => array(
+				array(
+					'element' => 'group',
+					'addtoroot' => array(
+						'title' => 'Добавить'
+					)
+				),
+				array(
+					'element' => 'user'
+				)
+			)
 		),
 		'widjet' => 'tree',
-                'actions'  => array(
-                    'user'=>array(
-                            'edit' => 'Редактировать',
-                            'delete' => 'Удалить'
-                    ),
-		    'group'=>array(
-			'newitem' => 'Содать пользователя',
-			'delete' => 'Удалить',
-			'edit' => 'Редактировать'
-		    )
-                ),
+		'actions'  => array(
+			'group'=>array(
+				'newitem' => 'Создать пользователя',
+				'delete' => 'Удалить',
+				'edit' => 'Редактировать'
+			),
+			'user'=>array(
+				'edit' => 'Редактировать',
+				'delete' => 'Удалить'
+			)
+		),
 		'viewform' => 'dialog',
 		'update_tree' => true,
 		'is_core' => true
