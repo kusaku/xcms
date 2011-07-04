@@ -36,9 +36,9 @@
 			<p class="goods-title"><?=$this->navigation()->menu()->htmlify($item)?></p>
 			<p>
 			<?php
-				$about = substr($item->items['shop_item_about'], 0, 253);
+				$about = substr($item->items['shop_item_shortabout'], 0, 253);
 				print $about;
-				if ( $about != $item->items['shop_item_about'] ) print '<img src="/images/2white.png" style="margin: 0 0 -3px -32px;">';
+				if ( $about != $item->items['shop_item_shortabout'] ) print '<img src="/images/2white.png" style="margin: 0 0 -3px -32px;">';
 				
 			?></p>
 		</div>

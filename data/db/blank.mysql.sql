@@ -266,6 +266,8 @@ INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inhe
 INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(197, '123123123', 4, NULL, 0, 0, 1, 0, '123123123', NULL);
 INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(198, 'shop_paymenttype', 113, NULL, 0, 0, 1, 0, 'Название', 'Например, webmoney');
 INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(199, 'shop_order_delivery_price', 2, NULL, 0, 0, 1, 0, 'Цена', NULL);
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(200, '	shop_item_shortabout', 12, NULL, 0, 0, 1, 0, 'Краткое описание', 'Краткое описание товара');
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(201, '	shop_item_articul', 4, NULL, 0, 0, 1, 0, 'Артикул', 'Артикул товара');
 
 
 -- Структура таблицы `fields_controller`
@@ -598,6 +600,8 @@ INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(126, 154,
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(126, 450, 6);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(127, 154, 7);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(127, 450, 7);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(200, 203, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(201, 203, 1);
 
 
 -- Структура таблицы `field_groups`
