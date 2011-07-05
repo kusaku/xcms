@@ -235,7 +235,7 @@ class Gallery_BackController extends Xcms_Controller_Back {
 			"big" => array( "size"=>$reg->get( 'gallery_big_size' ), "quality"=>100, "square" => $reg->get( 'gallery_square_big' )),
 			"medium" => array( "size"=>$reg->get( 'gallery_medium_size' ), "quality"=>80, "square" => $reg->get( 'gallery_square_medium' )),
 			"small" => array( "size"=>$reg->get( 'gallery_small_size' ), "quality"=>80, "square" => $reg->get( 'gallery_square_small' )),
-			"kategory" => array( "size"=>$reg->get( 'gallery_kategory_size' ), "quality"=>80, "square" => $reg->get( 'square_kategory_active' )),
+			"kategory" => array( "size"=>$reg->get( 'gallery_kategory_size' ), "quality"=>80, "square" => $reg->get( 'gallery_square_kategory' )),
 			"backend" => array( "size"=>75, "square"=>true ), // картинка для админки
 		);
 		$Image = new Model_Image('public/gallery/', $config);
@@ -271,5 +271,11 @@ class Gallery_BackController extends Xcms_Controller_Back {
 		}
 		$total = count( Model_Collection_Elements::getInstance()->getDeleted() );
 		$this->getResponse()->setBody( $total );
+	}
+	
+	public function getoptionsAction() {
+	    $form = new Gallery_Form_Options();
+	    $data['form'] = $form->render();
+	    $this->getResponse()->setBody( $this->view->json( $data ) );
 	}
 }

@@ -62,23 +62,22 @@ class Model_Image
 			$this->_path = $this->getPath( $path ).'/';
 			$reg = Zend_Registry::getInstance();
 			$this->_config = array(
-				"catalog/big" => array( "size"=>$reg->get( 'catalog_big_size' ), "quality"=>100, "square" => $reg->get( 'square_big_active' ) ),
-				"catalog/medium" => array( "size"=>$reg->get( 'catalog_medium_size' ), "quality"=>80, "square" => $reg->get( 'square_medium_active' )),
-				"catalog/small" => array( "size"=>$reg->get( 'catalog_small_size' ), "quality"=>80, "square" => $reg->get( 'square_small_active' ) ),
-				"catalog/kategory" => array( "size"=>$reg->get( 'catalog_kategory_size' ), "quality"=>80, "square" => $reg->get( 'square_kategory_active' )),
-				"catalog/backend" => array( "size"=>75, "square"=>true ), // картинка для админки
-
 				"shop/big" => array( "size"=>$reg->get( 'catalog_big_size' ), "quality"=>100, "square" => $reg->get( 'square_big_active' ) ),
 				"shop/medium" => array( "size"=>$reg->get( 'catalog_medium_size' ), "quality"=>80, "square" => $reg->get( 'square_medium_active' )),
 				"shop/small" => array( "size"=>$reg->get( 'catalog_small_size' ), "quality"=>80, "square" => $reg->get( 'square_small_active' ) ),
 				"shop/kategory" => array( "size"=>$reg->get( 'catalog_kategory_size' ), "quality"=>80, "square" => $reg->get( 'square_kategory_active' )),
 				"shop/backend" => array( "size"=>75, "square"=>true ), // картинка для админки
 
-				"gallery/big" => array( "size"=>$reg->get( 'gallery_big_size' ), "quality"=>100, "square" => $reg->get( 'square_big_active' ) ),
-				"gallery/medium" => array( "size"=>$reg->get( 'gallery_medium_size' ), "quality"=>80, "square" => $reg->get( 'square_medium_active' )),
-				"gallery/small" => array( "size"=>$reg->get( 'gallery_small_size' ), "quality"=>80, "square" => $reg->get( 'square_small_active' ) ),
-				"gallery/kategory" => array( "size"=>$reg->get( 'gallery_kategory_size' ), "quality"=>80, "square" => $reg->get( 'square_kategory_active' )),
+				"gallery/big" => array( "size"=>$reg->get( 'gallery_big_size' ), "quality"=>100, "square" => $reg->get( 'gallery_square_big' ) ),
+				"gallery/medium" => array( "size"=>$reg->get( 'gallery_medium_size' ), "quality"=>80, "square" => $reg->get( 'gallery_square_medium' )),
+				"gallery/small" => array( "size"=>$reg->get( 'gallery_small_size' ), "quality"=>80, "square" => $reg->get( 'gallery_square_small' ) ),
+				"gallery/kategory" => array( "size"=>$reg->get( 'gallery_kategory_size' ), "quality"=>80, "square" => $reg->get( 'gallery_square_kategory' )),
 				"gallery/backend" => array( "size"=>75, "square"=>true ), // картинка для админки
+			
+				"offers/big" => array( "size"=>$reg->get( 'offers_big_size' ), "quality"=>100, "square" => $reg->get( 'offers_square_big' )),
+				"offers/medium" => array( "size"=>$reg->get( 'offers_medium_size' ), "quality"=>80, "square" => $reg->get( 'offers_square_medium' )),
+				"offers/small" => array( "size"=>$reg->get( 'offers_small_size' ), "quality"=>80, "square" => $reg->get( 'offers_square_small' )),
+				"offers/backend" => array( "size"=>75, "square" => true), // картинка для админки
 			);
 		}
 	}

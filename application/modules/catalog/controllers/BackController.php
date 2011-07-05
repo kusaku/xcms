@@ -255,17 +255,6 @@ class Catalog_BackController extends Xcms_Controller_Back {
 		$config = array();
 		$reg = Zend_Registry::getInstance();
 
-		// Переменная $cat иногда теряется в новой админке. Хотя что уж там - ни разу нормально не пришла. Будем делать без неё.
-		/*if( $cat === 'true' ){
-				$config = array("kategory" => array( "size"=>$reg->get( 'catalog_kategory_size' ), "quality"=>80, "square" => $reg->get( 'square_kategory_active' )));
-			}else{
-				$config = array(
-					"big" => array( "size"=>$reg->get( 'catalog_big_size' ), "quality"=>100, "square" => $reg->get( 'square_big_active' )),
-					"medium" => array( "size"=>$reg->get( 'catalog_medium_size' ), "quality"=>80, "square" => $reg->get( 'square_medium_active' )),
-					"small" => array( "size"=>$reg->get( 'catalog_small_size' ), "quality"=>80, "square" => $reg->get( 'square_small_active' ))
-				);
-			}/**/
-		
 		$config = array(
 			"shop/big" => array( "size"=>$reg->get( 'catalog_big_size' ), "quality"=>100, "square" => $reg->get( 'square_big_active' ) ),
 			"shop/medium" => array( "size"=>$reg->get( 'catalog_medium_size' ), "quality"=>80, "square" => $reg->get( 'square_medium_active' )),

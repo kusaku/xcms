@@ -4,17 +4,17 @@
 <?php foreach ($this->items as $item): ?>
     <li class="offers-item">
         <div class="item-img"><?php if ( $item->items['element_photo'] ): ?>
-        <?php if ( !empty($item->items['offers_src_text'])): ?>
-        	<a href='/<?=$item->items['offers_src_text'];?>'>	
+        <?php if ( !empty($item->items['offers_link'])): ?>
+        	<a href='/<?=$item->items['offers_link'];?>'>	
         <?php else:{?>
         	<a href='<?=$item->getHref();?>'>
         <?php }?>
         <?php endif;?><img src=/offers/small/<?=$item->items['element_photo']?> border='0'/></a><?php endif; ?></div>
         <div class="offers-title"><?=$item->items['name'];?></div>
-        <?=$item->items['offers_item_prewiew']?>
+        <?=$item->items['offers_item_preview']?>
         <p>
-        	 <?php if ( !empty($item->items['offers_src_text'])): ?>
-        		<a href='/<?=$item->items['offers_src_text'];?>'>Подробнее</a>	
+        	 <?php if ( !empty($item->items['offers_link'])): ?>
+        		<a href='/<?=$item->items['offers_link'];?>'>Подробнее</a>	
         	<?php else:{?>
         		<a href='<?=$item->getHref();?>'>Подробнее</a>
        		<?php }?>

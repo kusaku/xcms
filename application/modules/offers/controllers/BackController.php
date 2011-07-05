@@ -246,9 +246,10 @@ class Offers_BackController extends Xcms_Controller_Back {
 		$reg = Zend_Registry::getInstance();
 		if( $cat === 'false' ){
 			$config = array(
-				"big" => array( "size"=>$reg->get( 'offers_big_size' ), "quality"=>100, "square" => $reg->get( 'offers_square_big' )),
-				"medium" => array( "size"=>$reg->get( 'offers_medium_size' ), "quality"=>80, "square" => $reg->get( 'offers_square_medium' )),
-				"small" => array( "size"=>$reg->get( 'offers_small_size' ), "quality"=>80, "square" => $reg->get( 'offers_square_small' ))
+				"offers/big" => array( "size"=>$reg->get( 'offers_big_size' ), "quality"=>100, "square" => $reg->get( 'offers_square_big' )),
+				"offers/medium" => array( "size"=>$reg->get( 'offers_medium_size' ), "quality"=>80, "square" => $reg->get( 'offers_square_medium' )),
+				"offers/small" => array( "size"=>$reg->get( 'offers_small_size' ), "quality"=>80, "square" => $reg->get( 'offers_square_small' )),
+				"offers/backend" => array( "size"=>75, "square" => true)
 			);
 		}
 		$Image = new Model_Image('public/offers/', $config);
