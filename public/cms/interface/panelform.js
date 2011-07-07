@@ -71,7 +71,7 @@
 								var arr = response.split('/');
 								var img = arr[arr.length - 1];
 								$('.Photo').val(img);
-								$('#upload').siblings('.photo_back').html("<img src=/catalog/backend/" + response + " />");
+								$('#upload').siblings('.photo_back').html("<img src=/" + response + " />");
 								$('#upload').siblings('.text_info').html(file + ' загружен ');
 							}
 						}
@@ -81,6 +81,10 @@
 					save_buttons.button('enable').attr('disabled', '');
 				});
 				element.find('.delete_photo').click(function(){
+					var empty = '';
+					$(this).siblings('input[type=hidden]').val( empty );
+					$(this).siblings('.photo_back').empty();
+					$(this).empty();
 					save_buttons.button('enable').attr('disabled', '');
 				});
 				$('#curmod').text(' / ' + 'Редактирование');

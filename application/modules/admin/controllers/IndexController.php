@@ -84,8 +84,8 @@ class Admin_IndexController extends Xcms_Controller_Admin {
 			//->addJavascriptFile ( $view->BaseUrl() . '/cms/resources/jquery/plugins/jquery.xml2json.js' )
 		;
 		// Скрипты админки
-		$view->jQuery()
-			->addJavascriptFile ( $view->BaseUrl() . '/cms/js/init.js' )
+		/*$view->jQuery()
+			//->addJavascriptFile ( $view->BaseUrl() . '/cms/js/init.js' )
             ->addJavascriptFile ( $view->BaseUrl() . '/cms/js/swfobject.js' )
 			->addJavascriptFile ( $view->BaseUrl() . '/cms/js/swfmodule.js' )
 			->addJavascriptFile ( $view->BaseUrl() . '/cms/js/jquery.tree.js' )
@@ -101,7 +101,7 @@ class Admin_IndexController extends Xcms_Controller_Admin {
 			->addJavascriptFile ( $view->BaseUrl() . '/cms/js/jquery.treecatalog.js' )
 			->addJavascriptFile ( $view->BaseUrl() . '/cms/js/jquery.mousewheel.js' )
             ->addJavascriptFile ( $view->BaseUrl() . '/cms/js/ajaxuploader.js' )
-            ->addJavascriptFile ( $view->BaseUrl() . '/cms/js/jquery.liquidcarousel.js' ) ;
+            ->addJavascriptFile ( $view->BaseUrl() . '/cms/js/jquery.liquidcarousel.js' ) ;*/
        // Новые скрипты админки
        $view->jQuery()
                ->addStylesheet($view->baseUrl('/cms/css/ui.jqgrid.css'))

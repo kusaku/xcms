@@ -43,13 +43,18 @@ class Users_BackController extends Xcms_Controller_Back {
 		    foreach ( $groups as $group ) {
 			    if ( $group->id == Model_Collection_Users::ADMINISTRATOR and 
 				     Zend_Auth::getInstance()->getIdentity()->id_usergroup == Model_Collection_Users::LIMITED ) continue;
+				$childs = Model_Collection_Users::getInstance()->getUsersByGroup($group->id);
+				if(count($childs) > 0)
+					$expandable = true;
+				else
+					$expandable = false;
 			    /*if ( $group->id == Model_Collection_Users::GUEST or
 				     $group->id == Model_Collection_Users::REGISTERED ) continue;*/
 			    $user_data = isset( $users_data[ $group->id ] ) ? $users_data[ $group->id ] : array();
 			    $data[]= array(
 				    'id'         => $group->id,
 				    'title'      => $group->title,
-				    'expandable' => true,
+				    'expandable' => $expandable,
 				    'element' => 'group',
 				    'controller' => 'users',
 				    'actions'=>$actions['group'],

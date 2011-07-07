@@ -39,7 +39,7 @@ function addEvent(el, type, fn){
 		var f = function(){
 		  fn.call(el, w.event);
 		};
-		el.attachEvent('on' + type, f)
+		el.attachEvent('on' + type, f);
 	}
 }
 

@@ -112,7 +112,7 @@ final class Model_Registry extends Zend_Registry {
 			$rows = self::getDbTable ()->fetchAll ();
 			foreach ( $rows as $row ) {
 				// установка загруженных из БД значений
-				$val = @unserialize ( $row->val );
+				$val = json_decode( $row->val );
 				if ( $val !== false ) {
 					parent::set( $row->var, $val );
 				} else {
@@ -131,7 +131,7 @@ final class Model_Registry extends Zend_Registry {
 		$db = self::getDbTable ()->getAdapter ()->beginTransaction ();
 		try {
 			foreach ( self::$_modified as $var=>$mode ) {
-				$value = array( 'val'=>serialize( self::get($var) ) );
+				$value = array( 'val'=>json_encode( self::get($var) ) );
 				$where = $db->quoteInto( 'var = ?', $var );
 				if ( $mode === self::DATA_UPDATE ) {
 					self::getDbTable()->update( $value, $where );

@@ -15,29 +15,6 @@ class Catalog_Bootstrap extends Zend_Application_Module_Bootstrap {
 	 * @var array
 	 */
 	protected $_moduleOptions = array(
-		/*'title'      => 'Каталог',
-		'type'       => 'treecatalog',
-		'controller' => 'catalog',
-		'types'      => array(
-			array(
-				'element' => 'category',
-				'actions' => array(
-					'delete' => 'Удалить категорию каталога',
-					'edit'   => 'Редактировать категорию каталога',
-			        'new'    => 'Создать товар',
-					'newcategory'   => 'Создать категорию',
-				)
-			),
-			array(
-				'element' => 'element',
-				'actions' => array(
-					'delete' => 'Удалить товар',
-					'edit'   => 'Редактировать товар',
-				)
-			)
-		),
-		'addtoroot' => true,
-		'is_core' => false*/
 		'title' => 'Каталог',
 		'controller' => 'catalog',
 		'layout' => array(

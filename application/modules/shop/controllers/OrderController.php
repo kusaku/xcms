@@ -196,6 +196,7 @@ class Shop_OrderController extends Xcms_Controller_Modulefront {
             //Main::logDebug($order_info->id);
         }
 
+        $reg = Zend_Registry::getInstance();
 		$title = 'Поступил заказ!';
 		$mess =  htmlspecialchars(trim($email.' '.$_POST['shop_order_address'].' '.$_POST['shop_order_comment']));
 		$from = (string) $reg->get( 'shop_email' );

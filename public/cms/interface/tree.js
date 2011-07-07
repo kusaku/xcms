@@ -106,11 +106,11 @@ $.widget("fs.tree", {
 			classElement = 'tree-element';
 		var element = $('<div></div>') // Создаем заголовок элемента дерева
 			.data('context', context)
-			.addClass(classElement)
+			.addClass(classElement);
 		element.append(
 			$('<span></span>')
 				.addClass('gradient')
-		)
+		);
 		var panes = self._getPanes(context.id);
 		if( !context.is_locked /*&&  typeof panes.actions.edit != 'undefined' */){ //@TODO - придумать причинно-следственную связь
 			element.append(

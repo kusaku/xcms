@@ -79,56 +79,55 @@ class Shop_BackController extends Xcms_Controller_Back {
 			$bootstraps = $this->getInvokeArg('bootstrap')->getResource( 'modules' );
 			$options = $bootstraps['shop']->getModuleOptions();
 			$actions = $options['actions'];
-			if(!$category_id>0) {
-			    $categories = $mce->getChildren ( $category_id, 2, $cat_type_id );
-			    $data = array();
-			    foreach ( $categories as $k => $have ) {
-				    $category = $mce->getElement ( $k );
-				    $categoryClass = $category->getType()->getElementClass();
-				    if ( ! $category->isReadable() ) continue;
-				    $count_items = count($mce->getChildren ( $k, 1));
-				    if( $count_items > 0 )
-					    $expandable = true;
-				    else
-					    $expandable = ! empty ( $have );
-				    $data[] = array (
-					    'id' => $category->id,
-					    'title' => $category->getObject()->title,
-					    'expandable' => $expandable,
-					    'count' => count( $have ),
-					    'elementClass' => $categoryClass,
+			
+		    $categories = $mce->getChildren ( $category_id, 2, $cat_type_id );
+		    $data = array();
+		    foreach ( $categories as $k => $have ) {
+			    $category = $mce->getElement ( $k );
+			    $categoryClass = $category->getType()->getElementClass();
+			    if ( ! $category->isReadable() ) continue;
+			    $count_items = count($mce->getChildren ( $k, 1));
+			    if( $count_items > 0 )
+				    $expandable = true;
+			    else
+				    $expandable = ! empty ( $have );
+			    $data[] = array (
+				    'id' => $category->id,
+				    'title' => $category->getObject()->title . " (" . $count_items . ")",
+				    'expandable' => $expandable,
+				    'count' => count( $have ),
+				    'elementClass' => $categoryClass,
+				    'controller' => 'shop',
+				    'element' => 'category',
+				    'actions'=>$actions['category'],
+				    //'accept' => '.shop_item, .shop_category'
+			    );
+		    }
+
+		    $categories_items = $mce->getChildren ( $category_id, 1, $item_type_id );
+		    foreach ( $categories_items as $k => $catalog_item ) {
+				    $items = $mce->getElement ( $k );
+				    $itemsClass = $items->getType()->getElementClass();
+				    if ( ! $items->isReadable() ) continue;
+				    if($itemsClass == 'shop_category') {
+					    $id= $items->id;
+					    $class = 'category';
+				    }
+				    else{
+						$id = $items->id;
+						$class = 'orders';
+				    }
+				    $data[] = array(
+					    'id' => $id,
+					    'title' => $items->getObject()->title,
+					    'expandable' => false,
+					    'elementClass' => $itemsClass,
 					    'controller' => 'shop',
-					    'element' => 'category',
-					    'actions'=>$actions['category'],
-					    //'accept' => '.shop_item, .shop_category'
+					    'element' => $class,
+					    'actions'=>$actions['orders'], //Костыль
+					    'accept' => ''
 				    );
-			    }
-			} else {
-			    $categories_items = $mce->getChildren ( $category_id, 1, $item_type_id );
-			    foreach ( $categories_items as $k => $catalog_item ) {
-					    $items = $mce->getElement ( $k );
-					    $itemsClass = $items->getType()->getElementClass();
-					    if ( ! $items->isReadable() ) continue;
-					    if($itemsClass == 'shop_category') {
-						    $id= $items->id;
-						    $class = 'category';
-					    }
-					    else{
-							$id = $items->id;
-							$class = 'orders';
-					    }
-					    $data[] = array(
-						    'id' => $id,
-						    'title' => $items->getObject()->title,
-						    'expandable' => false,
-						    'elementClass' => $itemsClass,
-						    'controller' => 'shop',
-						    'element' => $class,
-						    'actions'=>$actions['orders'], //Костыль
-						    'accept' => ''
-					    );
-			    }
-			}
+		    }
             $this->getResponse()->setBody( $this->view->json( $data ) );
         }
         

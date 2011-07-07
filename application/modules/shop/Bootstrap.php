@@ -16,7 +16,6 @@ class Shop_Bootstrap extends Zend_Application_Module_Bootstrap {
 	 */
 	protected $_moduleOptions = array(
 		'title'      => 'Магазин',
-		'type'       => 'tree',
 		'controller' => 'shop',
             'layout'=> array(
                     'type'=> 'tabs',

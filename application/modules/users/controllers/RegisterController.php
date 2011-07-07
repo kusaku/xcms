@@ -51,7 +51,7 @@ class Users_RegisterController extends Xcms_Controller_Modulefront {
         $this->view->form = $form;
 		if ( $this->view->is_regist ){
 
-
+			$reg = Zend_Registry::getInstance();
 			$title = 'Регистрация прошла успешно!';
 			$mess =  htmlspecialchars(trim($_POST['user_name'].", поздравляем Вас! Регистрация прошла успешно!\nВаши логин: ".$_POST['login']."\nи пароль: ".$_POST['user_password']."\n\nС уважением, администрация сайта “".Zend_Registry::getInstance()->get('site_name')."”."));
 			$from = (string) $reg->get( 'shop_email' );
