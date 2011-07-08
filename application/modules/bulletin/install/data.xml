@@ -89,13 +89,13 @@
             <field_groups id=""	name="common"	id_obj_type="parent"	is_active="1" is_locked="0"	is_visible="1"	title="Редактирование содержимого страницы"	ord="1">
                 <fields_controller id_field="1" id_group="parent" ord="1">
                 </fields_controller>
-                <fields_controller id_field="142" id_group="parent" ord="2">
+                <fields_controller id_field="209" id_group="parent" ord="2">
                 </fields_controller>
-                <fields_controller id_field="143" id_group="parent" ord="3">
+                <fields_controller id_field="210" id_group="parent" ord="3">
                 </fields_controller>
-				<fields_controller id_field="144" id_group="parent" ord="4">
+				<fields_controller id_field="211" id_group="parent" ord="4">
                 </fields_controller>
-				<fields_controller id_field="145" id_group="parent" ord="5">
+				<fields_controller id_field="212" id_group="parent" ord="5">
                 </fields_controller>
             </field_groups>
             <field_groups id=""	name="seo"	id_obj_type="parent"	is_active="1" is_locked="1" is_visible="0"	title="Настройки для поисковых систем"	ord="2">

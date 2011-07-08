@@ -2057,3 +2057,125 @@ Stack trace:
 #6 /home/prime/www/cms/application/models/Registry.php(46): Model_Registry::commit()
 #7 [internal function]: Model_Registry->__destruct()
 #8 {main}
+2011-07-07T13:53:36+04:00 ERR (3): exception 'Model_Exception' with message 'Тип данных не существует' in /home/prime/www/cms/application/models/Collection/Elements.php:271
+Stack trace:
+#0 /home/prime/www/cms/application/modules/bulletin/controllers/BackController.php(96): Model_Collection_Elements->createElement(0, 96)
+#1 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Bulletin_BackController->editAction()
+#2 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#3 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#4 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#7 {main}
+2011-07-07T13:53:36+04:00 CRIT (2): 
+2011-07-07T13:53:55+04:00 ERR (3): exception 'Model_Exception' with message 'Тип данных не существует' in /home/prime/www/cms/application/models/Collection/Elements.php:271
+Stack trace:
+#0 /home/prime/www/cms/application/modules/bulletin/controllers/BackController.php(96): Model_Collection_Elements->createElement(0, 96)
+#1 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Bulletin_BackController->editAction()
+#2 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#3 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#4 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#7 {main}
+2011-07-07T13:53:55+04:00 CRIT (2): 
+2011-07-07T13:55:57+04:00 ERR (3): exception 'Model_Exception' with message 'Тип данных не существует' in /home/prime/www/cms/application/models/Collection/Elements.php:271
+Stack trace:
+#0 /home/prime/www/cms/application/modules/bulletin/controllers/BackController.php(97): Model_Collection_Elements->createElement(0, 96)
+#1 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Bulletin_BackController->editAction()
+#2 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#3 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#4 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#7 {main}
+2011-07-07T13:55:57+04:00 CRIT (2): 
+2011-07-07T13:56:20+04:00 ERR (3): exception 'Model_Exception' with message 'Тип данных не существует' in /home/prime/www/cms/application/models/Collection/Elements.php:271
+Stack trace:
+#0 /home/prime/www/cms/application/modules/bulletin/controllers/BackController.php(97): Model_Collection_Elements->createElement(0, 96)
+#1 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Bulletin_BackController->editAction()
+#2 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#3 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#4 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#7 {main}
+2011-07-07T13:56:20+04:00 CRIT (2): 
+2011-07-07T14:59:55+04:00 ERR (3): exception 'Model_Exception' with message 'Тип данных не существует' in /home/prime/www/cms/application/models/Collection/Elements.php:271
+Stack trace:
+#0 /home/prime/www/cms/application/modules/bulletin/controllers/BackController.php(97): Model_Collection_Elements->createElement(0, 96)
+#1 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Bulletin_BackController->editAction()
+#2 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#3 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#4 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#7 {main}
+2011-07-07T14:59:55+04:00 CRIT (2): 
+2011-07-07T15:29:42+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1310038142' for key 'urlname'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `el...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `el...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('elements', Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#7 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#8 /home/prime/www/cms/application/models/Entity/Element.php(472): Zend_Db_Table_Row_Abstract->save()
+#9 /home/prime/www/cms/application/modules/bulletin/controllers/BackController.php(146): Model_Entity_Element->commit()
+#10 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Bulletin_BackController->editAction()
+#11 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#12 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#14 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#15 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#16 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1310038142' for key 'urlname'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `el...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `el...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('elements', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#7 /home/prime/www/cms/application/models/Entity/Element.php(472): Zend_Db_Table_Row_Abstract->save()
+#8 /home/prime/www/cms/application/modules/bulletin/controllers/BackController.php(146): Model_Entity_Element->commit()
+#9 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Bulletin_BackController->editAction()
+#10 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#11 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#13 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#14 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#15 {main}
+2011-07-07T15:29:42+04:00 CRIT (2): 
+2011-07-07T16:23:32+04:00 CRIT (2): 
+2011-07-07T16:39:53+04:00 CRIT (2): 
+2011-07-08T10:50:37+04:00 CRIT (2): 
+2011-07-08T10:54:53+04:00 ERR (3): exception 'Model_Exception' with message 'Группа полей защищена от изменения' in /home/prime/www/cms/application/models/Entity/FieldsGroup.php:252
+Stack trace:
+#0 /home/prime/www/cms/application/models/Entity/ObjectType.php(366): Model_Entity_FieldsGroup->commit()
+#1 /home/prime/www/cms/application/modules/data/controllers/BackController.php(178): Model_Entity_ObjectType->commit()
+#2 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Data_BackController->editAction()
+#3 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#4 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#6 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#7 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#8 {main}
+2011-07-08T10:54:53+04:00 CRIT (2): 
+2011-07-08T10:56:18+04:00 ERR (3): exception 'Model_Exception' with message 'Группа полей защищена от изменения' in /home/prime/www/cms/application/models/Entity/FieldsGroup.php:252
+Stack trace:
+#0 /home/prime/www/cms/application/models/Entity/ObjectType.php(366): Model_Entity_FieldsGroup->commit()
+#1 /home/prime/www/cms/application/modules/data/controllers/BackController.php(178): Model_Entity_ObjectType->commit()
+#2 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Data_BackController->editAction()
+#3 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#4 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#6 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#7 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#8 {main}
+2011-07-08T10:56:18+04:00 CRIT (2): 
+2011-07-08T13:10:41+04:00 CRIT (2): 

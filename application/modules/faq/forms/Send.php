@@ -68,9 +68,9 @@ class Faq_Form_Send extends Zend_Form {
 		),
 		array('faq_name', 'faq_email', 'faq_question'));
 		// защита от CSRF атак (подделка межсайтовых запросов)
-		$this->addElement( 'hash', 'no_csrf', array(
-			'salt' => 'Un1qU3'
-		) );
+		//$this->addElement( 'hash', 'no_csrf', array(
+		//	'salt' => 'Un1qU3'
+		//) );
 		
 	}
 }

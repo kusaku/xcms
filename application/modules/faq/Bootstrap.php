@@ -16,8 +16,33 @@ class Faq_Bootstrap extends Zend_Application_Module_Bootstrap {
 	 */
 	protected $_moduleOptions = array(
 		'title'      => 'ЧаВо',
-		'type'       => 'response',
 		'controller' => 'faq',
+		'layout' => array(
+			'type' => 'tabs',
+			'panes' => array(
+				array(
+					'title'=> 'Опубликованные',
+					'element' => 'category',
+					'widjet' => 'tree'
+				),
+				array(
+					'title'=> 'Не опубликованные',
+					'element' => 'category_un',
+					'widjet' => 'tree'
+				)
+			)
+		),
+		'actions' => array(
+			'category' => array(
+				'edit'   => 'Редактировать ленту вопросов'
+			),
+			'item' => array(
+				'edit' => 'Редактировать вопрос',
+				'delete' => 'Удалить вопрос'
+			)
+		),
+		'widjet' => 'tree',
+		'viewform' => 'panel',
 		'addtoroot' => true,
 		'is_core' => false
 	);

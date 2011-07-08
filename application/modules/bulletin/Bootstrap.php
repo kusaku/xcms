@@ -16,8 +16,34 @@ class Bulletin_Bootstrap extends Zend_Application_Module_Bootstrap {
 	 */
 	protected $_moduleOptions = array(
 		'title'      => 'Web-доска',
-		'type'       => 'response',
 		'controller' => 'bulletin',
+		'layout' => array(
+			'type' => 'tabs',
+			'panes' => array(
+				array(
+					'title'=> 'Опубликованные',
+					'element' => 'category',
+					'widjet' => 'tree'
+				),
+				array(
+					'title'=> 'Не опубликованные',
+					'element' => 'category_un',
+					'widjet' => 'tree'
+				)
+			)
+		),
+		'actions' => array(
+			'category' => array(
+				'edit'   => 'Редактировать ленту объявлений',
+				//'new'   => 'Создать объявление',
+			),
+			'item' => array(
+				'edit' => 'Редактировать объявление',
+				'delete' => 'Удалить объявление'
+			)
+		),
+		'widjet' => 'tree',
+		'viewform' => 'panel',
 		'addtoroot' => true,
 		'is_core' => false
 	);

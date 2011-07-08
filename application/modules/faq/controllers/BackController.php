@@ -16,7 +16,19 @@ class Faq_BackController extends Xcms_Controller_Back {
 	 * @return void
 	 */
 	public function getAction() {
-		$status =  $this->getRequest ()->getParam ( 'status' );
+		$pub = $this->getRequest ()->getParam ( 'category' );
+		//$unpub = $this->getRequest ()->getParam ( 'category_unpub' );
+		if(isset($pub)) {
+			$status = 'active';
+			$category_id = $pub;
+		} else {
+			$status = 'unactive';
+			$category_id = $this->getRequest ()->getParam ( 'category_un' );
+		}
+		//$status =  $this->getRequest ()->getParam ( 'status' );
+		$bootstraps = $this->getInvokeArg('bootstrap')->getResource( 'modules' );
+		$options = $bootstraps['faq']->getModuleOptions();
+		$actions = $options['actions'];
 		$data = array();
 		if( !isset( $status ) ){
 			$form = new Faq_Form_Edit();
@@ -35,35 +47,43 @@ class Faq_BackController extends Xcms_Controller_Back {
 				throw new Exception( 'Тип данных вопросы не существует' );
 			}
 			$mce = Model_Collection_Elements::getInstance ();
-				$categories = $mce->getChildren ( 0, 1, $cat_type_id );
+				$categories = $mce->getChildren ( $category_id, 2, $cat_type_id );
 			foreach ( $categories as $k => $have ) {
 				$category = $mce->getElement ( $k );
 				$categoryClass = $category->getType()->getElementClass();
 				if ( ! $category->isReadable() ) continue;
-				$news_data = array();
-				if( $status == 'active' )
-					$news = $mce->getChildren ( $k, 1, $item_type_id, false );
+				if($status == "active")
+					$elementName = 'category';
 				else
-					$news = $mce->getChildren ( $k, 1, $item_type_id, true, false );
-				foreach ( $news as $k => $news_item ) {
-					$items = $mce->getElement ( $k );
-					$itemsClass = $items->getType()->getElementClass();
-					if ( ! $items->isReadable() ) continue;
-					$news_data[] = array(
-						'id' => array( $category->id, $items->id ),
-						'title' => $items->getObject()->title,
-						'expandable' => false,
-						'elementClass' => $itemsClass,
-						'accept' => ''
-					);
-				}
+					$elementName = 'category_un';
 				$data[] = array (
 					'id' => $category->id,
 					'title' => $category->getObject()->title,
-					'fields' => $news_data,
-					'count' => count( $news ),
 					'elementClass' => $categoryClass,
-					'accept' => '.faq_item'
+					'expandable' => true,
+					'elementClass' => $categoryClass,
+					'controller' => 'faq',
+					'element' => $elementName,
+					'actions' => $actions['category']
+				);
+			}
+			
+			if( $status == 'active' )
+				$news = $mce->getChildren ( $category_id, 1, $item_type_id, false );
+			else
+				$news = $mce->getChildren ( $category_id, 1, $item_type_id, true, false );
+			foreach ( $news as $k => $news_item ) {
+				$items = $mce->getElement ( $k );
+				$itemsClass = $items->getType()->getElementClass();
+				if ( ! $items->isReadable() ) continue;
+				$data[] = array(
+					'id' => $items->id,
+					'title' => $items->getObject()->title,
+					'expandable' => false,
+					'elementClass' => $itemsClass,
+					'controller' => 'faq',
+					'element' => 'item',
+					'actions' => $actions['item']
 				);
 			}
 		}
@@ -80,6 +100,11 @@ class Faq_BackController extends Xcms_Controller_Back {
 	 */
 	public function editAction() {
 		$category_id = $this->getRequest ()->getParam ( 'category' );
+		$categoryun_id = $this->getRequest ()->getParam ( 'category_un' );
+		if(!isset($category_id))
+			$category_id = $categoryun_id;
+		elseif(isset($categoryun_id))
+			$item_id = $categoryun_id;
 		if ( isset ( $category_id ) ) {
 			if ( $category_id == 'new' ) {
 				//создание ленты вопросов
@@ -195,23 +220,22 @@ class Faq_BackController extends Xcms_Controller_Back {
 		if( isset( $category_id ) ){
 			$category_id = (int) $category_id;
 			if( $category_id > 0 ){
-				$item_id = $this->getRequest ()->getParam ( 'element' );
-				if( isset( $item_id ) ){
-					$item_id = (int) $item_id;
-					if( $item_id > 0 ){
-						// удаление вопроса
-						$success = Model_Collection_Elements::getInstance () ->delElement( $item_id );
-						if (! $success and (APPLICATION_ENV != 'production'))
-							throw new Exception ( 'Ошибка при удалении вопроса' );
-						}
-				}else{
-					// удаление ленты вопросов
-					$success = Model_Collection_Elements::getInstance () 
-						->delElement ( $category_id );
-					if (! $success and (APPLICATION_ENV != 'production'))
-						throw new Exception ( 'Ошибка при удалении ленты вопросов' );
-				}
+				// удаление ленты вопросов
+				$success = Model_Collection_Elements::getInstance () 
+					->delElement ( $category_id );
+				if (! $success and (APPLICATION_ENV != 'production'))
+					throw new Exception ( 'Ошибка при удалении ленты вопросов' );
 			}
+		}
+		$item_id = $this->getRequest ()->getParam ( 'item' );
+		if( isset( $item_id ) ){
+			$item_id = (int) $item_id;
+			if( $item_id > 0 ){
+				// удаление вопроса
+				$success = Model_Collection_Elements::getInstance () ->delElement( $item_id );
+				if (! $success and (APPLICATION_ENV != 'production'))
+					throw new Exception ( 'Ошибка при удалении вопроса' );
+				}
 		}
 		$total = count( Model_Collection_Elements::getInstance()->getDeleted() );
 		$this->getResponse()->setBody( $total );
