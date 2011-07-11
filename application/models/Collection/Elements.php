@@ -90,19 +90,21 @@ class Model_Collection_Elements extends Model_Abstract_Collection {
 		if ( $id != $this->_default ) {
 			$new = $this->getEntity( $id );
 			if ( isset ( $new ) ) {
-                            $db = $this->getDbElements()->getAdapter();
-                            $db->beginTransaction();
-                            try {
-                                $old = $this->getDefault();
-                                $old->is_default = 0;
-                                $old->save();
-                                $new->is_default = 1;
-                                $new->save();
-                                $this->_default = $id;
-                            } catch (Exception $e) {
-                                $db->rollBack();
-                            }
-                            $db->commit();
+				$db = $this->getDbElements()->getAdapter();
+				$db->beginTransaction();
+				try {
+					$old = $this->getDefault();
+					$old->is_default = 0;
+					$old->save();
+					$old->removeCache();
+					$new->is_default = 1;
+					$new->save();
+					$new->removeCache();
+					$this->_default = $id;
+				} catch (Exception $e) {
+					$db->rollBack();
+				}
+				$db->commit();
 			}
 		}
 		return $this;
@@ -301,6 +303,8 @@ class Model_Collection_Elements extends Model_Abstract_Collection {
 	 */
 	public function delElement( $id ) {
 		$element = $this->getElement( $id );
+		if((bool)$element->is_default)
+			return false;
 		$element->is_deleted = 1;
 		$table = $this->getDbElements();
 		$select = $table->select()

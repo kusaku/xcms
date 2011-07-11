@@ -384,6 +384,7 @@ class Model_Entity_Object extends Model_Abstract_Entity {
 			$this->save();
 		}
 		foreach ( $this->_properties as $property ) {
+			//$this->_properties
 			if ( $property->id_obj == 0 ) {
 				// Если объект новый, то у его свойств id_obj == 0
 				$property->id_obj = $this->id;

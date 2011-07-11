@@ -459,8 +459,8 @@ class Model_Entity_Element extends Model_Abstract_Entity {
 		$this->removeCache();
 		$db = $this->getTable()->getAdapter()->beginTransaction();
 		try {
-                        // commit
-                        $this->getObject()->commit();
+            // commit
+            $this->getObject()->commit();
 			if ( $this->id_obj == 0 ) {
 				$this->id_obj = $this->getObject()->id;
 			}
@@ -477,10 +477,10 @@ class Model_Entity_Element extends Model_Abstract_Entity {
 			$db->rollBack();
 			throw new Model_Exception( $e );
 		}
-                $reg = Zend_Registry::getInstance();
-                if($reg->get('search_active')) {
-                    $this->reindex();
-                }
+        $reg = Zend_Registry::getInstance();
+        if($reg->get('search_active')) {
+            	 $this->reindex();
+        }
 		return $this;
 	}
 }

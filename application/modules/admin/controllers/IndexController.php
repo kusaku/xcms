@@ -79,6 +79,7 @@ class Admin_IndexController extends Xcms_Controller_Admin {
 		// Messages
 		//$view->messages = $this->_helper->getHelper('FlashMessenger')->getMessages();
 		// JQuery
+		//$view->jQuery()->setLocalPath($view->BaseUrl() . '/cms/resources/jquery/jquery-1.6.2.min.js');
 		$view->jQuery()
 			->addJavascriptFile ( $view->BaseUrl() . '/cms/resources/jquery/plugins/jquery.form.js' )
 			//->addJavascriptFile ( $view->BaseUrl() . '/cms/resources/jquery/plugins/jquery.xml2json.js' )

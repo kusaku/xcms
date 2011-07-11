@@ -2179,3 +2179,150 @@ Stack trace:
 #8 {main}
 2011-07-08T10:56:18+04:00 CRIT (2): 
 2011-07-08T13:10:41+04:00 CRIT (2): 
+2011-07-09T12:51:01+04:00 CRIT (2): 
+2011-07-11T11:20:40+04:00 CRIT (2): 
+2011-07-11T11:21:05+04:00 CRIT (2): 
+2011-07-11T11:53:12+04:00 ERR (3): exception 'Model_Exception' with message 'Главная не найдена' in /home/prime/www/cms/application/models/Collection/Elements.php:74
+Stack trace:
+#0 /home/prime/www/cms/application/models/Collection/Elements.php(96): Model_Collection_Elements->getDefault()
+#1 /home/prime/www/cms/application/models/Entity/Property/DefaultPage.php(22): Model_Collection_Elements->setDefault(1)
+#2 /home/prime/www/cms/application/models/Entity/Element.php(282): Model_Entity_Property_DefaultPage->setValue('1', Object(Model_Entity_Element))
+#3 /home/prime/www/cms/application/models/Entity/Element.php(302): Model_Entity_Element->setValue('default', '1')
+#4 /home/prime/www/cms/application/modules/content/controllers/BackController.php(135): Model_Entity_Element->setValues(Array)
+#5 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Content_BackController->editAction()
+#6 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#7 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#8 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#11 {main}
+2011-07-11T11:53:12+04:00 CRIT (2): 
+2011-07-11T11:54:32+04:00 ERR (3): exception 'Model_Exception' with message 'Главная не найдена' in /home/prime/www/cms/application/models/Collection/Elements.php:74
+Stack trace:
+#0 /home/prime/www/cms/application/models/Collection/Elements.php(96): Model_Collection_Elements->getDefault()
+#1 /home/prime/www/cms/application/models/Entity/Property/DefaultPage.php(22): Model_Collection_Elements->setDefault(29)
+#2 /home/prime/www/cms/application/models/Entity/Element.php(282): Model_Entity_Property_DefaultPage->setValue('1', Object(Model_Entity_Element))
+#3 /home/prime/www/cms/application/models/Entity/Element.php(302): Model_Entity_Element->setValue('default', '1')
+#4 /home/prime/www/cms/application/modules/content/controllers/BackController.php(135): Model_Entity_Element->setValues(Array)
+#5 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Content_BackController->editAction()
+#6 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#7 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#8 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#11 {main}
+2011-07-11T11:54:33+04:00 CRIT (2): 
+2011-07-11T11:54:45+04:00 ERR (3): exception 'Model_Exception' with message 'Главная не найдена' in /home/prime/www/cms/application/models/Collection/Elements.php:74
+Stack trace:
+#0 /home/prime/www/cms/application/models/Collection/Elements.php(96): Model_Collection_Elements->getDefault()
+#1 /home/prime/www/cms/application/models/Entity/Property/DefaultPage.php(22): Model_Collection_Elements->setDefault(1)
+#2 /home/prime/www/cms/application/models/Entity/Element.php(282): Model_Entity_Property_DefaultPage->setValue('1', Object(Model_Entity_Element))
+#3 /home/prime/www/cms/application/models/Entity/Element.php(302): Model_Entity_Element->setValue('default', '1')
+#4 /home/prime/www/cms/application/modules/content/controllers/BackController.php(135): Model_Entity_Element->setValues(Array)
+#5 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Content_BackController->editAction()
+#6 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#7 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#8 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#11 {main}
+2011-07-11T11:54:45+04:00 CRIT (2): 
+2011-07-11T11:55:07+04:00 ERR (3): exception 'Model_Exception' with message 'Главная не найдена' in /home/prime/www/cms/application/models/Collection/Elements.php:74
+Stack trace:
+#0 /home/prime/www/cms/application/models/Collection/Elements.php(96): Model_Collection_Elements->getDefault()
+#1 /home/prime/www/cms/application/models/Entity/Property/DefaultPage.php(22): Model_Collection_Elements->setDefault(1)
+#2 /home/prime/www/cms/application/models/Entity/Element.php(282): Model_Entity_Property_DefaultPage->setValue('1', Object(Model_Entity_Element))
+#3 /home/prime/www/cms/application/models/Entity/Element.php(302): Model_Entity_Element->setValue('default', '1')
+#4 /home/prime/www/cms/application/modules/content/controllers/BackController.php(135): Model_Entity_Element->setValues(Array)
+#5 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Content_BackController->editAction()
+#6 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#7 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#8 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#11 {main}
+2011-07-11T11:55:07+04:00 CRIT (2): 
+2011-07-11T11:58:49+04:00 ERR (3): exception 'Model_Exception' with message 'Главная не найдена' in /home/prime/www/cms/application/models/Collection/Elements.php:74
+Stack trace:
+#0 /home/prime/www/cms/application/models/Collection/Elements.php(96): Model_Collection_Elements->getDefault()
+#1 /home/prime/www/cms/application/models/Entity/Property/DefaultPage.php(22): Model_Collection_Elements->setDefault(1)
+#2 /home/prime/www/cms/application/models/Entity/Element.php(282): Model_Entity_Property_DefaultPage->setValue('1', Object(Model_Entity_Element))
+#3 /home/prime/www/cms/application/models/Entity/Element.php(302): Model_Entity_Element->setValue('default', '1')
+#4 /home/prime/www/cms/application/modules/content/controllers/BackController.php(135): Model_Entity_Element->setValues(Array)
+#5 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Content_BackController->editAction()
+#6 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#7 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#8 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#11 {main}
+2011-07-11T11:58:49+04:00 CRIT (2): 
+2011-07-11T11:59:30+04:00 ERR (3): exception 'Model_Exception' with message 'Ошибка при присвоении значения свойству 'is_default' ' in /home/prime/www/cms/application/models/Entity/Element.php:288
+Stack trace:
+#0 /home/prime/www/cms/application/models/Entity/Element.php(466): Model_Entity_Element->setValue('is_default', 0)
+#1 /home/prime/www/cms/application/modules/content/controllers/BackController.php(136): Model_Entity_Element->commit()
+#2 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Content_BackController->editAction()
+#3 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#4 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#6 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#7 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#8 {main}
+2011-07-11T11:59:30+04:00 CRIT (2): 
+2011-07-11T12:00:56+04:00 ERR (3): exception 'Model_Exception' with message 'Главная не найдена' in /home/prime/www/cms/application/models/Collection/Elements.php:74
+Stack trace:
+#0 /home/prime/www/cms/application/models/Collection/Elements.php(96): Model_Collection_Elements->getDefault()
+#1 /home/prime/www/cms/application/models/Entity/Property/DefaultPage.php(22): Model_Collection_Elements->setDefault(1)
+#2 /home/prime/www/cms/application/models/Entity/Element.php(282): Model_Entity_Property_DefaultPage->setValue('1', Object(Model_Entity_Element))
+#3 /home/prime/www/cms/application/models/Entity/Element.php(302): Model_Entity_Element->setValue('default', '1')
+#4 /home/prime/www/cms/application/modules/content/controllers/BackController.php(135): Model_Entity_Element->setValues(Array)
+#5 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Content_BackController->editAction()
+#6 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#7 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#8 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#11 {main}
+2011-07-11T12:00:56+04:00 CRIT (2): 
+2011-07-11T12:04:27+04:00 ERR (3): exception 'Model_Exception' with message 'Главная не найдена' in /home/prime/www/cms/application/models/Collection/Elements.php:74
+Stack trace:
+#0 /home/prime/www/cms/application/models/Collection/Elements.php(96): Model_Collection_Elements->getDefault()
+#1 /home/prime/www/cms/application/models/Entity/Property/DefaultPage.php(22): Model_Collection_Elements->setDefault(1)
+#2 /home/prime/www/cms/application/models/Entity/Element.php(282): Model_Entity_Property_DefaultPage->setValue('1', Object(Model_Entity_Element))
+#3 /home/prime/www/cms/application/models/Entity/Element.php(302): Model_Entity_Element->setValue('default', '1')
+#4 /home/prime/www/cms/application/modules/content/controllers/BackController.php(135): Model_Entity_Element->setValues(Array)
+#5 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Content_BackController->editAction()
+#6 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#7 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#8 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#11 {main}
+2011-07-11T12:04:27+04:00 CRIT (2): 
+2011-07-11T12:09:16+04:00 ERR (3): exception 'Model_Exception' with message 'Главная не найдена' in /home/prime/www/cms/application/models/Collection/Elements.php:74
+Stack trace:
+#0 /home/prime/www/cms/application/models/Collection/Elements.php(96): Model_Collection_Elements->getDefault()
+#1 /home/prime/www/cms/application/models/Entity/Property/DefaultPage.php(22): Model_Collection_Elements->setDefault(1)
+#2 /home/prime/www/cms/application/models/Entity/Element.php(282): Model_Entity_Property_DefaultPage->setValue('1', Object(Model_Entity_Element))
+#3 /home/prime/www/cms/application/models/Entity/Element.php(302): Model_Entity_Element->setValue('default', '1')
+#4 /home/prime/www/cms/application/modules/content/controllers/BackController.php(135): Model_Entity_Element->setValues(Array)
+#5 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Content_BackController->editAction()
+#6 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#7 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#8 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#11 {main}
+2011-07-11T12:09:16+04:00 CRIT (2): 
+2011-07-11T12:15:32+04:00 CRIT (2): 
+2011-07-11T12:16:43+04:00 CRIT (2): 
+2011-07-11T12:17:46+04:00 CRIT (2): 
+2011-07-11T12:18:10+04:00 CRIT (2): 
+2011-07-11T12:50:37+04:00 CRIT (2): 
+2011-07-11T12:50:43+04:00 CRIT (2): 
+2011-07-11T12:50:52+04:00 CRIT (2): 
+2011-07-11T12:50:58+04:00 CRIT (2): 
+2011-07-11T12:51:12+04:00 CRIT (2): 
+2011-07-11T12:53:11+04:00 CRIT (2): 
+2011-07-11T12:53:59+04:00 CRIT (2): 
+2011-07-11T12:54:03+04:00 CRIT (2): 
