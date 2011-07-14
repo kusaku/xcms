@@ -36,6 +36,7 @@ Main.prototype.init = function(){
 			self.activateModule('content');
 		}
 	});
+
 }
 
 /*

@@ -2326,3 +2326,709 @@ Stack trace:
 2011-07-11T12:53:11+04:00 CRIT (2): 
 2011-07-11T12:53:59+04:00 CRIT (2): 
 2011-07-11T12:54:03+04:00 CRIT (2): 
+2011-07-12T11:05:31+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'check_browser' for key 'PRIMARY'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `re...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `re...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('registry', Array)
+#6 /home/prime/www/cms/application/models/Registry.php(140): Zend_Db_Table_Abstract->insert(Array, 'var = 'check_br...')
+#7 /home/prime/www/cms/application/models/Registry.php(46): Model_Registry::commit()
+#8 [internal function]: Model_Registry->__destruct()
+#9 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'check_browser' for key 'PRIMARY'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `re...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `re...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('registry', Array)
+#5 /home/prime/www/cms/application/models/Registry.php(140): Zend_Db_Table_Abstract->insert(Array, 'var = 'check_br...')
+#6 /home/prime/www/cms/application/models/Registry.php(46): Model_Registry::commit()
+#7 [internal function]: Model_Registry->__destruct()
+#8 {main}
+2011-07-12T17:33:21+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'shop_robox_login' for key 'PRIMARY'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `re...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `re...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('registry', Array)
+#6 /home/prime/www/cms/application/models/Registry.php(140): Zend_Db_Table_Abstract->insert(Array, 'var = 'shop_rob...')
+#7 /home/prime/www/cms/application/models/Registry.php(46): Model_Registry::commit()
+#8 [internal function]: Model_Registry->__destruct()
+#9 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'shop_robox_login' for key 'PRIMARY'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `re...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `re...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('registry', Array)
+#5 /home/prime/www/cms/application/models/Registry.php(140): Zend_Db_Table_Abstract->insert(Array, 'var = 'shop_rob...')
+#6 /home/prime/www/cms/application/models/Registry.php(46): Model_Registry::commit()
+#7 [internal function]: Model_Registry->__destruct()
+#8 {main}
+2011-07-12T18:15:26+04:00 ERR (3): exception 'Model_Exception' with message 'Элемент дерева с id='123' не найден' in /home/prime/www/cms/application/models/Collection/Elements.php:158
+Stack trace:
+#0 /home/prime/www/cms/library/Xcms/Controller/Modulefront.php(122): Model_Collection_Elements->getElement(123)
+#1 /home/prime/www/cms/application/modules/shop/controllers/ItemController.php(49): Xcms_Controller_Modulefront->setDataFrom('123')
+#2 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Shop_ItemController->viewAction()
+#3 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#4 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#6 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#7 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#8 {main}
+2011-07-12T18:15:26+04:00 CRIT (2): 
+2011-07-13T11:13:54+04:00 CRIT (2): 
+2011-07-13T11:16:21+04:00 CRIT (2): 
+2011-07-13T11:16:35+04:00 CRIT (2): 
+2011-07-13T11:16:37+04:00 CRIT (2): 
+2011-07-13T11:16:41+04:00 CRIT (2): 
+2011-07-13T11:41:09+04:00 CRIT (2): 
+2011-07-13T12:17:05+04:00 ERR (3): exception 'Model_Exception' with message 'Неизвестное значение 'shop_order_sum' ' in /home/prime/www/cms/application/models/Abstract/Entity.php:24
+Stack trace:
+#0 /home/prime/www/cms/application/modules/shop/controllers/OrderController.php(217): Model_Abstract_Entity->__get('shop_order_sum')
+#1 /home/prime/www/cms/application/modules/shop/controllers/OrderController.php(62): Shop_OrderController->saveOrder()
+#2 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Shop_OrderController->viewAction()
+#3 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#4 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#6 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#7 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#8 {main}
+2011-07-13T12:17:05+04:00 CRIT (2): 
+2011-07-13T12:17:30+04:00 ERR (3): exception 'Model_Exception' with message 'Неизвестное значение 'shop_order_sum' ' in /home/prime/www/cms/application/models/Abstract/Entity.php:24
+Stack trace:
+#0 /home/prime/www/cms/application/modules/shop/controllers/OrderController.php(217): Model_Abstract_Entity->__get('shop_order_sum')
+#1 /home/prime/www/cms/application/modules/shop/controllers/OrderController.php(62): Shop_OrderController->saveOrder()
+#2 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Shop_OrderController->viewAction()
+#3 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#4 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#6 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#7 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#8 {main}
+2011-07-13T12:17:30+04:00 CRIT (2): 
+2011-07-13T12:54:09+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'shop_robox_passwd_1' for key 'PRIMARY'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `re...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `re...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('registry', Array)
+#6 /home/prime/www/cms/application/models/Registry.php(140): Zend_Db_Table_Abstract->insert(Array, 'var = 'shop_rob...')
+#7 /home/prime/www/cms/application/models/Registry.php(46): Model_Registry::commit()
+#8 [internal function]: Model_Registry->__destruct()
+#9 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'shop_robox_passwd_1' for key 'PRIMARY'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `re...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `re...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('registry', Array)
+#5 /home/prime/www/cms/application/models/Registry.php(140): Zend_Db_Table_Abstract->insert(Array, 'var = 'shop_rob...')
+#6 /home/prime/www/cms/application/models/Registry.php(46): Model_Registry::commit()
+#7 [internal function]: Model_Registry->__destruct()
+#8 {main}
+2011-07-13T13:01:13+04:00 CRIT (2): 
+2011-07-13T13:01:32+04:00 CRIT (2): 
+2011-07-13T13:06:04+04:00 CRIT (2): 
+2011-07-13T13:06:29+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'shop_robox_test' for key 'PRIMARY'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `re...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `re...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('registry', Array)
+#6 /home/prime/www/cms/application/models/Registry.php(140): Zend_Db_Table_Abstract->insert(Array, 'var = 'shop_rob...')
+#7 /home/prime/www/cms/application/models/Registry.php(46): Model_Registry::commit()
+#8 [internal function]: Model_Registry->__destruct()
+#9 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'shop_robox_test' for key 'PRIMARY'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `re...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `re...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('registry', Array)
+#5 /home/prime/www/cms/application/models/Registry.php(140): Zend_Db_Table_Abstract->insert(Array, 'var = 'shop_rob...')
+#6 /home/prime/www/cms/application/models/Registry.php(46): Model_Registry::commit()
+#7 [internal function]: Model_Registry->__destruct()
+#8 {main}
+2011-07-13T13:33:57+04:00 CRIT (2): 
+2011-07-13T13:38:59+04:00 CRIT (2): 
+2011-07-13T13:39:05+04:00 CRIT (2): 
+2011-07-13T13:52:41+04:00 CRIT (2): 
+2011-07-13T13:52:46+04:00 CRIT (2): 
+2011-07-13T15:31:13+04:00 ERR (3): exception 'Model_Exception' with message 'Нет прав на редактирование типа данных 'guides_back'' in /home/prime/www/cms/application/models/Entity/Object.php:379
+Stack trace:
+#0 /home/prime/www/cms/application/modules/shop/controllers/OrderController.php(194): Model_Entity_Object->commit()
+#1 /home/prime/www/cms/application/modules/shop/controllers/OrderController.php(62): Shop_OrderController->saveOrder()
+#2 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Shop_OrderController->viewAction()
+#3 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#4 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#6 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#7 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#8 {main}
+2011-07-13T15:31:13+04:00 CRIT (2): 
+2011-07-13T15:31:58+04:00 ERR (3): exception 'Model_Exception' with message 'Нет прав на редактирование типа данных 'guides_back'' in /home/prime/www/cms/application/models/Entity/Object.php:379
+Stack trace:
+#0 /home/prime/www/cms/application/modules/shop/controllers/OrderController.php(194): Model_Entity_Object->commit()
+#1 /home/prime/www/cms/application/modules/shop/controllers/OrderController.php(62): Shop_OrderController->saveOrder()
+#2 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Shop_OrderController->viewAction()
+#3 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#4 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#6 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#7 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#8 {main}
+2011-07-13T15:31:58+04:00 CRIT (2): 
+2011-07-13T16:28:27+04:00 ERR (3): exception 'Model_Exception' with message 'Группа полей защищена от изменения' in /home/prime/www/cms/application/models/Entity/FieldsGroup.php:252
+Stack trace:
+#0 /home/prime/www/cms/application/models/Entity/ObjectType.php(366): Model_Entity_FieldsGroup->commit()
+#1 /home/prime/www/cms/application/modules/data/controllers/BackController.php(178): Model_Entity_ObjectType->commit()
+#2 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Data_BackController->editAction()
+#3 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#4 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#6 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#7 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#8 {main}
+2011-07-13T16:28:27+04:00 CRIT (2): 
+2011-07-13T16:28:48+04:00 ERR (3): exception 'Model_Exception' with message 'Группа полей защищена от изменения' in /home/prime/www/cms/application/models/Entity/FieldsGroup.php:252
+Stack trace:
+#0 /home/prime/www/cms/application/models/Entity/ObjectType.php(366): Model_Entity_FieldsGroup->commit()
+#1 /home/prime/www/cms/application/modules/data/controllers/BackController.php(178): Model_Entity_ObjectType->commit()
+#2 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Data_BackController->editAction()
+#3 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#4 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#6 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#7 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#8 {main}
+2011-07-13T16:28:48+04:00 CRIT (2): 
+2011-07-13T16:29:22+04:00 ERR (3): exception 'Model_Exception' with message 'Группа полей защищена от изменения' in /home/prime/www/cms/application/models/Entity/FieldsGroup.php:252
+Stack trace:
+#0 /home/prime/www/cms/application/models/Entity/ObjectType.php(366): Model_Entity_FieldsGroup->commit()
+#1 /home/prime/www/cms/application/modules/data/controllers/BackController.php(178): Model_Entity_ObjectType->commit()
+#2 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Data_BackController->editAction()
+#3 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('editAction')
+#4 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#6 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#7 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#8 {main}
+2011-07-13T16:29:22+04:00 CRIT (2): 
+2011-07-13T16:29:36+04:00 CRIT (2): 
+2011-07-13T16:29:38+04:00 CRIT (2): 
+2011-07-13T16:55:40+04:00 CRIT (2): 
+2011-07-13T16:55:52+04:00 CRIT (2): 
+2011-07-13T17:00:38+04:00 CRIT (2): 
+2011-07-14T12:19:50+04:00 CRIT (2): 
+2011-07-14T15:52:58+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#7 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#8 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#9 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#10 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#11 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#12 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#14 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#15 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#16 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#7 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#8 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#9 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#10 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#11 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#13 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#14 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#15 {main}
+2011-07-14T16:01:32+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#7 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#8 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#9 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#10 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#11 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#12 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#14 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#15 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#16 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#7 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#8 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#9 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#10 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#11 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#13 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#14 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#15 {main}
+2011-07-14T16:23:43+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#7 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#8 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#9 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#10 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#11 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#12 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#14 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#15 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#16 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#7 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#8 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#9 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#10 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#11 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#13 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#14 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#15 {main}
+2011-07-14T16:24:32+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#7 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#8 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#9 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#10 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#11 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#12 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#14 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#15 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#16 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#7 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#8 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#9 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#10 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#11 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#13 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#14 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#15 {main}
+2011-07-14T16:25:00+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#7 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#8 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#9 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#10 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#11 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#12 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#14 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#15 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#16 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#7 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#8 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#9 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#10 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#11 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#13 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#14 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#15 {main}
+2011-07-14T16:25:41+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#7 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#8 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#9 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#10 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#11 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#12 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#14 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#15 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#16 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#7 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#8 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#9 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#10 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#11 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#13 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#14 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#15 {main}
+2011-07-14T16:26:41+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#7 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#8 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#9 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#10 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#11 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#12 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#14 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#15 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#16 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#7 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#8 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#9 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#10 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#11 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#13 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#14 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#15 {main}
+2011-07-14T16:28:38+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'ewq@ewq.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#7 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#8 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#9 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#10 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#11 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#12 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#14 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#15 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#16 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'ewq@ewq.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#7 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#8 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#9 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#10 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#11 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#13 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#14 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#15 {main}
+2011-07-14T16:28:52+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'ewq@ewq.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#7 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#8 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#9 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#10 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#11 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#12 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#14 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#15 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#16 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'ewq@ewq.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#7 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#8 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#9 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#10 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#11 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#13 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#14 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#15 {main}
+2011-07-14T16:31:42+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#7 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#8 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#9 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#10 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#11 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#12 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#14 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#15 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#16 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#7 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#8 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#9 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#10 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#11 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#13 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#14 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#15 {main}
+2011-07-14T16:32:42+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#7 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#8 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#9 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#10 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#11 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#12 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#14 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#15 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#16 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#7 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#8 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#9 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#10 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#11 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#13 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#14 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#15 {main}
+2011-07-14T16:36:40+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#7 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#8 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#9 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#10 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#11 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#12 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#14 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#15 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#16 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#7 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#8 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#9 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#10 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#11 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#13 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#14 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#15 {main}
+2011-07-14T16:36:56+04:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#7 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#8 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#9 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#10 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#11 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#12 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#13 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#14 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#15 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#16 {main}
+
+Next exception 'Zend_Db_Statement_Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'qwe@qwe.ru' for key 'name'' in /home/prime/www/cms/library/Zend/Db/Statement/Pdo.php:234
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 /home/prime/www/cms/library/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('INSERT INTO `us...', Array)
+#3 /home/prime/www/cms/library/Zend/Db/Adapter/Abstract.php(574): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `us...', Array)
+#4 /home/prime/www/cms/library/Zend/Db/Table/Abstract.php(1073): Zend_Db_Adapter_Abstract->insert('users', Array)
+#5 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(467): Zend_Db_Table_Abstract->insert(Array)
+#6 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(438): Zend_Db_Table_Row_Abstract->_doInsert()
+#7 /home/prime/www/cms/application/models/Entity/User.php(150): Zend_Db_Table_Row_Abstract->save()
+#8 /home/prime/www/cms/application/modules/users/controllers/RegisterController.php(40): Model_Entity_User->commit()
+#9 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Users_RegisterController->viewAction()
+#10 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('viewAction')
+#11 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#13 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#14 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#15 {main}

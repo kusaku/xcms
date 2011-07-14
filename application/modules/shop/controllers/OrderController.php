@@ -59,7 +59,7 @@ class Shop_OrderController extends Xcms_Controller_Modulefront {
                 }
             }
             if($request->getParam('order_confirm')) {
-                $this->saveOrder();
+                $s_result = $this->saveOrder();
                 $session->orderStep = 'saved';
             }
         } else {
@@ -67,6 +67,7 @@ class Shop_OrderController extends Xcms_Controller_Modulefront {
 		}
         if(!isset($session->orderStep)) $session->orderStep = 1;
         $auth = Zend_Auth::getInstance();
+        var_dump($auth->getIdentity());
         switch ($session->orderStep ) {
             case 1:
                 $this->view->sum = $session->orderSum;
@@ -97,6 +98,8 @@ class Shop_OrderController extends Xcms_Controller_Modulefront {
                 $this->renderContent( 'order/step3.phtml' );
                 break;
             case 'saved':
+            	if($s_result["robox"])
+            		$this->view->robox_link = $s_result["robox_link"];
                 $this->renderContent( 'order/saved.phtml' );
 				(int)$session->orderStep = 1;
                 unset($session->orderStep);
@@ -146,6 +149,15 @@ class Shop_OrderController extends Xcms_Controller_Modulefront {
         $data_order['title'] = 'Заказ №';
 		$user = Model_Collection_Users::getInstance()->getEntity($auth->getIdentity()->id);
         $order = Model_Collection_Objects::getInstance()->createObject($data_order);
+        
+        $payStatusFieldId = Model_Collection_Fields::getInstance()->getFieldIdByName('shop_order_payed');
+        $payStatusFieldEntity = Model_Collection_Fields::getInstance()->getEntity($payStatusFieldId);
+        $payStatusGuide = Model_Collection_Objects::getInstance()->getGuideObjects($payStatusFieldEntity->id_guide);
+        foreach($payStatusGuide as $payStatus) {
+        	if($payStatus->title == "Не оплачен")
+        		$NoPayedId = $payStatus->id;
+        }
+        
         $values = array(
             'shop_order_userid'=>  $user->id_object,
             'shop_order_number'=>rand(0,100000),
@@ -158,7 +170,9 @@ class Shop_OrderController extends Xcms_Controller_Modulefront {
 			'shop_order_status'=> $_POST['shop_order_status'],
 			'shop_order_payment'=> $_POST['shop_order_payment'],
 			'shop_order_phone'=> $_POST['user_phone'],
+        	'shop_order_payed' => $NoPayedId
         );
+        $rOrderSum = $values["shop_order_sum"];
         $order->setValues($values);
         $order->commit();
 
@@ -208,7 +222,13 @@ class Shop_OrderController extends Xcms_Controller_Modulefront {
 		if (mail($email, $title, $mess, $headers)) print '*-вам отправлено информационное письмо на адрес "'.$email.'".';
 		else print '*-при отправке письма с информацией о заказе возникли сложности. Письмо не отправлено.';
 
-        return true;
+		$result = array();
+		$result["id"] = $order->id;
+		if($reg->get('shop_robox_delivid') == $_POST["shop_order_payment"]) {
+			$result['robox'] = true;
+			$result['robox_link'] = $this->createRoboxLink($order->id, $rOrderSum);
+		}
+        return $result;
     }
 
 
@@ -222,5 +242,22 @@ class Shop_OrderController extends Xcms_Controller_Modulefront {
         $sum = $session->items[$id]['count']*$session->items[$id]['price'];
         unset($session->items[$id]);
         $session->orderSum -= $sum;
+    }
+    
+    /**
+     * Генерация ссылки для редиректа на страницу оплаты
+     */
+    public function createRoboxLink($orderId, $orderSum) {
+    	$reg = Zend_Registry::getInstance();
+    	$mrhLogin = $reg->get("shop_robox_login");
+    	$mrhPasswd = $reg->get("shop_robox_passwd_1");
+    	$testMode = $reg->get("shop_robox_test");
+    	$desc = "Заказ №" . $orderId;
+    	$crc = md5("$mrhLogin:$orderSum:$orderId:$mrhPasswd");
+    	$page = "https://merchant.roboxchange.com/Index.aspx";
+    	if((bool)$testMode)
+    		$page = "http://test.robokassa.ru/Index.aspx";
+    	$url = $page . "?MrchLogin=$mrhLogin&"."OutSum=$orderSum&InvId=$orderId&Desc=$desc&SignatureValue=$crc";
+    	return $url;
     }
 }

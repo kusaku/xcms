@@ -10,6 +10,11 @@
 <script type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript" src="/js/checkbox.js"></script>
 <script type="text/javascript" src="/js/shop.js"></script>
+<?if($this->check_browser):?>
+<link rel="stylesheet" type="text/css" href="/css/topbar.css" />
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/check_browser.js"></script>
+<?endif;?>
   <!--[if lt IE 7]>
   <style type="text/css">
 #content {padding-left: 10px;}

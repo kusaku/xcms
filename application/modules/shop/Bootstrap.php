@@ -67,6 +67,7 @@ class Shop_Bootstrap extends Zend_Application_Module_Bootstrap {
 		$front = $this->getApplication ()->getResource ( 'frontcontroller' );
 		$router = $front->getRouter ();
 		$name = $this->_moduleOptions['controller'];
+		
 		$router->addRoute ( "admin_$name", new Zend_Controller_Router_Route (
 			"admin/$name/:action/*",
 			array (
@@ -85,7 +86,7 @@ class Shop_Bootstrap extends Zend_Application_Module_Bootstrap {
 				'id' => '\d+'
 			)
 		) );
-                $router->addRoute ( 'shop_search', new Zend_Controller_Router_Route (
+        $router->addRoute ( 'shop_search', new Zend_Controller_Router_Route (
 			'shop/search/:category/:field/:query',
 			array (
 				'module' => 'shop',
@@ -121,7 +122,7 @@ class Shop_Bootstrap extends Zend_Application_Module_Bootstrap {
 				'id' => '\d+'
 			)
 		) );
-                $router->addRoute ( 'shop_cart', new Zend_Controller_Router_Route (
+        $router->addRoute ( 'shop_cart', new Zend_Controller_Router_Route (
 			'shop/cart',
 			array (
 				'module' => 'shop',
@@ -132,6 +133,17 @@ class Shop_Bootstrap extends Zend_Application_Module_Bootstrap {
 			array(
 				'id' => '\d+'
 			)
+		) );
+		
+		// роуты для робокассы
+		$router->addRoute ( 'shop_robox', new Zend_Controller_Router_Route (
+			'shop/robox/:method',
+			array (
+				'module' => 'shop',
+				'controller' => 'robox',
+				'action' => 'view',
+				'method' => 'request'
+            )
 		) );
                 
 		$router->addRoute ( 'shop_alias', new Zend_Controller_Router_Route (

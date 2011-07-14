@@ -44,6 +44,7 @@ class Users_RegisterController extends Xcms_Controller_Modulefront {
                 }
                 $this->view->is_regist = true;
 				$storage->write( $user );
+				var_dump($storage->read()); exit;
             } else {
                 $this->view->register_errors = $form->getMessages();
             }
@@ -62,11 +63,11 @@ class Users_RegisterController extends Xcms_Controller_Modulefront {
 
 			mail($_POST['user_email'], $title, $mess, $headers);
 
-		if ( $is_guest ){
-			$uri = Zend_Uri_Http::fromString('http://'.$_SERVER['HTTP_HOST'].'/shopcart');
-			$this->_redirect($uri->__toString());
-			return true;
-		}
+			if ( $is_guest ){
+				$uri = Zend_Uri_Http::fromString('http://'.$_SERVER['HTTP_HOST'].'/shopcart');
+				$this->_redirect($uri->__toString());
+				return true;
+			}
 
 
 		}

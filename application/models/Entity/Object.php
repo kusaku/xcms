@@ -372,9 +372,9 @@ class Model_Entity_Object extends Model_Abstract_Entity {
 	 * @todo использование транзакций и логирования
 	 * @return Model_Entity_Object $this
 	 */
-	public function commit() {
+	public function commit($override = false) {
 		$etype = $this->getType()->getElementType();
-                if ($etype) {
+                if ($etype && !$override) {
                     if ( ! $etype->isActionAllowed( Main::getCurrentUserRole(), 'edit' ) ) {
                             throw new Model_Exception( "Нет прав на редактирование типа данных '".$etype->module."_".$etype->controller."'" );
                     }

@@ -86,15 +86,60 @@ class Shop_Form_Options extends Admin_Form_Edit {
 		'value' => $shop_socbuttons,
 		'description' => 'Включить отображение социальных кнопок на странице отдельного товара'
 	));
+	
+	$shop_robox_login = $reg->get( 'shop_robox_login' );
+	$this->addElement( 'text', 'shop_robox_login', array(
+		'label' => 'Merchant-логин',
+		'value' => $shop_robox_login,
+		'description' => 'Логин мерчанта в системе Робокасса'
+	));
+	$shop_robox_passwd_1 = $reg->get( 'shop_robox_passwd_1' );
+	$this->addElement( 'text', 'shop_robox_passwd_1', array(
+		'label' => 'Merchant-пароль 1',
+		'value' => $shop_robox_passwd_1,
+		'description' => 'Пароль#1 в системе Робокасса'
+	));
+	$shop_robox_passwd_2 = $reg->get( 'shop_robox_passwd_2' );
+	$this->addElement( 'text', 'shop_robox_passwd_2', array(
+		'label' => 'Merchant-пароль 2',
+		'value' => $shop_robox_passwd_2,
+		'description' => 'Пароль#2 в системе Робокасса'
+	));
+	$shop_robox_delivid = $reg->get( 'shop_robox_delivid' );
+	$this->addElement( 'text', 'shop_robox_delivid', array(
+		'label' => 'ID метода оплаты',
+		'value' => $shop_robox_delivid,
+		'description' => 'ID элемента справочника для оплаты через Робокассу'
+	));
+	$shop_robox_test = $reg->get( 'shop_robox_test' );
+	$this->addElement( 'checkbox', 'shop_robox_test', array(
+		'label' => 'Тестовый режим',
+		'value' => $shop_robox_test,
+		'description' => 'Включить/отключить тестовый режим оплаты'
+	));
+	
+	$this->addDisplayGroup( 
+		array( 
+			'buy_without_reg', 'shop_email', 'shop_socbuttons'
+		), 
+		'shop', 
+		array('description' => 'Настройки магазина' )
+	);
+	$this->addDisplayGroup( 
+		array( 
+			'shop_robox_login', 'shop_robox_passwd_1', 'shop_robox_passwd_2', 'shop_robox_delivid', 'shop_robox_test'
+		), 
+		'robokassa', 
+		array('description' => 'Настройки Робокассы' )
+	);
 	$this->addDisplayGroup( 
 		array( 
 			'catalog_big_size','square_big_active','catalog_medium_size',
 			'square_medium_active','catalog_small_size','square_small_active',
-			'catalog_kategory_size','square_kategory_active',
-			'buy_without_reg', 'shop_email', 'shop_socbuttons'
+			'catalog_kategory_size','square_kategory_active'
 		), 
-		'global', 
-		array('description' => 'Глобальные настройки' )
+		'images', 
+		array('description' => 'Настройки изображений' )
 	);
 	$this->setElementDecorators( array(
 		array('Label', array('nameimg' => 'ico_help.gif')), 

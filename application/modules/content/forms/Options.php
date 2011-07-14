@@ -45,8 +45,14 @@ class Content_Form_Options extends Admin_Form_Edit {
 		'value' => $parse_content,
 		'description' => 'Включить/отключить отображение блоков, выводимых в тексте страницы'
 	));
+	$check_browser = $reg->get( 'check_browser' );
+	$this->addElement( 'checkbox', 'check_browser', array(
+		'label' => 'Включить проверку браузера пользователя',
+		'value' => $check_browser,
+		'description' => 'Включить/отключить проверку версии браузера пользователя'
+	));
 	$this->addDisplayGroup( 
-		array( 'site_name', 'site_description', 'site_keywords', 'use_urlnames', 'parse_content' ), 
+		array( 'site_name', 'site_description', 'site_keywords', 'use_urlnames', 'parse_content', 'check_browser' ), 
 		'global', 
 		array('description' => 'Глобальные настройки' )
 	);

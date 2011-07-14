@@ -40,6 +40,11 @@ abstract class Xcms_Controller_Modulefront extends Zend_Controller_Action {
 			->setName('description', (string) $reg->get( 'site_description' ) );
 		$view->headLink()
 			->setIndent( 2 );
+		// Проверка версии браузера
+		$reg = Zend_Registry::getInstance();
+		if($reg->get('check_browser')) {
+			$this->view->check_browser = true;
+		}
 		// Навигация
 		$view->navigation( Model_Collection_Elements::getInstance()->getNavigation() );
 		$view->navigation()->menu()->setIndent( 2 )->setMaxDepth(1);;

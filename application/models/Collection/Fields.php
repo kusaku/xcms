@@ -66,13 +66,12 @@ class Model_Collection_Fields extends Model_Abstract_Collection {
 	 */
 	public function getFieldIdByName( $name ) {
 		if ( ! isset( $this->_index['name'][ $name ] ) ) {
-			/*
 			$table = $this->getDbFields();
 			$field = $table->fetchRow( $table->select()->where( 'name = ?', $name ) );
 			if ( isset( $field ) ) {
 				$this->addEntity( $field );
 				return $field->id;
-			}*/
+			}
 		} else {
 			return $this->_index['name'][ $name ];
 		}

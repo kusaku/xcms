@@ -100,12 +100,16 @@
 			 * Варианты доставки.
 			 * Берутся из справочника, но цена идёт в названии без
 			 */
+				$f = true;
 				foreach ($deliveries as $delivery){
 					//$tmp = explode(':',$delivery->title);
 					$deliv['id'] = $delivery->id;
 					$deliv['title'] = $delivery->title;
 					$deliv['price'] = $delivery->getValue('shop_order_delivery_price');
-					if ( $deliv['price'] == 0 ) $checked = 'checked="checked"'; else $checked = ''; // Выбираем бесплатный вариант
+					if ( $deliv['price'] == 0 || $f) {
+						$checked = 'checked="checked"';
+						$f = false; 
+					} else $checked = ''; // Выбираем бесплатный вариант
 					print '<input class="niceRadio" name="shop_order_delivery" type="radio" onChange="summaStepTwo()" value="'.$deliv['id'].'" price="'.$deliv['price'].'" '.$checked.'/> <label for="myradio2">'.$deliv['title'].' <span>'.$deliv['price'].' руб.</span></label><br>';
 				}
 			?>
@@ -128,11 +132,18 @@
 		</div>
 	</div>
 	<div class="right">
-		<p><strong>Выберите способы оплаты:</strong></p>
+		<p><strong>Выберите способ оплаты:</strong></p>
 		<fieldset>
 			<?php
+				$def = Zend_Registry::getInstance()->get('shop_robox_delivid');
+				$f = true;
 				foreach ($payments as $pay){
-					print '<input id="myradio4" class="niceRadio" name="shop_order_payment" type="radio" value="'.$pay->id.'" />';
+					$checked = "";
+					if((!empty($def) && $pay->id == $def) || $f) {
+						$checked = " checked";
+						$f = false;
+					}
+					print '<input id="myradio4" class="niceRadio" name="shop_order_payment" type="radio" value="'.$pay->id.'" '.$checked.' />';
 					print '<label for="myradio4">'.$pay->title.'</label><br />';
 				}/**/
 			?>
