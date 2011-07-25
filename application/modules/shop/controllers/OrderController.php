@@ -67,7 +67,6 @@ class Shop_OrderController extends Xcms_Controller_Modulefront {
 		}
         if(!isset($session->orderStep)) $session->orderStep = 1;
         $auth = Zend_Auth::getInstance();
-        var_dump($auth->getIdentity());
         switch ($session->orderStep ) {
             case 1:
                 $this->view->sum = $session->orderSum;
@@ -77,6 +76,9 @@ class Shop_OrderController extends Xcms_Controller_Modulefront {
                 } else {
                     $this->view->next = false;
                 }
+                $this->view->regerr = false;
+                if($this->getRequest()->getParam('regerr'))
+                	$this->view->regerr = true;
                 $this->renderContent( 'order/step1.phtml' );
                 break;
             case 2:
@@ -167,7 +169,7 @@ class Shop_OrderController extends Xcms_Controller_Modulefront {
 			'shop_order_address'=> $_POST['shop_order_address'],
 			'shop_order_delivery'=> $_POST['shop_order_delivery'],
 			'shop_order_city'=> $_POST['shop_order_city'],
-			'shop_order_status'=> $_POST['shop_order_status'],
+			//'shop_order_status'=> $_POST['shop_order_status'],
 			'shop_order_payment'=> $_POST['shop_order_payment'],
 			'shop_order_phone'=> $_POST['user_phone'],
         	'shop_order_payed' => $NoPayedId
@@ -201,7 +203,7 @@ class Shop_OrderController extends Xcms_Controller_Modulefront {
                 'shop_order_item_count'=>$value['count']
             );
             $order_info->setValues($values);
-            $order_info->commit();
+            $order_info->commit(true);
             $data['id_order'] = $shopOrder->id;
             $data['id_obj'] = $order_info->id;
             $data['id_element'] = $key;

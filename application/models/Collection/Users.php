@@ -142,4 +142,10 @@ class Model_Collection_Users extends Model_Abstract_Collection {
 		$new_object = $this->addEntity( $this->getDbUsers()->createRow( $data ) );
 		return $new_object;
 	}
+	
+	public function getUserByName($name) {
+		$sel = $this->getDbUsers()->select()->where('name=?', $name);
+	    $row = $this->getDbUsers()->fetchRow($sel);
+	    return $row;
+	}
 }

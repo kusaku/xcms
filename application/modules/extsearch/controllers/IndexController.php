@@ -24,7 +24,9 @@ class Extsearch_IndexController extends Xcms_Controller_Modulefront {
         $items = $this->items;
 		
         $item_container = new Zend_Navigation();
+        $itemsCount = 0;
         foreach ( $items as $element ) {
+        		$itemsCount++;
                 $s_element = Model_Collection_Elements::getInstance()->getElement ( $element->id );
                 //var_dump($s_element->getValues()); exit;
                 if($s_element) {
@@ -38,8 +40,10 @@ class Extsearch_IndexController extends Xcms_Controller_Modulefront {
                     
                 }
         }
+        $this->view->itemsCount = $itemsCount;
         
         $paginator = Zend_Paginator::factory( $item_container );
+        $paginator->setItemCountPerPage(9999999);
         $this->view->items = $paginator;
         $this->renderContent();
     }

@@ -1,18 +1,37 @@
+<script type="text/javascript" src="/js/catalog.js"></script>
+<?php
+	$blockCount = 2; // Количество товаров в одном поисковом блоке
+	$ident = 'init';
+	$key = 1;
+	$cnt = 0;
+?>
 <!-- Вывод товара -->
-<hr />
+<hr/>
 <div class="item-list">
-<?php if (count($this->items)): ?>
+<?php
+if ($this->itemsCount){
+	foreach ($this->items as $item){ ?>
+	<div class="item-item">
+		<div class="item-title"><?=$this->navigation()->menu()->htmlify($item)?></div>
+		<div class="item-img"><?php if ( $item->get('item_image') ): ?><a href='<?=$item->getHref();?>'><img class="<?=$ident?>" <?=($ident == 'init')? "src":"rel";?>="/shop/small/<?=$item->get('item_image')?>" border='0'/></a><?php endif; ?></div>
+		<div class="item-price"><?php if ( $item->get('item_price') ): ?><?=$item->get('item_price')?> руб.<?php endif; ?></div>
+	</div>
+	<?php if ( $key%$blockCount == 0 && $key < $this->itemsCount){  // После каждого n-ного элемента ставим разделитель
+		$ident = md5($ident.'asd'); // New key?>
 
-<hr />
-<?php foreach ($this->items as $item): ?>
-    <div class="item-item">
-        <div class="item-title"><?=$this->navigation()->menu()->htmlify($item)?></div>
-    	<div class="item-img"><?php if ( $item->get('item_image') ): ?><a href='<?=$item->getHref();?>'><img src=/shop/small/<?=$item->get('item_image')?> border='0'/></a><?php endif; ?></div>
-    	<div class="item-price"><?php if ( $item->get('item_price') ): ?><?=$item->get('item_price')?> руб.<?php endif; ?></div>
-    </div>
-<?php endforeach; ?>
-<?php else: ?>
-По вашему запросу ничего не найдено.
-<?php endif; ?>
+	<div style="clear: both; text-align: center; cursor: pointer;" onClick="$('#<?=$ident?>').show(300);$('img.<?=$ident?>').each(function(){$(this).attr('src', $(this).attr('rel'))});;$(this).remove();">
+		<h3>Еще результаты поиска</h3>
+	</div>
+	<div id="<?=$ident?>" style="display: none;clear: both; ">
+	<?php
+		$cnt++;
+		}
+	$key++;
+	}
+
+	for ($i = 1; $i <= $cnt; $i++){
+		echo '</div>';
+	}
+} else print "По вашему запросу ничего не найдено." ?>
 </div>
 <!--конец -->

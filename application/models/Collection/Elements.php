@@ -651,4 +651,20 @@ class Model_Collection_Elements extends Model_Abstract_Collection {
 		if ( $av == $bv ) return 0;
 		return ($av > $bv) ? -1 : 1;
 	}
+	
+	/**
+	 * Удалить элемент из БД
+	 * @param int $id идентификатор удаляемого объекта
+	 * @return int число удаленных строк
+	 */
+	public function delEntity( $id ) {
+		$entity = $this->getEntity( $id );
+		$result = $entity->delete();
+		if ( $result ) {
+			Model_Search::getInstance()->delete($entity);
+			$entity->removeCache();
+			unset ( $this->_entities[ $id ] );
+		}
+		return $result;
+	}
 }

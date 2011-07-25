@@ -89,6 +89,9 @@
 		<div class="rega3">
 			<div class="title">Без регистрации</div>
 			<div class="auth0">
+				<?if($this->regerr):?>
+					<div>Такой e-mail уже используется</div>
+				<?endif;?>
 				<form method="post" action="/Регистрация">
 					<label class="field">Имя:</label>
 					<input class="field" type="text" name="user_name" id="user_name" value="" class="String input-text">

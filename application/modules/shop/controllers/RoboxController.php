@@ -1,4 +1,4 @@
-<?php
+<?
 /**
  * Контроллер для взаимодействия с системой Робокасса
  *
@@ -7,10 +7,12 @@
 class Shop_RoboxController extends Xcms_Controller_Modulefront {
 	
 	public function viewAction() {
+		$this->_helper->layout->setLayout('template');
 		$method = $this->getRequest()->getParam('method');
 		switch($method) {
 			case "request":
 				$this->request();
+				exit;
 			break;
 			case "success":
 				$this->success();
@@ -20,8 +22,8 @@ class Shop_RoboxController extends Xcms_Controller_Modulefront {
 			break;
 			default:
 				throw new Exception("Not specified param 'Method'");
+			break;
 		}
-		exit();
 	}
 	
 	/**
@@ -53,23 +55,29 @@ class Shop_RoboxController extends Xcms_Controller_Modulefront {
     	
     	$mce = Model_Collection_Objects::getInstance();
     	$order = $mce->getEntity($orderId);
-    	$order->setValue('shop_order_payed', $PayedId)';
+    	$order->setValue('shop_order_payed', $PayedId);
     	$order->commit(true);
-    	echo "OK$orderId\n"; return;
+    	echo "OK$orderId\n";
 	}
 	
 	/**
 	 * Страница успешной оплаты
 	 */
 	public function success() {
-		echo "OK";
+		$this->view->success = true;
+		$this->view->orderId = (int)$_POST["InvId"];
+		$this->renderContent( 'order/robox.phtml' );
+		return true;
 	}
 	
 	/**
 	 * Страница незавершенной оплаты
 	 */
 	public function fail() {
-		echo "Fail";
+		$this->view->success = false;
+		$this->view->orderId = (int)$_POST["InvId"];
+		$this->renderContent( 'order/robox.phtml' );
+		return true;
 	}
 	
 }

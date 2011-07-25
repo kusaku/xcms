@@ -419,35 +419,7 @@ class Model_Entity_Element extends Model_Abstract_Entity {
 		);
 	}
 	
-        /**
-         * Пересоздание поискового индекса
-         */
-        public function reindex() {
-
-                Zend_Search_Lucene_Analysis_Analyzer::setDefault(new Zend_Search_Lucene_Analysis_Analyzer_Common_Utf8Num_CaseInsensitive());
-                $ind = Zend_Search_Lucene::create(APPLICATION_PATH.'/../data/search',true);
-                $mce = Model_Collection_Elements::getInstance();
-                $elems = $mce->fetchAll();
-                foreach($elems as $elem) {
-                    if($elem->is_active && !$elem->is_deleted) {
-                    $otype =$elem->getObject()->getType()->__toString();
-                    $etype = $elem->getType()->__toString();
-                    if($etype == 'Поиск')continue;
-                    $fields  = $elem->getValues( true );
-                    $doc = new Zend_Search_Lucene_Document();
-                    foreach($fields as $name=>$value) {
-                        $doc->addField(Zend_Search_Lucene_Field::text($name,$value,'UTF-8'));
-                    }
-                    $doc->addField(Zend_Search_Lucene_Field::text('element_id',$elem->id,'UTF-8'));
-                    $doc->addField(Zend_Search_Lucene_Field::text('element_type',$otype,'UTF-8'));
-                    $ind->addDocument($doc);
-                    }
-                }
-                $ind->commit();
-                $ind->optimize();
-        }
-
-        /**
+    /**
 	 * Сохранить в базу все изменения (учитываются права доступа)
 	 * @return Model_Entity_Element $this
 	 * @throws Model_Exception если у текущего пользователя нет прав на редактирование элемента
@@ -477,10 +449,7 @@ class Model_Entity_Element extends Model_Abstract_Entity {
 			$db->rollBack();
 			throw new Model_Exception( $e );
 		}
-        $reg = Zend_Registry::getInstance();
-        if($reg->get('search_active')) {
-            	 $this->reindex();
-        }
+		Model_Search::getInstance()->index($this);
 		return $this;
 	}
 }

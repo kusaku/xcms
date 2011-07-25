@@ -13,7 +13,7 @@
 /*===================================================================================================================================*/
 
 
-
+$reg = Zend_Registry::getInstance();
 $user_id = Zend_Auth::getInstance()->getIdentity()->id;
 //$user_id = 20;
 
@@ -56,7 +56,19 @@ $user_id = Zend_Auth::getInstance()->getIdentity()->id;
 						
                         $vals[$field['name']] = $delTitle ? $delTitle : 'Не определено';
 						$vals[$field['name'].'sum'] = $delPrice ? $delPrice : 0;
-                    } else {
+                    } elseif($field['name'] == 'shop_order_payed') {
+						$payTitle = Model_Collection_Objects::getInstance()->getEntity($vals['shop_order_payed'])->title;
+						$link = "Не оплачен";
+						if($payTitle != "Оплачен" && $reg->get('shop_robox_delivid') == $vals["shop_order_payment"]) {
+							$slink = Model_Entity_ShopOrder::createRoboxLink($ord_obj->id, $vals["shop_order_sum"]);
+							$link = "<a href='".$slink."'>Не оплачен</a>";
+						}
+						$vals[$field['name']] = $payTitle=='Оплачен' ? $payTitle : $link;
+                	} elseif($field['name'] == 'shop_order_date') {
+                		$dateObj = date_parse($vals[$field['name']]);
+                		$date = $dateObj["day"] . "." . $dateObj["month"] . "." . $dateObj["year"];
+                		$vals[$field['name']] = $date;
+                	} else {
                         $vals[$field['name']] = isset($vals[$field['name']]) ? $vals[$field['name']] : '';
                     }
                 }
@@ -69,9 +81,9 @@ $user_id = Zend_Auth::getInstance()->getIdentity()->id;
 <table class="basket-list">
 	<tr>
 		<th>№</th>
-		<th>Текущий статус</th>
+		<th>Статус</th>
 		<th>Дата</th>
-		<th>Стоимость товаров</th>
+		<!--<th>Стоимость товаров</th>-->
 		<th>Способ и стоимость доставки</th>
 		<th>Сумма</th>
 	</tr>
@@ -80,9 +92,9 @@ $user_id = Zend_Auth::getInstance()->getIdentity()->id;
             <td><?=$order['shop_order_number'];?></td>
 			<td><?=$order['shop_order_status'];?></td>
 			<td><?=$order['shop_order_date'];?></td>
-			<td><?=$order['shop_order_sum'];?> руб.</td>
+			<!--<td><?=$order['shop_order_sum'];?> руб.</td>-->
 			<td><?=$order['shop_order_delivery'].' ('.$order['shop_order_deliverysum'].' руб.)';?></td>
-			<td><b><?=$order['shop_order_sum']+$order['shop_order_deliverysum'];?></b> руб.</td>
+			<td><b><?=$order['shop_order_sum']+$order['shop_order_deliverysum'];?></b> руб.<br/><?=$order['shop_order_payed'];?></td>
         </tr>
     <? endforeach;?>
         <tr>

@@ -31,6 +31,12 @@ class Users_RegisterController extends Xcms_Controller_Modulefront {
         if($this->getRequest()->isPost()) {
             if( $form->isValid( $this->getRequest()->getParams() ) ) {
                 $mcu = Model_Collection_Users::getInstance();
+                $checkUser = $mcu->getUserByName($_POST['login']);
+                if($checkUser != NULL) {
+                	$uri = Zend_Uri_Http::fromString('http://'.$_SERVER['HTTP_HOST'].'/shopcart?regerr=1');
+					$this->_redirect($uri->__toString());
+					return false;
+                }
                 $user = $mcu->createUser( array( 'id_usergroup'=>Model_Collection_Users::REGISTERED ) );
                 try {
                     $user->setValues($this->getRequest()->getPost());
@@ -44,7 +50,6 @@ class Users_RegisterController extends Xcms_Controller_Modulefront {
                 }
                 $this->view->is_regist = true;
 				$storage->write( $user );
-				var_dump($storage->read()); exit;
             } else {
                 $this->view->register_errors = $form->getMessages();
             }
