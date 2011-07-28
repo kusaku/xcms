@@ -212,9 +212,11 @@ class Shop_OrderController extends Xcms_Controller_Modulefront {
             //Main::logDebug($order_info->id);
         }
 
+        // Отправка письма с подтверждением
         $reg = Zend_Registry::getInstance();
 		$title = 'Поступил заказ!';
-		$mess =  htmlspecialchars(trim($email.' '.$_POST['shop_order_address'].' '.$_POST['shop_order_comment']));
+		//$mess =  htmlspecialchars(trim($email.' '.$_POST['shop_order_address'].' '.$_POST['shop_order_comment']));
+		$mess = $this->printOrder($order->id);
 		$from = (string) $reg->get( 'shop_email' );
 		$headers =
 			"Content-type: text/html; charset=utf-8\r\n"
@@ -226,6 +228,8 @@ class Shop_OrderController extends Xcms_Controller_Modulefront {
 
 		$result = array();
 		$result["id"] = $order->id;
+		
+		// Генерация ссылки для оплаты заказа через Робокассу
 		if($reg->get('shop_robox_delivid') == $_POST["shop_order_payment"]) {
 			$result['robox'] = true;
 			$result['robox_link'] = $this->createRoboxLink($order->id, $rOrderSum);
@@ -262,4 +266,61 @@ class Shop_OrderController extends Xcms_Controller_Modulefront {
     	$url = $page . "?MrchLogin=$mrhLogin&"."OutSum=$orderSum&InvId=$orderId&Desc=$desc&SignatureValue=$crc";
     	return $url;
     }
+    
+    // Генерация накладной
+	protected function printOrder($order_id) {
+		$orderObj = Model_Collection_Objects::getInstance()->getEntity($order_id);
+		$order = Model_Collection_ShopOrders::getInstance()->getEntityByObject($order_id);
+		$ordinfo = Model_Collection_ShopOrderInfo::getInstance()->getEntityByOrder($order->id);
+		$elements = array();
+		foreach($ordinfo as $row) {
+			$el = Model_Collection_Objects::getInstance()->getEntity($row->id_obj);
+			$e = $el->getValues();
+			$element = Model_Collection_Elements::getInstance()->getEntity($e['shop_order_itemid']);
+			$e['shop_order_itemname'] = $element->getObject()->title;
+			$elements[] = $e;
+		}
+		$data = $orderObj->getValues();
+		$data["order_id"] = $orderObj->id;
+		$data['elements'] = $elements;
+		$user = Model_Collection_Users::getInstance()->getUserByObject($data["shop_order_userid"]);
+		$data['user'] = $user->getValues();
+		
+		$ord = Model_Collection_ElementTypes::getInstance()->getModuleElementType('shop', 'orders');
+		$ord_obj_type = $ord->getObjectType();
+		$groups = $ord_obj_type->getFieldGroups();
+		foreach($groups as $group) {
+			$fields = $group->getFields();
+			foreach($fields as $field) {
+				if($field->name == 'shop_order_city') {
+					$cities = Model_Collection_Objects::getInstance()->getGuideObjects($field->id_guide);
+					foreach ($cities as $city){
+						if ($city->id == $data['shop_order_city']) {
+							$data['cityname'] = $city->title;
+						}
+					}
+				}
+				
+				if($field->name == 'shop_order_delivery') {
+					$deliveries = Model_Collection_Objects::getInstance()->getGuideObjects($field->id_guide);
+					foreach ($deliveries as $delivery){
+						if ($delivery->id == $data['shop_order_delivery']) {
+							$data['deliveryname'] = $delivery->title;
+							$data['deliverysum'] = $delivery->getValue('shop_order_delivery_price');
+						}
+					}
+				}
+				
+				if($field->name == 'shop_order_payment') {
+					$payments = Model_Collection_Objects::getInstance()->getGuideObjects($field->id_guide);
+					foreach ($payments as $payment){
+						if ($payment->id == $data['shop_order_payment']) {
+							$data['paymentname'] = $payment->title;
+						}
+					}
+				}
+			}
+		}
+		return $this->view->partial('shop/order/print.phtml', $data);
+	}
 }

@@ -405,6 +405,7 @@ class Model_Collection_Elements extends Model_Abstract_Collection {
 		{
 			$element->ord = $ord_val;
 		}
+		$element->removeCache();
 		return $element->save();
 	}
 	
@@ -471,7 +472,7 @@ class Model_Collection_Elements extends Model_Abstract_Collection {
 			$select->where( 'id_type = ?', (int) $type_id );
 		}
 		$select->where( 'is_deleted = 0' )
-		       ->order(array('id_parent','id_type','ord') );
+		       ->order(array('ord') );
 		$res = array(); // результат
 		$ids = array( $id ); // рабочие идентификаторы
 		$wrk = array( $id => &$res ); // дерево

@@ -348,7 +348,63 @@ class Shop_BackController extends Xcms_Controller_Back {
                     if($field['name'] == 'shop_order_userid') {
                         continue;
                         //$vals[$field['name']] = 'User Name';//Model_Collection_Objects::getInstance()->getEntity($vals['shop_order_userid'])->title;
-                    } else {
+                    } elseif($field['name'] == 'shop_order_payed') {
+	                    $table = Model_Collection_Fields::getInstance()->getDbFields();
+	                    $obj = $table->fetchRow($table->select()->where("name = ?", $field["name"]));
+	                    $guideId = $obj["id_guide"];
+	                    $pays = Model_Collection_Objects::getInstance()->getGuideObjects($guideId);
+						foreach ($pays as $pay){
+							if ($pay->id == $vals[$field['name']]) {
+								$vals[$field['name']] = $pay->title;
+							}
+						}
+                	} elseif($field['name'] == 'shop_order_payment') {
+	                    $table = Model_Collection_Fields::getInstance()->getDbFields();
+	                    $obj = $table->fetchRow($table->select()->where("name = ?", $field["name"]));
+	                    $guideId = $obj["id_guide"];
+	                    $payments = Model_Collection_Objects::getInstance()->getGuideObjects($guideId);
+						foreach ($payments as $payment){
+							if ($payment->id == $vals[$field['name']]) {
+								$vals[$field['name']] = $payment->title;
+							}
+						}
+                	} elseif($field['name'] == 'shop_order_city') {
+	                    $table = Model_Collection_Fields::getInstance()->getDbFields();
+	                    $obj = $table->fetchRow($table->select()->where("name = ?", $field["name"]));
+	                    $guideId = $obj["id_guide"];
+	                    $cities = Model_Collection_Objects::getInstance()->getGuideObjects($guideId);
+						foreach ($cities as $city){
+							if ($city->id == $vals[$field['name']]) {
+								$vals[$field['name']] = $city->title;
+							}
+						}
+                	} elseif($field['name'] == 'shop_order_delivery') {
+	                    $table = Model_Collection_Fields::getInstance()->getDbFields();
+	                    $obj = $table->fetchRow($table->select()->where("name = ?", $field["name"]));
+	                    $guideId = $obj["id_guide"];
+	                    $delivs = Model_Collection_Objects::getInstance()->getGuideObjects($guideId);
+						foreach ($delivs as $deliv){
+							if ($deliv->id == $vals[$field['name']]) {
+								$vals[$field['name']] = $deliv->title;
+							}
+						}
+                	} elseif($field['name'] == 'shop_order_status') {
+                		if($vals[$field['name']] == "") {
+                			$vals[$field['name']] = "Не обработан";
+                			continue;
+                		}
+	                    $table = Model_Collection_Fields::getInstance()->getDbFields();
+	                    $obj = $table->fetchRow($table->select()->where("name = ?", $field["name"]));
+	                    $guideId = $obj["id_guide"];
+	                    $statuses = Model_Collection_Objects::getInstance()->getGuideObjects($guideId);
+						foreach ($statuses as $status){
+							if ($status->id == $vals[$field['name']]) {
+								$vals[$field['name']] = $status->title;
+							}
+						}
+                	} elseif($field['name'] == 'shop_order_sum') {
+	                    $vals[$field['name']] = $vals[$field['name']] . " р.";
+                	} else {
                         $vals[$field['name']] = isset($vals[$field['name']]) ? $vals[$field['name']] : '';
                     }
                 }
@@ -618,6 +674,7 @@ class Shop_BackController extends Xcms_Controller_Back {
 			$elements[] = $e;
 		}
 		$data = $orderObj->getValues();
+		$data["order_id"] = $order_id;
 		$data['elements'] = $elements;
 		$user = Model_Collection_Users::getInstance()->getUserByObject($data["shop_order_userid"]);
 		$data['user'] = $user->getValues();

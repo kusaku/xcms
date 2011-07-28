@@ -135,9 +135,19 @@
 		<p><strong>Выберите способ оплаты:</strong></p>
 		<fieldset>
 			<?php
-				$def = Zend_Registry::getInstance()->get('shop_robox_delivid');
+				$reg = Zend_Registry::getInstance();
+				$def = $reg->get('shop_robox_delivid');
 				$f = true;
 				foreach ($payments as $pay){
+					if(
+						(
+							$reg->get("shop_robox_login") == "" || 
+							$reg->get("shop_robox_passwd_1") == "" || 
+							$reg->get("shop_robox_passwd_2") == ""
+						) &&
+						$pay->id == $def
+					) continue;
+						
 					$checked = "";
 					if((!empty($def) && $pay->id == $def) || $f) {
 						$checked = " checked";

@@ -47,7 +47,7 @@ abstract class Xcms_Controller_Modulefront extends Zend_Controller_Action {
 		}
 		// Навигация
 		$view->navigation( Model_Collection_Elements::getInstance()->getNavigation() );
-		$view->navigation()->menu()->setIndent( 2 )->setMaxDepth(1);;
+		$view->navigation()->menu()->setIndent( 2 )->setMaxDepth(2);;
 		$view->navigation()->breadcrumbs()->setIndent( 2 );
 		$view->navigation()->setAcl( Main::getAcl() )->setRole( Main::getCurrentUserRole() );
 	}

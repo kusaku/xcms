@@ -71,6 +71,7 @@ $user_id = Zend_Auth::getInstance()->getIdentity()->id;
                 	} else {
                         $vals[$field['name']] = isset($vals[$field['name']]) ? $vals[$field['name']] : '';
                     }
+                    $vals['order_id'] = $ord_obj->id;
                 }
                 $data['data'][$order->id] = $vals;
             }
@@ -87,9 +88,9 @@ $user_id = Zend_Auth::getInstance()->getIdentity()->id;
 		<th>Способ и стоимость доставки</th>
 		<th>Сумма</th>
 	</tr>
-    <? foreach($dta as $order):?>
+    <? foreach($dta as $id => $order):?>
         <tr>
-            <td><?=$order['shop_order_number'];?></td>
+            <td><?=$order['order_id'];?></td>
 			<td><?=$order['shop_order_status'];?></td>
 			<td><?=$order['shop_order_date'];?></td>
 			<!--<td><?=$order['shop_order_sum'];?> руб.</td>-->

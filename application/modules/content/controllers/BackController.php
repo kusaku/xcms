@@ -268,7 +268,7 @@ class Content_BackController extends Xcms_Controller_Back {
                     if($els[$element->id]['parent_id'] != $element->id_parent) {
                         $mce->moveElement( $element->id, $els[$element->id]['parent_id'] );
                     }
-
+					
                 }
 
 				$osiudf = 1;
@@ -283,7 +283,6 @@ class Content_BackController extends Xcms_Controller_Back {
                     if($els[$element->id]['ord'] != $element->ord) {
                         $mce->moveElement( $element->id, $element->id_parent, null, $els[$element->id]['ord']);
                     }
-
                 }
 
 			print_r ($m);

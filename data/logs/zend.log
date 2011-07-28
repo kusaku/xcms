@@ -3456,3 +3456,31 @@ Stack trace:
 #13 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
 #14 {main}
 2011-07-25T12:24:59+04:00 CRIT (2): 
+2011-07-26T11:45:56+04:00 CRIT (2): 
+2011-07-28T12:15:14+04:00 CRIT (2): 
+2011-07-28T12:16:26+04:00 ERR (3): exception 'Model_Exception' with message 'Неизвестное значение 'guide_id' ' in /home/prime/www/cms/application/models/Abstract/Entity.php:24
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(280): Model_Abstract_Entity->__get('guide_id')
+#1 /home/prime/www/cms/application/modules/shop/controllers/BackController.php(354): Zend_Db_Table_Row_Abstract->offsetGet('guide_id')
+#2 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Shop_BackController->getusersordersAction()
+#3 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('getusersordersA...')
+#4 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#6 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#7 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#8 {main}
+2011-07-28T12:16:27+04:00 CRIT (2): 
+2011-07-28T12:16:49+04:00 ERR (3): exception 'Model_Exception' with message 'Неизвестное значение 'd_guide' ' in /home/prime/www/cms/application/models/Abstract/Entity.php:24
+Stack trace:
+#0 /home/prime/www/cms/library/Zend/Db/Table/Row/Abstract.php(280): Model_Abstract_Entity->__get('d_guide')
+#1 /home/prime/www/cms/application/modules/shop/controllers/BackController.php(354): Zend_Db_Table_Row_Abstract->offsetGet('d_guide')
+#2 /home/prime/www/cms/library/Zend/Controller/Action.php(513): Shop_BackController->getusersordersAction()
+#3 /home/prime/www/cms/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('getusersordersA...')
+#4 /home/prime/www/cms/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /home/prime/www/cms/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#6 /home/prime/www/cms/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#7 /home/prime/www/cms/public/index.php(46): Zend_Application->run()
+#8 {main}
+2011-07-28T12:16:49+04:00 CRIT (2): 
+2011-07-28T12:19:46+04:00 CRIT (2): 
+2011-07-28T13:27:05+04:00 CRIT (2): 

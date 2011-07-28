@@ -3,8 +3,6 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
--- Структура таблицы `blocks`
-
 CREATE TABLE IF NOT EXISTS `blocks` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_object` int(11) NOT NULL DEFAULT '0',
@@ -13,23 +11,28 @@ CREATE TABLE IF NOT EXISTS `blocks` (
   PRIMARY KEY (`id`),
   KEY `filename` (`filename`),
   KEY `title` (`title`)
-) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=4 ;
 
-
+--
 -- Дамп данных таблицы `blocks`
+--
 
 INSERT INTO `blocks` (`id`, `id_object`, `filename`, `title`) VALUES(1, 14, '1290093098', 'Новости');
+INSERT INTO `blocks` (`id`, `id_object`, `filename`, `title`) VALUES(3, 0, 'fos', 'fos');
 
+-- --------------------------------------------------------
 
+--
 -- Структура таблицы `content`
+--
 
 CREATE TABLE IF NOT EXISTS `content` (
   `id_obj` int(10) unsigned NOT NULL,
   `id_field` int(10) unsigned NOT NULL,
   `val_int` bigint(20) DEFAULT NULL,
   `val_float` float DEFAULT NULL,
-  `val_varchar` varchar(255) DEFAULT NULL,
-  `val_text` mediumtext,
+  `val_varchar` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `val_text` mediumtext CHARACTER SET utf8,
   `val_rel_obj` int(10) unsigned DEFAULT NULL,
   `val_rel_elem` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id_obj`,`id_field`),
@@ -39,26 +42,42 @@ CREATE TABLE IF NOT EXISTS `content` (
   KEY `fk_rel_element` (`val_rel_elem`)
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
 
-
+--
 -- Дамп данных таблицы `content`
+--
 
+INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(5, 148, NULL, NULL, 'Забузякин', NULL, NULL, NULL);
+INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(5, 149, NULL, NULL, 'dmitry.k@fabricasaitov.ru', NULL, NULL, NULL);
+INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(5, 154, NULL, NULL, NULL, 'ул.Быборгская 15 ', NULL, NULL);
+INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(5, 168, NULL, NULL, '+7-911-54541111', NULL, NULL, NULL);
 INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(1000, 22, NULL, NULL, 'main', NULL, NULL, NULL);
 INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(1000, 111, 1, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10000, 102, NULL, NULL, NULL, '', NULL, NULL);
+INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10000, 102, NULL, NULL, NULL, '<p>Повышение жизненных стандартов, не меняя концепции, изложенной выше, настроено позитивно. Побочный PR-эффект переворачивает SWOT-анализ, осознав маркетинг как часть производства. Бренд индуктивно определяет портрет потребителя, не считаясь с затратами. Таргетирование детерминирует направленный маркетинг, невзирая на действия конкурентов.</p>\n<p>Итак, ясно, что бизнес-модель инновационна. Согласно&nbsp;ставшей уже классической работе Филипа Котлера, повышение жизненных стандартов экономит потребительский рынок, повышая конкуренцию. Несмотря на сложности, рекламное сообщество масштабирует рекламный блок, работая над проектом. Потребительский рынок стремительно восстанавливает контент, отвоевывая свою долю рынка.</p>\n<p>Побочный PR-эффект обычно правомочен. Производство неверно концентрирует из ряда вон выходящий системный анализ, расширяя долю рынка. Диктат потребителя, пренебрегая деталями, ригиден как никогда. Презентация требовальна к креативу. Взаимодействие корпорации и клиента поразительно. Стратегический рыночный план,&nbsp;конечно, притягивает бренд, осознав маркетинг как часть производства.</p>\n<!-- block(fos) -->', NULL, NULL);
+INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10000, 104, NULL, NULL, 'Главная пере_главная', NULL, NULL, NULL);
+INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10000, 105, NULL, NULL, 'Главная пере_главная', NULL, NULL, NULL);
+INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10000, 106, NULL, NULL, 'Главная пере_главная', NULL, NULL, NULL);
+INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10000, 107, NULL, NULL, 'Главная пере_главная', NULL, NULL, NULL);
+INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10025, 154, NULL, NULL, NULL, 'qwe', NULL, NULL);
+INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10025, 168, NULL, NULL, '123', NULL, NULL, NULL);
 INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10041, 102, NULL, NULL, NULL, '', NULL, NULL);
 INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10041, 104, NULL, NULL, 'Регистрация', NULL, NULL, NULL);
 INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10041, 105, NULL, NULL, 'Регистрация нового пользователя', NULL, NULL, NULL);
 INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10049, 104, NULL, NULL, 'Кукушечки', NULL, NULL, NULL);
 INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10049, 105, NULL, NULL, 'Личный кабинет', NULL, NULL, NULL);
 INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10058, 102, NULL, NULL, NULL, '', NULL, NULL);
+INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10061, 199, 0, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10062, 199, 500, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10152, 199, 300, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10157, 199, 50, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10204, 187, NULL, NULL, 'all', NULL, NULL, NULL);
-INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10243, 187, NULL, NULL, 'some@examle.ru', NULL, NULL, NULL);
+INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10220, 182, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `content` (`id_obj`, `id_field`, `val_int`, `val_float`, `val_varchar`, `val_text`, `val_rel_obj`, `val_rel_elem`) VALUES(10220, 185, NULL, NULL, NULL, 'a:1:{i:0;s:5:"10204";}', NULL, NULL);
 
+-- --------------------------------------------------------
 
+--
 -- Структура таблицы `elements`
+--
 
 CREATE TABLE IF NOT EXISTS `elements` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -71,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `elements` (
   `is_active` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `is_deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `is_default` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `urlname` varchar(128) DEFAULT NULL,
+  `urlname` varchar(128) CHARACTER SET utf8 DEFAULT NULL,
   `updatetime` datetime DEFAULT NULL,
   `ord` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -87,36 +106,42 @@ CREATE TABLE IF NOT EXISTS `elements` (
   KEY `updatetime` (`updatetime`),
   KEY `fk_element_parent` (`id_parent`),
   KEY `fk_element_menu` (`id_menu`)
-) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=44 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=137 ;
 
-
+--
 -- Дамп данных таблицы `elements`
+--
 
-INSERT INTO `elements` (`id`, `id_parent`, `id_type`, `id_obj`, `id_lang`, `id_tpl`, `id_menu`, `is_active`, `is_deleted`, `is_default`, `urlname`, `updatetime`, `ord`) VALUES(1, NULL, 17, 10000, 1, 0, 1000, 1, 0, 1, 'Главная', '2011-06-30 12:18:48', 1);
-INSERT INTO `elements` (`id`, `id_parent`, `id_type`, `id_obj`, `id_lang`, `id_tpl`, `id_menu`, `is_active`, `is_deleted`, `is_default`, `urlname`, `updatetime`, `ord`) VALUES(2, NULL, 31, 10001, 1, 0, NULL, 1, 0, 0, 'Поиск', '2010-03-19 00:00:00', 2);
-INSERT INTO `elements` (`id`, `id_parent`, `id_type`, `id_obj`, `id_lang`, `id_tpl`, `id_menu`, `is_active`, `is_deleted`, `is_default`, `urlname`, `updatetime`, `ord`) VALUES(23, NULL, 24, 10026, 1, NULL, NULL, 1, 0, 0, 'sitemap', '2010-11-08 16:55:16', 1);
-INSERT INTO `elements` (`id`, `id_parent`, `id_type`, `id_obj`, `id_lang`, `id_tpl`, `id_menu`, `is_active`, `is_deleted`, `is_default`, `urlname`, `updatetime`, `ord`) VALUES(34, NULL, 47, 10041, 1, NULL, 1000, 1, 0, 0, 'Регистрация', '2011-05-17 11:18:40', 1);
-INSERT INTO `elements` (`id`, `id_parent`, `id_type`, `id_obj`, `id_lang`, `id_tpl`, `id_menu`, `is_active`, `is_deleted`, `is_default`, `urlname`, `updatetime`, `ord`) VALUES(35, NULL, 50, 10049, 1, NULL, 1000, 1, 0, 0, 'Profile', '2010-12-29 11:27:20', 1);
-INSERT INTO `elements` (`id`, `id_parent`, `id_type`, `id_obj`, `id_lang`, `id_tpl`, `id_menu`, `is_active`, `is_deleted`, `is_default`, `urlname`, `updatetime`, `ord`) VALUES(43, NULL, 54, 10058, 1, NULL, NULL, 1, 0, 0, 'shopcart', '2011-05-12 16:45:54', 1);
+INSERT INTO `elements` (`id`, `id_parent`, `id_type`, `id_obj`, `id_lang`, `id_tpl`, `id_menu`, `is_active`, `is_deleted`, `is_default`, `urlname`, `updatetime`, `ord`) VALUES(1, NULL, 17, 10000, 1, 0, 1000, 0, 0, 1, 'Главная_пере_главная', '2011-07-13 16:55:11', 13);
+INSERT INTO `elements` (`id`, `id_parent`, `id_type`, `id_obj`, `id_lang`, `id_tpl`, `id_menu`, `is_active`, `is_deleted`, `is_default`, `urlname`, `updatetime`, `ord`) VALUES(2, NULL, 31, 10001, 1, 0, NULL, 1, 0, 0, 'Поиск', '2010-03-19 00:00:00', 3);
+INSERT INTO `elements` (`id`, `id_parent`, `id_type`, `id_obj`, `id_lang`, `id_tpl`, `id_menu`, `is_active`, `is_deleted`, `is_default`, `urlname`, `updatetime`, `ord`) VALUES(16, NULL, 39, 10015, 1, NULL, NULL, 1, 0, 0, 'shopsearch', '2011-06-30 11:03:45', 7);
+INSERT INTO `elements` (`id`, `id_parent`, `id_type`, `id_obj`, `id_lang`, `id_tpl`, `id_menu`, `is_active`, `is_deleted`, `is_default`, `urlname`, `updatetime`, `ord`) VALUES(23, NULL, 24, 10026, 1, NULL, NULL, 1, 0, 0, 'sitemap', '2010-11-08 16:55:16', 2);
+INSERT INTO `elements` (`id`, `id_parent`, `id_type`, `id_obj`, `id_lang`, `id_tpl`, `id_menu`, `is_active`, `is_deleted`, `is_default`, `urlname`, `updatetime`, `ord`) VALUES(34, NULL, 47, 10041, 1, NULL, 1000, 1, 0, 0, 'Регистрация', '2011-05-17 11:18:40', 9);
+INSERT INTO `elements` (`id`, `id_parent`, `id_type`, `id_obj`, `id_lang`, `id_tpl`, `id_menu`, `is_active`, `is_deleted`, `is_default`, `urlname`, `updatetime`, `ord`) VALUES(35, NULL, 50, 10049, 1, NULL, 1000, 1, 0, 0, 'Profile', '2010-12-29 11:27:20', 2);
+INSERT INTO `elements` (`id`, `id_parent`, `id_type`, `id_obj`, `id_lang`, `id_tpl`, `id_menu`, `is_active`, `is_deleted`, `is_default`, `urlname`, `updatetime`, `ord`) VALUES(43, NULL, 54, 10058, 1, NULL, NULL, 1, 0, 0, 'shopcart', '2011-05-12 16:45:54', 12);
 
+-- --------------------------------------------------------
 
+--
 -- Структура таблицы `element_types`
+--
 
 CREATE TABLE IF NOT EXISTS `element_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `module` varchar(45) NOT NULL,
-  `controller` varchar(45) NOT NULL,
-  `action` varchar(45) NOT NULL DEFAULT 'view',
-  `title` varchar(255) DEFAULT NULL,
+  `module` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `controller` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `action` varchar(45) CHARACTER SET utf8 NOT NULL DEFAULT 'view',
+  `title` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `is_public` tinyint(1) NOT NULL DEFAULT '0',
   `is_child` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`module`,`controller`,`action`),
   KEY `id_public` (`is_public`)
-) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=57 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=107 ;
 
-
+--
 -- Дамп данных таблицы `element_types`
+--
 
 INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(1, 'admin', '', 'view', '', 0, 0);
 INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(2, 'admin', 'auth', 'view', '', 0, 0);
@@ -142,6 +167,16 @@ INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `i
 INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(30, 'blocks', 'back', 'view', 'Блоки', 0, 0);
 INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(31, 'search', '', 'view', '', 0, 0);
 INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(32, 'search', 'back', 'view', 'Поиск', 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(33, 'articles', 'back', 'view', NULL, 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(34, 'articles', 'category', 'view', 'Ленты статей', 1, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(35, 'articles', 'item', 'view', 'Статьи', 1, 1);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(36, 'catalog', 'back', 'view', NULL, 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(37, 'catalog', 'category', 'view', 'Категория каталога', 1, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(38, 'catalog', 'item', 'view', 'Элементы каталога', 1, 1);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(39, 'extsearch', '', 'view', 'Расширенный поиск', 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(40, 'gallery', 'back', 'view', NULL, 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(41, 'gallery', 'category', 'view', 'Категории галереи', 1, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(42, 'gallery', 'item', 'view', 'Элементы галереи', 1, 1);
 INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(46, 'users', '', 'view', 'Вход_выход', 0, 0);
 INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(47, 'users', 'register', 'view', 'Регистрация', 0, 0);
 INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(50, 'users', 'profile', 'view', 'Профиль пользователя', 0, 0);
@@ -151,21 +186,39 @@ INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `i
 INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(54, 'shop', 'order', 'view', 'Заказ', 0, 0);
 INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(55, 'shop', 'orders', 'view', NULL, 0, 0);
 INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(56, 'guides', 'back', 'view', 'Справочники', 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(87, 'feedback', 'back', 'view', NULL, 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(88, 'feedback', '', 'view', 'Обратная связь', 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(90, 'offers', 'back', 'view', NULL, 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(91, 'offers', 'category', 'view', 'Ленты акций', 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(92, 'offers', 'item', 'view', 'Акции', 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(93, 'news', 'back', 'view', NULL, 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(94, 'news', 'category', 'view', 'Ленты новостей', 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(95, 'news', 'item', 'view', 'Новости', 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(99, 'bulletin', 'back', 'view', NULL, 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(100, 'bulletin', 'category', 'view', 'Лента объявлений', 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(101, 'bulletin', 'item', 'view', 'Элементы Объявлений', 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(102, 'faq', 'back', 'view', NULL, 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(103, 'faq', 'category', 'view', 'Ленты ЧаВо', 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(104, 'faq', 'item', 'view', 'ЧаВо', 0, 0);
+INSERT INTO `element_types` (`id`, `module`, `controller`, `action`, `title`, `is_public`, `is_child`) VALUES(106, 'shop', 'robox', 'view', NULL, 1, 0);
 
+-- --------------------------------------------------------
 
+--
 -- Структура таблицы `fields`
+--
 
 CREATE TABLE IF NOT EXISTS `fields` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(64) NOT NULL,
+  `name` varchar(64) CHARACTER SET utf8 NOT NULL,
   `id_type` int(10) unsigned NOT NULL,
   `id_guide` int(10) unsigned DEFAULT NULL,
   `is_locked` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `is_inheritable` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `is_public` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `is_required` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(255) DEFAULT NULL,
-  `tip` varchar(255) DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `tip` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `is_locked` (`is_locked`),
@@ -174,10 +227,11 @@ CREATE TABLE IF NOT EXISTS `fields` (
   KEY `is_required` (`is_required`),
   KEY `fk_fields_guide` (`id_guide`),
   KEY `fk_fields_field_types` (`id_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=200 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=221 ;
 
-
+--
 -- Дамп данных таблицы `fields`
+--
 
 INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(1, 'name', 100, 0, 1, 0, 1, 1, 'Название страницы', 'Короткое название страницы. Отображается в меню и в заголовке содержимого страницы');
 INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(9, 'user_groupname', 100, 0, 1, 0, 1, 1, 'Название', 'Короткое название группы');
@@ -231,7 +285,7 @@ INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inhe
 INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(150, 'shop_item_price', 3, NULL, 0, 0, 1, 0, 'Цена товара', 'Цена за единицу товара');
 INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(151, 'shop_item_name', 4, NULL, 0, 0, 1, 1, 'Наименование', 'Название товара');
 INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(152, 'shop_item_image', 14, NULL, 0, 0, 1, 0, 'Изображение', 'Картинка');
-INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(153, 'shop_item_about', 12, NULL, 0, 0, 1, 0, 'Описание', 'Полное описание товара');
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(153, 'shop_item_about', 12, NULL, 0, 0, 1, 0, 'Полное описание', 'Полное описание товара');
 INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(154, 'user_address', 5, NULL, 0, 0, 1, 0, 'Адрес', 'Адрес доставки');
 INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(155, 'shop_order_userid', 2, 2, 0, 0, 1, 1, 'Пользователь', NULL);
 INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(156, 'shop_order_number', 2, NULL, 0, 0, 1, 1, '№ заказа', NULL);
@@ -266,11 +320,29 @@ INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inhe
 INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(197, '123123123', 4, NULL, 0, 0, 1, 0, '123123123', NULL);
 INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(198, 'shop_paymenttype', 113, NULL, 0, 0, 1, 0, 'Название', 'Например, webmoney');
 INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(199, 'shop_order_delivery_price', 2, NULL, 0, 0, 1, 0, 'Цена', NULL);
-INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(200, '	shop_item_shortabout', 12, NULL, 0, 0, 1, 0, 'Краткое описание', 'Краткое описание товара');
-INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(201, '	shop_item_articul', 4, NULL, 0, 0, 1, 0, 'Артикул', 'Артикул товара');
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(200, 'shop_item_shortabout', 12, NULL, 0, 0, 1, 0, 'Краткое описание', 'Краткое описание товара');
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(201, 'shop_item_articul', 4, NULL, 0, 0, 1, 0, 'Артикул', 'Артикул товара');
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(204, 'offers_link', 4, 0, 0, 0, 1, 0, 'Ссылка на товар', 'Скопируйте ссылку из адресной строки браузера');
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(205, 'offers_item_preview', 12, NULL, 0, 0, 1, 0, 'Краткое описание', 'Краткое описание акции');
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(206, 'offers_item_maintext', 12, NULL, 0, 0, 1, 0, 'Текст', 'Полное описание акции');
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(209, 'bulletin_name', 4, NULL, 1, 0, 1, 1, 'Имя', NULL);
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(210, 'bulletin_email', 13, NULL, 1, 0, 1, 0, 'E-mail', NULL);
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(211, 'bulletin_phone', 4, NULL, 1, 0, 1, 0, 'Телефон', NULL);
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(212, 'bulletin_maintext', 5, NULL, 1, 0, 1, 0, 'Объявление', NULL);
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(213, 'faq_name', 4, NULL, 1, 0, 1, 0, 'Имя', NULL);
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(214, 'faq_email', 13, NULL, 1, 0, 1, 0, 'E-mail', NULL);
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(215, 'faq_question', 12, NULL, 1, 0, 1, 0, 'Вопрос', NULL);
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(216, 'faq_answer', 12, NULL, 1, 0, 1, 0, 'Ответ', NULL);
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(217, 'shop_order_payed', 6, 108, 0, 0, 1, 0, 'Оплата', NULL);
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(218, 'paystatus_name', 113, NULL, 0, 0, 1, 0, 'Название статуса', 'Например, оплачен');
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(219, 'shop_order_status', 6, 109, 0, 0, 1, 0, 'Статус', 'status');
+INSERT INTO `fields` (`id`, `name`, `id_type`, `id_guide`, `is_locked`, `is_inheritable`, `is_public`, `is_required`, `title`, `tip`) VALUES(220, 'order_status_title', 113, NULL, 0, 0, 1, 0, 'Статус', 'Например, отгружен');
 
+-- --------------------------------------------------------
 
+--
 -- Структура таблицы `fields_controller`
+--
 
 CREATE TABLE IF NOT EXISTS `fields_controller` (
   `id_field` int(10) unsigned NOT NULL,
@@ -282,8 +354,9 @@ CREATE TABLE IF NOT EXISTS `fields_controller` (
   KEY `ord` (`ord`)
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
 
-
+--
 -- Дамп данных таблицы `fields_controller`
+--
 
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(9, 1, 1);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(14, 2, 1);
@@ -343,6 +416,8 @@ INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(115, 202,
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(150, 203, 1);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(152, 203, 1);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(153, 203, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(200, 203, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(201, 203, 1);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(115, 204, 1);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(1, 205, 1);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(1, 206, 1);
@@ -395,6 +470,37 @@ INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(128, 447,
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(1, 448, 1);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(104, 449, 1);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(115, 450, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(109, 451, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(1, 452, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(104, 453, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(109, 454, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(115, 455, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(128, 456, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(1, 457, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(104, 458, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(115, 459, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(1, 460, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(104, 461, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(109, 462, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(115, 463, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(128, 464, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(1, 465, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(104, 466, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(115, 467, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(1, 468, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(104, 469, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(109, 470, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(115, 471, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(181, 472, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(128, 473, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(1, 475, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(104, 476, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(109, 477, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(115, 478, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(181, 479, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(128, 480, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(218, 483, 1);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(220, 484, 1);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(129, 1, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(10, 2, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(102, 101, 2);
@@ -437,7 +543,6 @@ INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(103, 205,
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(103, 206, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(116, 207, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(103, 208, 2);
-INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(156, 209, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(157, 209, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(158, 209, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(170, 209, 2);
@@ -446,6 +551,8 @@ INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(172, 209,
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(173, 209, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(176, 209, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(177, 209, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(217, 209, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(219, 209, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(102, 407, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(103, 408, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(116, 410, 2);
@@ -467,7 +574,7 @@ INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(185, 433,
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(120, 434, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(103, 435, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(116, 437, 2);
-INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(150, 439, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(204, 439, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(103, 441, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(116, 442, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(120, 443, 2);
@@ -476,6 +583,26 @@ INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(116, 446,
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(121, 448, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(103, 449, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(116, 450, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(120, 452, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(103, 453, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(116, 455, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(209, 457, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(103, 458, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(116, 459, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(120, 460, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(103, 461, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(116, 463, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(213, 465, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(103, 466, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(116, 467, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(102, 468, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(103, 469, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(116, 471, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(182, 472, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(102, 475, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(103, 476, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(116, 478, 2);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(182, 479, 2);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(11, 2, 3);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(106, 102, 3);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(117, 104, 3);
@@ -516,8 +643,7 @@ INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(106, 429,
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(117, 431, 3);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(106, 435, 3);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(117, 437, 3);
-INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(151, 439, 3);
-INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(152, 439, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(205, 439, 3);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(106, 441, 3);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(117, 442, 3);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(106, 444, 3);
@@ -525,6 +651,22 @@ INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(117, 446,
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(122, 448, 3);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(106, 449, 3);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(117, 450, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(106, 453, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(117, 455, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(210, 457, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(106, 458, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(117, 459, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(106, 461, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(117, 463, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(214, 465, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(106, 466, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(117, 467, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(106, 469, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(117, 471, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(185, 472, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(106, 476, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(117, 478, 3);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(185, 479, 3);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(13, 2, 4);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(148, 2, 4);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(149, 2, 4);
@@ -565,11 +707,25 @@ INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(105, 429,
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(119, 431, 4);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(105, 435, 4);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(119, 437, 4);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(206, 439, 4);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(105, 441, 4);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(105, 444, 4);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(119, 446, 4);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(105, 449, 4);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(123, 450, 4);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(105, 453, 4);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(119, 455, 4);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(211, 457, 4);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(105, 458, 4);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(124, 459, 4);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(105, 461, 4);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(119, 463, 4);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(215, 465, 4);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(105, 466, 4);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(105, 469, 4);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(119, 471, 4);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(105, 476, 4);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(119, 478, 4);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(107, 102, 5);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(107, 112, 5);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(107, 117, 5);
@@ -596,15 +752,25 @@ INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(124, 442,
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(107, 444, 5);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(107, 449, 5);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(124, 450, 5);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(107, 453, 5);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(212, 457, 5);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(107, 458, 5);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(107, 461, 5);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(216, 465, 5);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(107, 466, 5);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(124, 467, 5);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(107, 469, 5);
+INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(107, 476, 5);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(126, 154, 6);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(126, 450, 6);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(127, 154, 7);
 INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(127, 450, 7);
-INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(200, 203, 2);
-INSERT INTO `fields_controller` (`id_field`, `id_group`, `ord`) VALUES(201, 203, 1);
 
+-- --------------------------------------------------------
 
+--
 -- Структура таблицы `field_groups`
+--
 
 CREATE TABLE IF NOT EXISTS `field_groups` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -622,10 +788,11 @@ CREATE TABLE IF NOT EXISTS `field_groups` (
   KEY `is_visible` (`is_visible`),
   KEY `is_locked` (`is_locked`),
   KEY `fk_field_groups_object_types` (`id_obj_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=230 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=485 ;
 
-
+--
 -- Дамп данных таблицы `field_groups`
+--
 
 INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(1, 'usersgroup', 1, 1, 0, 1, 'Группа пользователей', 1);
 INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(2, 'user', 2, 1, 0, 1, 'Пользователь', 1);
@@ -644,6 +811,39 @@ INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked
 INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(117, 'seo', 6, 1, 0, 0, 'Настройки для поисковых систем', 2);
 INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(118, 'page', 6, 1, 0, 0, 'Настройки страницы', 4);
 INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(119, 'permissions', 6, 1, 1, 0, 'Права доступа', 5);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(147, 'common', 12, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(148, 'seo', 12, 1, 0, 0, 'Настройки для поисковых систем', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(149, 'menu', 12, 1, 0, 0, 'Настройки меню', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(150, 'page', 12, 1, 1, 0, 'Настройки страницы', 4);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(151, 'permissions', 12, 1, 1, 0, 'Права доступа', 5);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(152, 'common', 13, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(153, 'seo', 13, 1, 1, 0, 'Настройки для поисковых систем', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(154, 'page', 13, 1, 1, 0, 'Настройки страницы', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(155, 'common', 14, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(156, 'photo', 14, 1, 0, 1, 'Редактирование фотографий', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(157, 'seo', 14, 1, 0, 0, 'Настройки для поисковых систем', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(158, 'menu', 14, 1, 0, 0, 'Настройки меню', 4);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(159, 'page', 14, 1, 1, 0, 'Настройки страницы', 5);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(160, 'permissions', 14, 1, 1, 0, 'Права доступа', 6);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(161, 'common', 15, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(162, 'photo', 15, 1, 0, 1, 'Редактирование фотографий', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(163, 'seo', 15, 1, 1, 0, 'Настройки для поисковых систем', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(164, 'page', 15, 1, 1, 0, 'Настройки страницы', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(165, 'common', 16, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(166, 'seo', 16, 1, 0, 0, 'Настройки для поисковых систем', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(167, 'page', 16, 1, 1, 0, 'Настройки страницы', 5);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(168, 'permissions', 16, 1, 1, 0, 'Права доступа', 6);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(169, 'common', 17, 1, 0, 1, 'Редактирование содержимого категории галереи', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(170, 'photo', 17, 1, 0, 0, 'Редактирование изображения', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(171, 'seo', 17, 1, 0, 0, 'Настройки для поисковых систем', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(172, 'menu', 17, 1, 0, 0, 'Настройки меню', 4);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(173, 'page', 17, 1, 1, 0, 'Настройки страницы', 5);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(174, 'permissions', 17, 1, 1, 0, 'Права доступа', 6);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(175, 'common', 18, 1, 0, 1, 'Редактирование содержимого элемента галереи', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(176, 'photo', 18, 1, 0, 0, 'Редактирование изображения', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(177, 'seo', 18, 1, 1, 0, 'Настройки для поисковых систем', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(178, 'menu', 18, 1, 0, 0, 'Настройки меню', 4);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(179, 'page', 18, 1, 1, 0, 'Настройки страницы', 5);
 INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(192, 'permissions', 25, 1, 0, 0, 'Права доступа', 5);
 INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(193, 'common', 25, 1, 0, 1, 'Редактирование содержимого страницы', 1);
 INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(194, 'seo', 25, 1, 0, 0, 'Настройки для поисковых систем', 2);
@@ -667,9 +867,82 @@ INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked
 INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(223, 'title', 32, 1, 0, 1, 'Название типа доставки', 0);
 INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(226, '1554dcc532888d3eba43b50c06a5a7e9', 55, 1, 0, 1, 'FieldGroup1554dcc532888d3eba43b50c06a5a7e9', 0);
 INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(229, 'c5f12fbae27e8b8faec9248421dd0792', 58, 1, 0, 1, 'FieldGroupc5f12fbae27e8b8faec9248421dd0792', 0);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(407, 'common', 92, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(408, 'seo', 92, 1, 0, 0, 'Настройки для поисковых систем', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(409, 'menu', 92, 1, 0, 0, 'Настройки меню', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(410, 'page', 92, 1, 1, 0, 'Настройки страницы', 4);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(411, 'permissions', 92, 1, 1, 0, 'Права доступа', 6);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(412, 'feedback', 92, 1, 0, 0, 'Настройки формы обратной связи', 5);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(421, 'common', 95, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(422, 'seo', 95, 1, 0, 0, 'Настройки для поисковых систем', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(423, 'menu', 95, 1, 0, 0, 'Настройки меню', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(424, 'page', 95, 1, 1, 0, 'Настройки страницы', 4);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(425, 'permissions', 95, 1, 1, 0, 'Права доступа', 6);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(426, 'feedback', 95, 1, 0, 0, 'Настройки формы обратной связи', 5);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(427, 'fos_fb_form', 96, 1, 0, 1, 'FieldGroupFOS', 5);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(428, 'common', 96, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(429, 'seo', 96, 1, 0, 0, 'Настройки для поисковых систем', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(430, 'menu', 96, 1, 0, 0, 'Настройки меню', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(431, 'page', 96, 1, 1, 0, 'Настройки страницы', 4);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(432, 'permissions', 96, 1, 1, 0, 'Права доступа', 6);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(433, 'feedback', 96, 1, 0, 0, 'Настройки формы обратной связи', 5);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(434, 'common', 97, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(435, 'seo', 97, 1, 0, 0, 'Настройки для поисковых систем', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(436, 'menu', 97, 1, 0, 0, 'Настройки меню', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(437, 'page', 97, 1, 1, 0, 'Настройки страницы', 4);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(438, 'permissions', 97, 1, 1, 0, 'Права доступа', 5);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(439, 'common', 98, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(440, 'photo', 98, 1, 1, 0, 'Редактирование изображений', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(441, 'seo', 98, 1, 1, 0, 'Настройки для поисковых систем', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(442, 'page', 98, 1, 1, 0, 'Настройки страницы', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(443, 'common', 99, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(444, 'seo', 99, 1, 0, 0, 'Настройки для поисковых систем', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(445, 'menu', 99, 1, 0, 0, 'Настройки меню', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(446, 'page', 99, 1, 1, 0, 'Настройки страницы', 4);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(447, 'permissions', 99, 1, 1, 0, 'Права доступа', 5);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(448, 'common', 100, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(449, 'seo', 100, 1, 1, 0, 'Настройки для поисковых систем', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(450, 'page', 100, 1, 1, 0, 'Настройки страницы', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(451, 'menu', 30, 1, 0, 1, 'Настройки меню', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(452, 'common', 101, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(453, 'seo', 101, 1, 0, 0, 'Настройки для поисковых систем', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(454, 'menu', 101, 1, 0, 0, 'Настройки меню', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(455, 'page', 101, 1, 1, 0, 'Настройки страницы', 4);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(456, 'permissions', 101, 1, 1, 0, 'Права доступа', 5);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(457, 'common', 102, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(458, 'seo', 102, 1, 1, 0, 'Настройки для поисковых систем', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(459, 'page', 102, 1, 1, 1, 'Настройки страницы', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(460, 'common', 103, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(461, 'seo', 103, 1, 0, 0, 'Настройки для поисковых систем', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(462, 'menu', 103, 1, 0, 0, 'Настройки меню', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(463, 'page', 103, 1, 1, 0, 'Настройки страницы', 4);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(464, 'permissions', 103, 1, 1, 0, 'Права доступа', 5);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(465, 'common', 104, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(466, 'seo', 104, 1, 1, 0, 'Настройки для поисковых систем', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(467, 'page', 104, 1, 1, 0, 'Настройки страницы', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(468, 'common', 105, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(469, 'seo', 105, 1, 0, 0, 'Настройки для поисковых систем', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(470, 'menu', 105, 1, 0, 0, 'Настройки меню', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(471, 'page', 105, 1, 0, 0, 'Настройки страницы', 4);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(472, 'feedback', 105, 1, 0, 0, 'Настройки формы обратной связи', 5);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(473, 'permissions', 105, 1, 0, 0, 'Права доступа', 6);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(474, 'f90e373bb92892d7f23cf5a2eaf269af', 105, 1, 0, 1, 'FieldGroupf90e373bb92892d7f23cf5a2eaf269af', 0);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(475, 'common', 106, 1, 0, 1, 'Редактирование содержимого страницы', 1);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(476, 'seo', 106, 1, 0, 0, 'Настройки для поисковых систем', 2);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(477, 'menu', 106, 1, 0, 0, 'Настройки меню', 3);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(478, 'page', 106, 1, 0, 0, 'Настройки страницы', 4);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(479, 'feedback', 106, 1, 0, 0, 'Настройки формы обратной связи', 5);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(480, 'permissions', 106, 1, 0, 0, 'Права доступа', 6);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(481, 'b9360c408c7f110b8ac1f08635091726', 106, 1, 0, 1, 'FieldGroupb9360c408c7f110b8ac1f08635091726', 0);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(482, '6193fb25530390985c5753b5ffb62529', 107, 1, 0, 1, 'FieldGroup6193fb25530390985c5753b5ffb62529', 0);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(483, '4d93048952c0101a1249a92b8f4d3d38', 108, 1, 0, 1, 'FieldGroup4d93048952c0101a1249a92b8f4d3d38', 0);
+INSERT INTO `field_groups` (`id`, `name`, `id_obj_type`, `is_active`, `is_locked`, `is_visible`, `title`, `ord`) VALUES(484, '507951d44335f816a978c3630dcb8104', 109, 1, 0, 1, 'FieldGroup507951d44335f816a978c3630dcb8104', 0);
 
+-- --------------------------------------------------------
 
+--
 -- Структура таблицы `field_types`
+--
 
 CREATE TABLE IF NOT EXISTS `field_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -681,8 +954,9 @@ CREATE TABLE IF NOT EXISTS `field_types` (
   KEY `is_virtual` (`is_virtual`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=114 ;
 
-
+--
 -- Дамп данных таблицы `field_types`
+--
 
 INSERT INTO `field_types` (`id`, `name`, `is_virtual`, `title`) VALUES(1, 'Boolean', 0, 'Флаг');
 INSERT INTO `field_types` (`id`, `name`, `is_virtual`, `title`) VALUES(2, 'Integer', 0, 'Целое');
@@ -713,8 +987,11 @@ INSERT INTO `field_types` (`id`, `name`, `is_virtual`, `title`) VALUES(111, 'Use
 INSERT INTO `field_types` (`id`, `name`, `is_virtual`, `title`) VALUES(112, 'TemplateView', 0, 'Шаблон вида');
 INSERT INTO `field_types` (`id`, `name`, `is_virtual`, `title`) VALUES(113, 'GuideTitle', 1, 'Название элемента справочника');
 
+-- --------------------------------------------------------
 
+--
 -- Структура таблицы `languages`
+--
 
 CREATE TABLE IF NOT EXISTS `languages` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -727,41 +1004,46 @@ CREATE TABLE IF NOT EXISTS `languages` (
   KEY `is_default` (`is_default`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=3 ;
 
-
+--
 -- Дамп данных таблицы `languages`
+--
 
 INSERT INTO `languages` (`id`, `is_default`, `prefix`, `title`) VALUES(1, 1, 'ru', 'Русский');
 INSERT INTO `languages` (`id`, `is_default`, `prefix`, `title`) VALUES(2, 0, 'en', 'English');
 
+-- --------------------------------------------------------
 
+--
 -- Структура таблицы `objects`
+--
 
 CREATE TABLE IF NOT EXISTS `objects` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_type` int(10) unsigned NOT NULL,
   `is_locked` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(255) NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_objects_object_types` (`id_type`),
   KEY `name` (`title`),
   KEY `is_locked` (`is_locked`)
-) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=10246 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=10388 ;
 
-
+--
 -- Дамп данных таблицы `objects`
+--
 
 INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(1, 1, 1, 'Посетители');
 INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(2, 1, 1, 'Зарегестрированные пользователи');
 INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(3, 1, 1, 'Служба поддержки');
 INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(4, 1, 1, 'Администраторы сайта');
+INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(5, 2, 1, 'Витя');
 INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(6, 2, 0, 'Владелец сайта');
 INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(1000, 10, 0, 'Главное меню');
 INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10000, 5, 0, 'Главная');
 INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10001, 6, 0, 'Результаты поиска');
+INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10015, 16, 0, 'Расширенный поиск');
 INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10025, 2, 0, 'admin');
 INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10026, 21, 0, 'Карта_сайта');
-INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10029, 1, 0, 'Третьи лица');
-INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10034, 5, 0, 'Демо');
 INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10041, 25, 0, 'Регистрация');
 INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10049, 28, 0, 'Профиль');
 INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10058, 31, 0, 'Ваша корзина');
@@ -770,14 +1052,22 @@ INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10062, 32, 
 INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10152, 32, 0, 'Доставка Почтой России');
 INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10157, 32, 0, 'Передать в метро');
 INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10204, 58, 0, 'all');
-INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10239, 55, 0, 'WebMoney');
-INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10240, 55, 0, 'Yandex.Деньги');
-INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10243, 58, 0, 'Основной');
-INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10244, 36, 0, 'Москва');
-INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10245, 36, 0, 'Санкт-Петербург');
+INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10220, 96, 0, 'ФОС');
+INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10262, 101, 0, 'Объявления');
+INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10268, 103, 0, 'Вопрос-Ответ');
+INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10270, 5, 0, 'Демо');
+INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10271, 55, 0, 'Электронные средства оплаты');
+INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10272, 55, 0, 'Наличными курьеру');
+INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10273, 55, 0, 'Банковский перевод');
+INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10314, 108, 0, 'Оплачен');
+INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10315, 108, 0, 'Не оплачен');
+INSERT INTO `objects` (`id`, `id_type`, `is_locked`, `title`) VALUES(10381, 109, 0, 'Отгружен');
 
+-- --------------------------------------------------------
 
+--
 -- Структура таблицы `object_types`
+--
 
 CREATE TABLE IF NOT EXISTS `object_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -793,10 +1083,11 @@ CREATE TABLE IF NOT EXISTS `object_types` (
   KEY `is_guidable` (`is_guidable`),
   KEY `fk_object_types_element_types` (`id_element_type`),
   KEY `fk_object_type_parent` (`id_parent`)
-) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=59 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=110 ;
 
-
+--
 -- Дамп данных таблицы `object_types`
+--
 
 INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(1, 0, 6, 1, 0, 0, 'Группа пользователей');
 INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(2, 0, 7, 0, 1, 0, 'Пользователь');
@@ -804,6 +1095,13 @@ INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `
 INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(5, 4, 17, 0, 1, 1, 'Страницы');
 INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(6, 0, 31, 0, 0, 1, 'Результаты поиска');
 INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(10, 0, 13, 0, 0, 0, 'Меню сайта');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(12, 4, 34, 0, 1, 1, 'Лента статей');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(13, 4, 35, 0, 1, 1, 'Статья');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(14, 4, 37, 0, 1, 1, 'Категория каталога');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(15, 4, 38, 0, 1, 1, 'Элемент каталога');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(16, 4, 39, 0, 0, 1, 'Поиск по каталогу');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(17, 4, 41, 0, 1, 1, 'Категория галереи');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(18, 4, 42, 0, 1, 1, 'Элемент галереи');
 INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(21, 4, 24, 0, 0, 1, 'Карта_сайта');
 INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(25, 4, 47, 0, 0, 1, 'Страница регистрации');
 INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(28, 4, 50, 0, 0, 1, 'Профиль пользователя');
@@ -814,11 +1112,28 @@ INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `
 INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(34, NULL, 55, 0, 0, 1, 'Заказ');
 INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(35, 34, 56, 0, 1, 1, 'Заказ инфо');
 INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(36, NULL, 56, 0, 1, 1, 'Города');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(54, NULL, 56, 0, 1, 1, 'Справочничек');
 INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(55, NULL, 56, 0, 1, 1, 'Способы оплаты');
 INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(58, NULL, 56, 0, 1, 1, 'Список адресов');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(95, 4, 88, 0, 0, 0, 'Обратная связь');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(96, 95, 88, 0, 0, 0, 'ФОС');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(97, 4, 91, 0, 1, 1, 'Лента акции');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(98, 4, 92, 0, 1, 1, 'Акция');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(99, 4, 94, 0, 1, 1, 'Лента новостей');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(100, 4, 95, 0, 1, 1, 'Новость');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(101, 4, 100, 0, 1, 1, 'Лента объявления');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(102, 4, 101, 0, 1, 1, 'Элемент объявления');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(103, 4, 103, 0, 1, 1, 'Лента ЧаВо');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(104, 4, 104, 0, 1, 1, 'ЧаВо');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(106, 95, 0, 0, 0, 0, 'huih');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(108, NULL, 56, 0, 1, 1, 'Статусы оплаты');
+INSERT INTO `object_types` (`id`, `id_parent`, `id_element_type`, `is_locked`, `is_guidable`, `is_public`, `title`) VALUES(109, NULL, 56, 0, 1, 0, 'Статусы заказа');
 
+-- --------------------------------------------------------
 
+--
 -- Структура таблицы `permissions_elements`
+--
 
 CREATE TABLE IF NOT EXISTS `permissions_elements` (
   `id_owner` int(10) unsigned NOT NULL,
@@ -830,11 +1145,14 @@ CREATE TABLE IF NOT EXISTS `permissions_elements` (
   KEY `fk_permissions_elements_usergroup` (`id_owner`)
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
 
-
+--
 -- Дамп данных таблицы `permissions_elements`
+--
 
+INSERT INTO `permissions_elements` (`id_owner`, `id_element`, `mode`, `allow`) VALUES(1, 17, 'view', 1);
 INSERT INTO `permissions_elements` (`id_owner`, `id_element`, `mode`, `allow`) VALUES(1, 35, 'edit', 0);
 INSERT INTO `permissions_elements` (`id_owner`, `id_element`, `mode`, `allow`) VALUES(1, 35, 'view', 0);
+INSERT INTO `permissions_elements` (`id_owner`, `id_element`, `mode`, `allow`) VALUES(2, 17, 'view', 1);
 INSERT INTO `permissions_elements` (`id_owner`, `id_element`, `mode`, `allow`) VALUES(2, 34, 'view', 0);
 INSERT INTO `permissions_elements` (`id_owner`, `id_element`, `mode`, `allow`) VALUES(2, 35, 'edit', 1);
 INSERT INTO `permissions_elements` (`id_owner`, `id_element`, `mode`, `allow`) VALUES(2, 35, 'view', 1);
@@ -844,12 +1162,16 @@ INSERT INTO `permissions_elements` (`id_owner`, `id_element`, `mode`, `allow`) V
 INSERT INTO `permissions_elements` (`id_owner`, `id_element`, `mode`, `allow`) VALUES(4, 2, 'view', 0);
 INSERT INTO `permissions_elements` (`id_owner`, `id_element`, `mode`, `allow`) VALUES(4, 16, 'edit', 0);
 INSERT INTO `permissions_elements` (`id_owner`, `id_element`, `mode`, `allow`) VALUES(4, 16, 'view', 1);
+INSERT INTO `permissions_elements` (`id_owner`, `id_element`, `mode`, `allow`) VALUES(4, 17, 'view', 1);
 INSERT INTO `permissions_elements` (`id_owner`, `id_element`, `mode`, `allow`) VALUES(4, 34, 'view', 1);
 INSERT INTO `permissions_elements` (`id_owner`, `id_element`, `mode`, `allow`) VALUES(4, 35, '', 1);
 INSERT INTO `permissions_elements` (`id_owner`, `id_element`, `mode`, `allow`) VALUES(10029, 35, 'view', 1);
 
+-- --------------------------------------------------------
 
+--
 -- Структура таблицы `permissions_modules`
+--
 
 CREATE TABLE IF NOT EXISTS `permissions_modules` (
   `id_owner` int(10) unsigned NOT NULL,
@@ -861,8 +1183,9 @@ CREATE TABLE IF NOT EXISTS `permissions_modules` (
   KEY `fk_permissions_modules_usergroup` (`id_owner`)
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
 
-
+--
 -- Дамп данных таблицы `permissions_modules`
+--
 
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 1, '', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 2, '', 1);
@@ -873,6 +1196,13 @@ INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALU
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 24, 'view', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 26, 'view', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 31, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 34, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 35, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 37, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 38, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 39, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 41, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 42, 'view', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 46, '', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 47, 'view', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 50, 'view', 1);
@@ -881,6 +1211,19 @@ INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALU
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 54, 'edit', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 54, 'view', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 56, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 88, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 91, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 92, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 94, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 95, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 100, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 101, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 101, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 103, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 104, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 104, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 106, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(1, 106, 'view', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(2, 55, 'edit', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 1, '', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 3, '', 1);
@@ -905,6 +1248,16 @@ INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALU
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 30, '', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 31, '', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 32, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 33, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 34, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 35, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 36, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 37, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 38, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 39, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 40, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 41, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 42, '', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 46, 'view', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 47, 'edit', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 47, 'view', 1);
@@ -923,6 +1276,30 @@ INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALU
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 56, '', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 56, 'edit', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 56, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 87, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 88, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 90, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 91, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 91, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 92, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 92, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 93, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 94, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 94, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 95, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 95, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 99, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 100, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 100, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 101, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 101, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 102, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 103, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 103, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 104, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 104, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 106, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(3, 106, 'view', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 3, '', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 4, '', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 5, '', 1);
@@ -951,6 +1328,15 @@ INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALU
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 30, 'view', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 32, 'edit', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 32, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 33, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 34, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 35, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 36, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 37, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 38, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 40, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 41, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 42, 'edit', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 46, 'view', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 47, 'edit', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 47, 'view', 1);
@@ -960,75 +1346,117 @@ INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALU
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 54, 'view', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 56, 'edit', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 56, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 87, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 88, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 90, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 91, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 91, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 92, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 92, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 93, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 94, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 94, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 95, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 95, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 99, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 100, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 100, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 101, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 101, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 102, '', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 103, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 103, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 104, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 104, 'view', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 106, 'edit', 1);
+INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(4, 106, 'view', 1);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(10029, 3, '', 0);
 INSERT INTO `permissions_modules` (`id_owner`, `id_etype`, `mode`, `allow`) VALUES(10029, 16, '', 1);
 
+-- --------------------------------------------------------
 
+--
 -- Структура таблицы `registry`
+--
 
 CREATE TABLE IF NOT EXISTS `registry` (
   `var` varchar(48) NOT NULL,
-  `val` varchar(255) DEFAULT NULL,
+  `val` text CHARACTER SET utf8,
   PRIMARY KEY (`var`)
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
 
-
+--
 -- Дамп данных таблицы `registry`
+--
 
-INSERT INTO `registry` (`var`, `val`) VALUES('articles_items_count', 's:0:"";');
-INSERT INTO `registry` (`var`, `val`) VALUES('artic_active', 's:1:"0";');
-INSERT INTO `registry` (`var`, `val`) VALUES('artic_title', 's:0:"";');
-INSERT INTO `registry` (`var`, `val`) VALUES('buy_without_reg', 's:1:"1";');
-INSERT INTO `registry` (`var`, `val`) VALUES('catalog_big_size', 's:4:"1024";');
-INSERT INTO `registry` (`var`, `val`) VALUES('catalog_items_count', 's:0:"";');
-INSERT INTO `registry` (`var`, `val`) VALUES('catalog_kategory_size', 's:2:"80";');
-INSERT INTO `registry` (`var`, `val`) VALUES('catalog_medium_size', 's:3:"400";');
-INSERT INTO `registry` (`var`, `val`) VALUES('catalog_small_size', 's:3:"170";');
-INSERT INTO `registry` (`var`, `val`) VALUES('gallery_big_size', 's:4:"1024";');
-INSERT INTO `registry` (`var`, `val`) VALUES('gallery_items_count', 's:0:"";');
-INSERT INTO `registry` (`var`, `val`) VALUES('gallery_kategory_size', 's:2:"80";');
-INSERT INTO `registry` (`var`, `val`) VALUES('gallery_medium_size', 's:3:"400";');
-INSERT INTO `registry` (`var`, `val`) VALUES('gallery_small_size', 's:3:"170";');
-INSERT INTO `registry` (`var`, `val`) VALUES('gallery_square_big', 's:1:"0";');
-INSERT INTO `registry` (`var`, `val`) VALUES('gallery_square_kategory', 's:1:"0";');
-INSERT INTO `registry` (`var`, `val`) VALUES('gallery_square_medium', 's:1:"0";');
-INSERT INTO `registry` (`var`, `val`) VALUES('gallery_square_small', 's:1:"0";');
-INSERT INTO `registry` (`var`, `val`) VALUES('modules_order', 'a:6:{i:0;s:5:"admin";i:1;s:4:"data";i:2;s:4:"menu";i:3;s:9:"templates";i:4;s:5:"users";i:5;s:5:"trash";}');
-INSERT INTO `registry` (`var`, `val`) VALUES('news_items_count', 's:0:"";');
-INSERT INTO `registry` (`var`, `val`) VALUES('offers_big_size', 's:0:"";');
-INSERT INTO `registry` (`var`, `val`) VALUES('offers_items_count', 's:0:"";');
-INSERT INTO `registry` (`var`, `val`) VALUES('offers_medium_size', 's:0:"";');
-INSERT INTO `registry` (`var`, `val`) VALUES('offers_small_size', 's:0:"";');
-INSERT INTO `registry` (`var`, `val`) VALUES('offers_square_big', 's:1:"0";');
-INSERT INTO `registry` (`var`, `val`) VALUES('offers_square_medium', 's:1:"0";');
-INSERT INTO `registry` (`var`, `val`) VALUES('offers_square_small', 's:1:"0";');
-INSERT INTO `registry` (`var`, `val`) VALUES('parse_content', 's:1:"1";');
-INSERT INTO `registry` (`var`, `val`) VALUES('robots_text', 's:10:"aqsxasxc \n";');
-INSERT INTO `registry` (`var`, `val`) VALUES('search_active', 's:1:"1";');
-INSERT INTO `registry` (`var`, `val`) VALUES('site_description', 's:0:"";');
-INSERT INTO `registry` (`var`, `val`) VALUES('site_keywords', 's:10:"слово";');
-INSERT INTO `registry` (`var`, `val`) VALUES('site_name', 's:0:"";');
-INSERT INTO `registry` (`var`, `val`) VALUES('square_big_active', 's:1:"0";');
-INSERT INTO `registry` (`var`, `val`) VALUES('square_kategory_active', 's:1:"0";');
-INSERT INTO `registry` (`var`, `val`) VALUES('square_medium_active', 's:1:"0";');
-INSERT INTO `registry` (`var`, `val`) VALUES('square_small_active', 's:1:"0";');
-INSERT INTO `registry` (`var`, `val`) VALUES('users_active_mode', 's:1:"1";');
-INSERT INTO `registry` (`var`, `val`) VALUES('use_urlnames', 's:1:"1";');
+INSERT INTO `registry` (`var`, `val`) VALUES('articles_items_count', '""');
+INSERT INTO `registry` (`var`, `val`) VALUES('artic_active', '"0"');
+INSERT INTO `registry` (`var`, `val`) VALUES('artic_title', '""');
+INSERT INTO `registry` (`var`, `val`) VALUES('buy_without_reg', '"1"');
+INSERT INTO `registry` (`var`, `val`) VALUES('catalog_big_size', '"1024"');
+INSERT INTO `registry` (`var`, `val`) VALUES('catalog_items_count', '""');
+INSERT INTO `registry` (`var`, `val`) VALUES('catalog_kategory_size', '"80"');
+INSERT INTO `registry` (`var`, `val`) VALUES('catalog_medium_size', '"400"');
+INSERT INTO `registry` (`var`, `val`) VALUES('catalog_small_size', '"170"');
+INSERT INTO `registry` (`var`, `val`) VALUES('catalog_socbuttons', '"0"');
+INSERT INTO `registry` (`var`, `val`) VALUES('check_browser', '"1"');
+INSERT INTO `registry` (`var`, `val`) VALUES('gallery_big_size', '"1024"');
+INSERT INTO `registry` (`var`, `val`) VALUES('gallery_items_count', '""');
+INSERT INTO `registry` (`var`, `val`) VALUES('gallery_kategory_size', '"80"');
+INSERT INTO `registry` (`var`, `val`) VALUES('gallery_medium_size', '"400"');
+INSERT INTO `registry` (`var`, `val`) VALUES('gallery_small_size', '"170"');
+INSERT INTO `registry` (`var`, `val`) VALUES('gallery_square_big', '"0"');
+INSERT INTO `registry` (`var`, `val`) VALUES('gallery_square_kategory', '"0"');
+INSERT INTO `registry` (`var`, `val`) VALUES('gallery_square_medium', '"0"');
+INSERT INTO `registry` (`var`, `val`) VALUES('gallery_square_small', '"0"');
+INSERT INTO `registry` (`var`, `val`) VALUES('modules_order', '["admin","data","menu","templates","users","trash"]');
+INSERT INTO `registry` (`var`, `val`) VALUES('news_items_count', '""');
+INSERT INTO `registry` (`var`, `val`) VALUES('offers_big_size', '"1024"');
+INSERT INTO `registry` (`var`, `val`) VALUES('offers_items_count', '""');
+INSERT INTO `registry` (`var`, `val`) VALUES('offers_medium_size', '"400"');
+INSERT INTO `registry` (`var`, `val`) VALUES('offers_small_size', '"170"');
+INSERT INTO `registry` (`var`, `val`) VALUES('offers_socbuttons', '"0"');
+INSERT INTO `registry` (`var`, `val`) VALUES('offers_square_big', '"0"');
+INSERT INTO `registry` (`var`, `val`) VALUES('offers_square_medium', '"0"');
+INSERT INTO `registry` (`var`, `val`) VALUES('offers_square_small', '"0"');
+INSERT INTO `registry` (`var`, `val`) VALUES('parse_content', '"1"');
+INSERT INTO `registry` (`var`, `val`) VALUES('robots_text', '""');
+INSERT INTO `registry` (`var`, `val`) VALUES('search_active', '"1"');
+INSERT INTO `registry` (`var`, `val`) VALUES('shop_email', '""');
+INSERT INTO `registry` (`var`, `val`) VALUES('shop_robox_delivid', '"10271"');
+INSERT INTO `registry` (`var`, `val`) VALUES('shop_robox_login', '""');
+INSERT INTO `registry` (`var`, `val`) VALUES('shop_robox_passwd_1', '""');
+INSERT INTO `registry` (`var`, `val`) VALUES('shop_robox_passwd_2', '""');
+INSERT INTO `registry` (`var`, `val`) VALUES('shop_robox_test', '"1"');
+INSERT INTO `registry` (`var`, `val`) VALUES('shop_socbuttons', '"0"');
+INSERT INTO `registry` (`var`, `val`) VALUES('site_description', '""');
+INSERT INTO `registry` (`var`, `val`) VALUES('site_keywords', '""');
+INSERT INTO `registry` (`var`, `val`) VALUES('site_name', '""');
+INSERT INTO `registry` (`var`, `val`) VALUES('square_big_active', '"0"');
+INSERT INTO `registry` (`var`, `val`) VALUES('square_kategory_active', '"0"');
+INSERT INTO `registry` (`var`, `val`) VALUES('square_medium_active', '"0"');
+INSERT INTO `registry` (`var`, `val`) VALUES('square_small_active', '"0"');
+INSERT INTO `registry` (`var`, `val`) VALUES('users_active_mode', '"1"');
+INSERT INTO `registry` (`var`, `val`) VALUES('use_urlnames', '"1"');
 
+-- --------------------------------------------------------
 
+--
 -- Структура таблицы `shop_orders`
+--
 
 CREATE TABLE IF NOT EXISTS `shop_orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_obj` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=45 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=78 ;
 
+-- --------------------------------------------------------
 
--- Дамп данных таблицы `shop_orders`
-
+--
 -- Структура таблицы `shop_order_info`
+--
 
 CREATE TABLE IF NOT EXISTS `shop_order_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1037,12 +1465,13 @@ CREATE TABLE IF NOT EXISTS `shop_order_info` (
   `id_element` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FKshop_order131973` (`id_order`)
-) ENGINE=MyISAM  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=47 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=64 ;
 
+-- --------------------------------------------------------
 
--- Дамп данных таблицы `shop_order_info`
-
+--
 -- Структура таблицы `templates`
+--
 
 CREATE TABLE IF NOT EXISTS `templates` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1057,14 +1486,18 @@ CREATE TABLE IF NOT EXISTS `templates` (
   KEY `fk_templates_languages` (`id_lang`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=4 ;
 
-
+--
 -- Дамп данных таблицы `templates`
+--
 
 INSERT INTO `templates` (`id`, `id_lang`, `is_default`, `filename`, `title`) VALUES(1, 1, 0, 'default', 'Базовый Шаблон');
 INSERT INTO `templates` (`id`, `id_lang`, `is_default`, `filename`, `title`) VALUES(2, 1, 1, 'template', 'Основной Шаблон');
 
+-- --------------------------------------------------------
 
+--
 -- Структура таблицы `users`
+--
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1077,12 +1510,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `name` (`name`),
   KEY `fk_users_objects` (`id_object`),
   KEY `fk_users_usergroup` (`id_usergroup`)
-) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=52 ;
 
-
+--
 -- Дамп данных таблицы `users`
+--
 
+INSERT INTO `users` (`id`, `name`, `id_object`, `id_usergroup`, `is_active`, `password`) VALUES(9, 'admin', 10025, 3, 1, '46705c3fe53844648091bc913a0893d8');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `views`
+--
 
 CREATE TABLE IF NOT EXISTS `views` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1093,8 +1533,9 @@ CREATE TABLE IF NOT EXISTS `views` (
   KEY `fk_views_1` (`id_etype`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=8 ;
 
-
+--
 -- Дамп данных таблицы `views`
+--
 
 INSERT INTO `views` (`id`, `title`, `filename`, `id_etype`) VALUES(1, 'Содержимое страницы', 'view', 17);
 INSERT INTO `views` (`id`, `title`, `filename`, `id_etype`) VALUES(2, 'Лента статей', 'category', 34);

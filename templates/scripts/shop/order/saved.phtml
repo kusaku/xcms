@@ -1,3 +1,13 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		link = $('#robox_link').attr('href');
+		setTimeout("delayedRedirect('"+link+"')", 10000);
+	});
+
+	function delayedRedirect(link) {
+		document.location.href=link;
+	}
+</script>
 <?php
 	$auth = Zend_Auth::getInstance();
 	$user = Model_Collection_Users::getInstance()->getEntity($auth->getIdentity()->id);
@@ -13,5 +23,5 @@
 </div>
 
 <?if(isset($this->robox_link)):?>
-	<div>Сейчас Вы будете перенаправлены на страницу оплаты. Если ничего не произошло в течение 30 секунд, перейдите по <a href="<?=$this->robox_link?>">этой ссылке</a></div>
+	<div>Сейчас Вы будете перенаправлены на страницу оплаты. Если ничего не произошло в течение 30 секунд, перейдите по <a href="<?=$this->robox_link?>" id="robox_link">этой ссылке</a></div>
 <?endif;?>

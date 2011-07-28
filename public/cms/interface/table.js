@@ -92,7 +92,8 @@
 							$('td[aria-describedby="dataTable_id"]').map(function(index){
 								$(this).html($(this).attr('title'));
 							});
-							$('td[aria-describedby="dataTable_id"][title="'+id+'"]').html('<a href="' + self._getUrl('print', parseInt(id)) +'" target="_black">' + id + '</a>');
+							if(self.options.pane == 1)
+								$('td[aria-describedby="dataTable_id"][title="'+id+'"]').html('<a href="' + self._getUrl('print', parseInt(id)) +'" target="_black" title="Распечатать накладную">' + id + '</a>');
 							
 							//$('td[aria-describedby="dataTable_id"]').html('<a href="###">qwe</a>');
 						}

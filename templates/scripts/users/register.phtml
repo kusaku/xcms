@@ -9,12 +9,13 @@
     <?    endif;?>
 
 <form method="post">
-    <p>Логин <?=$this->form->login;?></p>
-    <p>Пароль <?=$this->form->user_password;?></p>
-    <p>Имя пользователя <?=$this->form->user_name;?></p>
+    <p>Логин* <?=$this->form->login;?></p>
+    <p>Пароль* <?=$this->form->user_password;?></p>
+    <p>Имя пользователя* <?=$this->form->user_name;?></p>
     <p>Фамилия пользователя <?=$this->form->user_surname;?></p>
-    <p>Email <?=$this->form->user_email;?></p>
+    <p>Email* <?=$this->form->user_email;?></p>
     <p><?=$this->form->regbutton;?></p>
+    <p>Поля помеченные звездочкой (*) обязательны для заполнения</p>
 </form>
 <? else : ?>
 Регистрация прошла успешно
